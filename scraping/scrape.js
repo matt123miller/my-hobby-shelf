@@ -1,7 +1,5 @@
 const fs = require('fs');
 const https = require('https');
-const cheerio = require('cheerio');
-const fetch = require('node-fetch');
 
 const gw = require('./gw');
 
