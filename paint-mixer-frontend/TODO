@@ -1,0 +1,14 @@
+Scraper:
+    ☐ Divide paints into categories
+    ☐ Investigate other paint providers and how to scrape them
+    ☐ Way of moving all the images and data from the scraped folders to the front end project
+
+Frontend: 
+    Main goals: 
+        ☐ Learn about hooks https://reactjs.org/docs/hooks-intro.html
+        ☐ Select a colour and be shown the complimentary colour
+        ☐ List the scraped paints, click one, show complimentary colours
+        Stretch goals:
+            ☐ When selecting a paint show the user the paint that is nearest to the complimentary colour
+
+    ☐ Better folder structure, the default of CRA isn't nice
