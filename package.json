@@ -1,0 +1,25 @@
+{
+  "name": "paint-mixer-app",
+  "version": "0.0.1",
+  "description": "A webpage to help me with miniature painting colour theory",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/matt123miller/paint-mixer-app.git"
+  },
+  "author": "matt123miller",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/matt123miller/paint-mixer-app/issues"
+  },
+  "homepage": "https://github.com/matt123miller/paint-mixer-app#readme",
+  "devDependencies": {
+    "cheerio": "^1.0.0-rc.3"
+  },
+  "dependencies": {
+    "node-fetch": "^2.6.0"
+  }
+}
