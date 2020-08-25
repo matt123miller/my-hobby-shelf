@@ -9,10 +9,8 @@ export default function ColourPicker(props) {
         setColour(e.target.value);
     }
 
-    return <div style={{'margin': '3rem'}}>
+    return <div style={{margin: '3rem'}}>
         <input type="color" name={`Colour${number}`} id={`Colour${number}`} value={chosenColour} onChange={colourChangeEvent} />
-        <div>
-            <span style={{ color: chosenColour }}>{chosenColour}</span>
-        </div>
+        <span style={{ color: chosenColour, marginLeft: '1rem' }}>{chosenColour}</span>
     </div>
 } 

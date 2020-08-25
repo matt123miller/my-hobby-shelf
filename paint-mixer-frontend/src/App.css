@@ -44,11 +44,6 @@
     grid-gap: 10px;
 }
 
-.one {
-  grid-column: 1 / 3;
-  grid-row: 1;
-}
-
 .paint-container {
     border: #282c34 1px solid;
 }
