@@ -1,20 +1,20 @@
-import React from 'react';
+import React, { useState } from 'react';
 
-import { ColourPicker } from './components';
+import { ColourPicker,PaintsList } from './components';
 
 import './App.css';
-import data from './data';
+import paintData from './data';
 
 function App() {
 
-    console.log(data);
+    const [chosenColour, setColour] = useState('#000000');
+
+
     return (
         <div className="App">
-            {
-                [1,2,3].map(i => {
-                    return <ColourPicker number={i}/>
-                })
-            }
+            <ColourPicker number={1} chosenColour={chosenColour} setColour={setColour} />
+
+            <PaintsList paintData={paintData} onPaintClick={setColour} />
         </div>
     );
 }
