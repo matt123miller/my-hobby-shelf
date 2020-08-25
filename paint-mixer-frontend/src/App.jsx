@@ -1,11 +1,13 @@
 import React from 'react';
 
-import { ColourPicker, Paint } from './components';
+import { ColourPicker } from './components';
 
 import './App.css';
+import data from './data';
 
 function App() {
 
+    console.log(data);
     return (
         <div className="App">
             {
@@ -13,7 +15,6 @@ function App() {
                     return <ColourPicker number={i}/>
                 })
             }
-            {/* <Paint /> */}
         </div>
     );
 }
