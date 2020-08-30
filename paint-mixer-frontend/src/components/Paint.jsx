@@ -5,7 +5,7 @@ export default function Paint(props) {
     const { paint, onPaintClick } = props;
 
     return(
-        <li className="paint-container" onClick={e => onPaintClick(paint.hexCode)}>
+        <li className="paint-container p1" onClick={e => onPaintClick(paint.hexCode)}>
             <div>
                 Name: {paint.name}
             </div>
