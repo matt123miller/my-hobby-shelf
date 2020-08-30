@@ -5,24 +5,34 @@ const gw = require('./gw');
 
 async function scrape() {
     
-    const formattedPaintInfo = await Promise.all(gw.allPaints.map(async (paint) => {
+    console.log(`Attempting to scrape data for ${gw.allPaints.length} paints from the GW site.`)
 
-        const svg = await downloadSvg(paint.svg);
-
-        const path = `./paintimages/${paint.name}.svg`;
-
-        const file = await saveFile(path, svg);
+    try {
         
-        const hexCode = getHexCodeFromFile(file);
-
-        return { 
-            ...paint,
-            hexCode,
-            filePath : path
-        } ;
-    }));
-
-    await saveFile('./data/gw.json', JSON.stringify(formattedPaintInfo));
+        const formattedPaintInfo = await Promise.all(gw.allPaints.map(async (paint) => {
+            
+            const svg = await downloadSvg(paint.svg);
+                
+            const path = `./paintimages/gw/${paint.name}.svg`;
+            
+            const file = await saveFile(path, svg);
+            
+            const hexCode = getHexCodeFromFile(file);
+            
+            return { 
+                ...paint,
+                hexCode,
+                filePath : path
+            } ;
+        }));
+    
+        await saveFile('./data/gw.json', JSON.stringify(formattedPaintInfo));
+        
+        console.log('Success!');
+    } catch (error) {
+        
+        console.error(`Failed :( ${error.message}`)
+    }
 }
 
 scrape();
