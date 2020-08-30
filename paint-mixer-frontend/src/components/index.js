@@ -1,9 +1,5 @@
-import colourPicker from "./ColourPicker";
-import paint from './Paint';
-import paintslist from './PaintsList';
-import complimentarycolours from './ComplimentaryColours';
 
-export const ColourPicker = colourPicker;
-export const Paint = paint;
-export const PaintsList = paintslist;
-export const ComplimentaryColours = complimentarycolours;
+export { default as Paint } from './Paint';
+export { default as PaintsList } from './PaintsList';
+export { default as ComplimentaryColours } from './ComplimentaryColours';
+export { default as ColourPicker } from './ColourPicker';
