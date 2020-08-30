@@ -1,0 +1,22 @@
+{
+  "files": {
+    "main.css": "/paint-mixer-app/static/css/main.ac90c18b.chunk.css",
+    "main.js": "/paint-mixer-app/static/js/main.69fbad90.chunk.js",
+    "main.js.map": "/paint-mixer-app/static/js/main.69fbad90.chunk.js.map",
+    "runtime-main.js": "/paint-mixer-app/static/js/runtime-main.dc40e223.js",
+    "runtime-main.js.map": "/paint-mixer-app/static/js/runtime-main.dc40e223.js.map",
+    "static/js/2.74e735b0.chunk.js": "/paint-mixer-app/static/js/2.74e735b0.chunk.js",
+    "static/js/2.74e735b0.chunk.js.map": "/paint-mixer-app/static/js/2.74e735b0.chunk.js.map",
+    "index.html": "/paint-mixer-app/index.html",
+    "precache-manifest.fa41e3a79522425eab1c1df18f3e6fd7.js": "/paint-mixer-app/precache-manifest.fa41e3a79522425eab1c1df18f3e6fd7.js",
+    "service-worker.js": "/paint-mixer-app/service-worker.js",
+    "static/css/main.ac90c18b.chunk.css.map": "/paint-mixer-app/static/css/main.ac90c18b.chunk.css.map",
+    "static/js/2.74e735b0.chunk.js.LICENSE.txt": "/paint-mixer-app/static/js/2.74e735b0.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.dc40e223.js",
+    "static/js/2.74e735b0.chunk.js",
+    "static/css/main.ac90c18b.chunk.css",
+    "static/js/main.69fbad90.chunk.js"
+  ]
+}
