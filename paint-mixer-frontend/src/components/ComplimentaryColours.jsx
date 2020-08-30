@@ -36,13 +36,10 @@ function rgbToHex(r, g, b) {
  * @param {Number} rgb.b
  */
 function findComplimentaryColour({r, g, b}){
-
-    const flip = (v) => (v + 128) % 256
-
     return {
-        r: flip(r),
-        g: flip(g),
-        b: flip(b)
+        r: 255 - r,
+        g: 255 - g,
+        b: 255 - b
     }
 }
 
