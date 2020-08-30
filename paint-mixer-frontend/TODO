@@ -12,6 +12,7 @@ Frontend:
         ✔ List the scraped paints, click one, show complimentary colours @done(20-08-30 18:07)
             - It currently lists a subset for development
         ✔ Select a paint and then display the hex code elsewhere @done(20-08-25 19:26)
+        ☐ Keyboard accessible
 
         Stretch goals:
             ☐ Dark mode support? @started(20-08-30 18:07)
@@ -22,9 +23,10 @@ Frontend:
     ✔ Replace SVG images with something nicer. Border, bottom area coloured? @done(20-08-30 21:46)
         - good first pass
     ☐ Create buttons for filtering
+    ✔ Create buttons for alphabetical sorting @done(20-08-30 23:21)
     ☐ Search box for paint names
+        ☐ Style it @started(20-08-31 00:02)
+    ☐ Buttons for sorting colours black to white, white to black (sort on hex code)
     ✔ Bring in more data @started(20-08-30 21:47) @done(20-08-30 21:52) @lasted(5m17s)
-
-
-    follow veronykka on instagram
-    https://www.instagram.com/veronykka/
+    ☐ More convincing header section
+        ☐ Colour boxes for chosen and complimentary

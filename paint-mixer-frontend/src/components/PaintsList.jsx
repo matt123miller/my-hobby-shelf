@@ -53,14 +53,15 @@ function PaintsList(props) {
 
     return (
         <div>
+            <input type="text" name="SearchBar" id="SearchBar" placeholder="Doesn't work yet....." />
             <div className="filters">
-                <span className="filter-button">
-                    <label htmlFor="AlphabeticalAsc">A to Z</label>
+                <span className={`filter-button ${selectedFilters.AlphabeticalAsc ? 'active' : ''}`}>
                     <input type="radio" name="AlphabeticalDirection" id="AlphabeticalAsc" onChange={sortChanged} />
+                    <label htmlFor="AlphabeticalAsc">A to Z</label>
                 </span>
-                <span className="filter-button">
-                    <label htmlFor="AlphabeticalDesc">Z to A</label>
+                <span className={`filter-button ${selectedFilters.AlphabeticalDesc ? 'active' : ''}`}>
                     <input type="radio" name="AlphabeticalDirection" id="AlphabeticalDesc" onChange={sortChanged} />
+                    <label htmlFor="AlphabeticalDesc">Z to A</label>
                 </span>
             </div>
             <ul className="paint-list">
