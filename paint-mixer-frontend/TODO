@@ -6,13 +6,15 @@ Scraper:
 Frontend: 
     Main goals: 
         ☐ Learn about hooks https://reactjs.org/docs/hooks-intro.html @started(20-08-25 19:25)
-        ☐ Select a colour and be shown the complimentary colour @started(20-08-25 20:07)
-            - You can use css filters with invert() to do it super easy, but that doesn't let me learn about colour maths
-            - I've tried doing some wrap around maths on the rgb values which does change the values but it looks wrong 
-        ☐ List the scraped paints, click one, show complimentary colours
+        ✔ Select a colour and be shown the complimentary colour @started(20-08-25 20:07) @done(20-08-30 18:06) @lasted(4d21h59m54s)
+            ✘ You can use css filters with invert() to do it super easy, but that doesn't let me learn about colour maths @cancelled(20-08-30 18:06)
+            ✘ I've tried doing some wrap around maths on the rgb values which does change the values but it looks wrong @cancelled(20-08-30 18:06)
+        ✔ List the scraped paints, click one, show complimentary colours @done(20-08-30 18:07)
+            - It currently lists a subset for development
         ✔ Select a paint and then display the hex code elsewhere @done(20-08-25 19:26)
 
         Stretch goals:
+            ☐ Dark mode support? @started(20-08-30 18:07)
             ☐ When selecting a paint show the user the paint that is nearest to the complimentary colour
 
     ☐ Better folder structure, the default of CRA isn't nice
