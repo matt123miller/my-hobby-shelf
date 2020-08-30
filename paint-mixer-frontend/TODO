@@ -18,8 +18,13 @@ Frontend:
             ☐ When selecting a paint show the user the paint that is nearest to the complimentary colour
 
     ✘ Better folder structure, the default of CRA isn't nice @cancelled(20-08-30 21:17)
-        Leave it as is, so the gh-pages deploy works flawlessly
-    ☐ Replace SVG images with something nicer. Border, bottom area coloured?
+        - Leave it as is, so the gh-pages deploy works flawlessly
+    ✔ Replace SVG images with something nicer. Border, bottom area coloured? @done(20-08-30 21:46)
+        - good first pass
     ☐ Create buttons for filtering
     ☐ Search box for paint names
-    ☐ Bring in more data
+    ✔ Bring in more data @started(20-08-30 21:47) @done(20-08-30 21:52) @lasted(5m17s)
+
+
+    follow veronykka on instagram
+    https://www.instagram.com/veronykka/

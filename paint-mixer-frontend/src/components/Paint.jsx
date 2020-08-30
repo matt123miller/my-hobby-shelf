@@ -11,13 +11,13 @@ export default function Paint(props) {
         style={{ border: `${hexCode} 5px solid`, borderBottom: `${hexCode} 80px solid` } }
         onClick={e => onPaintClick(hexCode)}>
             
-            <div class="paint-name">
+            <div className="paint-name">
                 {name}
             </div>
-            <div class="paint-code">
+            <div className="paint-code">
                 {hexCode}
             </div>
-            {/* <div class="paint-pot" style={{ backgroundColor: hexCode }}>
+            {/* <div className="paint-pot" style={{ backgroundColor: hexCode }}>
 
             </div> */}
             
