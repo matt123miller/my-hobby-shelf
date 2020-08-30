@@ -14,10 +14,11 @@ function ComplimentaryColours(props){
 
     return <div>
         {}
-        <span style={{ color: chosenColour, margin: '1rem' }}>chosen: {chosenColour}</span>
-        <span style={{ color: complimentaryColour, margin: '1rem' }}>complimentary colour: {complimentaryColour}</span>
+        <span>Chosen colour: <span style={{ color: chosenColour, margin: '1rem' }}>{chosenColour}</span></span>
+        <span>Complimentary colour: <span style={{ color: complimentaryColour, margin: '1rem' }}>{complimentaryColour}</span></span>
+        <div></div>
     </div>
-}
+}   
 
 function componentToHex(c) {
     var hex = c.toString(16);

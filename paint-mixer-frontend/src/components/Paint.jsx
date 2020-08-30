@@ -16,11 +16,3 @@ export default function Paint(props) {
         </li>
     )
 }
-
-
-// {
-//     "name": "Nuln Oil",
-//         "svg": "https://www.games-workshop.com/resources/catalog/product/600x620/99189953017_shadeNulnOil.svg",
-//             "hexCode": "#101010",
-//                 "filePath": "./paintimages/Nuln Oil.svg"
-// },

@@ -4,6 +4,7 @@ import {Paint} from './index';
 
 export default PaintsList;
 
+// This should handle various data filtering
 
 function PaintsList(props) {
 
@@ -11,6 +12,7 @@ function PaintsList(props) {
 
     return (
         <div>
+            
             <ul className="paint-list">
             {
                 paintData.map(paint => {

@@ -12,9 +12,15 @@ function App() {
     return (
         <div className="App">
 
-            <ColourPicker number={1} chosenColour={chosenColour} setColour={setColour} />
-            <ComplimentaryColours chosenColour={chosenColour}/>
-            <PaintsList paintData={paintData} onPaintClick={setColour} />
+            <header>
+                <h1>Painting Assistant</h1>
+                <ColourPicker number={1} chosenColour={chosenColour} setColour={setColour} />
+                <ComplimentaryColours chosenColour={chosenColour} />
+            </header>
+            <hr />
+            <main>
+                <PaintsList paintData={paintData} onPaintClick={setColour} />
+            </main>
         </div>
     );
 }
