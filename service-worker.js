@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
 
 importScripts(
-  "/paint-mixer-app/precache-manifest.06065912eebfa0706aee9b7550b39526.js"
+  "/paint-mixer-app/precache-manifest.a7c3f0382ceefcfce6280dc5cfc489fb.js"
 );
 
 self.addEventListener('message', (event) => {

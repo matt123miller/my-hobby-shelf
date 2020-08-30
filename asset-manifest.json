@@ -1,22 +1,22 @@
 {
   "files": {
-    "main.css": "/paint-mixer-app/static/css/main.f66bc46f.chunk.css",
-    "main.js": "/paint-mixer-app/static/js/main.00c7e003.chunk.js",
-    "main.js.map": "/paint-mixer-app/static/js/main.00c7e003.chunk.js.map",
+    "main.css": "/paint-mixer-app/static/css/main.998b3319.chunk.css",
+    "main.js": "/paint-mixer-app/static/js/main.72c1510d.chunk.js",
+    "main.js.map": "/paint-mixer-app/static/js/main.72c1510d.chunk.js.map",
     "runtime-main.js": "/paint-mixer-app/static/js/runtime-main.dc40e223.js",
     "runtime-main.js.map": "/paint-mixer-app/static/js/runtime-main.dc40e223.js.map",
     "static/js/2.a46a78dd.chunk.js": "/paint-mixer-app/static/js/2.a46a78dd.chunk.js",
     "static/js/2.a46a78dd.chunk.js.map": "/paint-mixer-app/static/js/2.a46a78dd.chunk.js.map",
     "index.html": "/paint-mixer-app/index.html",
-    "precache-manifest.06065912eebfa0706aee9b7550b39526.js": "/paint-mixer-app/precache-manifest.06065912eebfa0706aee9b7550b39526.js",
+    "precache-manifest.a7c3f0382ceefcfce6280dc5cfc489fb.js": "/paint-mixer-app/precache-manifest.a7c3f0382ceefcfce6280dc5cfc489fb.js",
     "service-worker.js": "/paint-mixer-app/service-worker.js",
-    "static/css/main.f66bc46f.chunk.css.map": "/paint-mixer-app/static/css/main.f66bc46f.chunk.css.map",
+    "static/css/main.998b3319.chunk.css.map": "/paint-mixer-app/static/css/main.998b3319.chunk.css.map",
     "static/js/2.a46a78dd.chunk.js.LICENSE.txt": "/paint-mixer-app/static/js/2.a46a78dd.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
     "static/js/runtime-main.dc40e223.js",
     "static/js/2.a46a78dd.chunk.js",
-    "static/css/main.f66bc46f.chunk.css",
-    "static/js/main.00c7e003.chunk.js"
+    "static/css/main.998b3319.chunk.css",
+    "static/js/main.72c1510d.chunk.js"
   ]
 }
