@@ -38,26 +38,6 @@ main {
     margin: 2rem; 
 }
 
-.m1 { 
-    margin: 1rem;
-}
-.m2 {
-    margin: 2rem;
-}
-.m3 { 
-    margin: 3rem;
-}
-
-.p1 { 
-    padding: 1rem;
-}
-.p2 {
-    padding: 2rem;
-}
-.p3 { 
-    padding: 3rem;
-}
-
 ul {
     padding-inline-start: 0px;
 }
@@ -88,10 +68,39 @@ li:hover {
 
 .paint-container {
     background-color: var(--bg-panel);
+    padding-top: 1rem;
 }
 
 .paint-pot {
-    height: 80px;
-    width: 80px;
-    object-fit: cover; 
+    
+    width: 100%;
+}
+
+.paint-name {
+
+}
+
+.paint-code {
+    margin-bottom: 1rem;
+}
+
+
+.m1 { 
+    margin: 1rem;
+}
+.m2 {
+    margin: 2rem;
+}
+.m3 { 
+    margin: 3rem;
+}
+
+.p1 { 
+    padding: 1rem;
+}
+.p2 {
+    padding: 2rem;
+}
+.p3 { 
+    padding: 3rem;
 }

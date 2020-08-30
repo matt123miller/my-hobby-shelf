@@ -17,4 +17,9 @@ Frontend:
             ☐ Dark mode support? @started(20-08-30 18:07)
             ☐ When selecting a paint show the user the paint that is nearest to the complimentary colour
 
-    ☐ Better folder structure, the default of CRA isn't nice
+    ✘ Better folder structure, the default of CRA isn't nice @cancelled(20-08-30 21:17)
+        Leave it as is, so the gh-pages deploy works flawlessly
+    ☐ Replace SVG images with something nicer. Border, bottom area coloured?
+    ☐ Create buttons for filtering
+    ☐ Search box for paint names
+    ☐ Bring in more data
