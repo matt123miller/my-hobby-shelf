@@ -5,7 +5,7 @@ export default function Paint(props) {
     const { paint, onPaintClick } = props;
 
     return(
-        <div className="paint-container" onClick={e => onPaintClick(paint.hexCode)}>
+        <li className="paint-container" onClick={e => onPaintClick(paint.hexCode)}>
             <div>
                 Name: {paint.name}
             </div>
@@ -13,7 +13,7 @@ export default function Paint(props) {
                 Hex: {paint.hexCode}
             </div>
             <img className="paint-pot" src={paint.svg} alt={paint.name}/>
-        </div>
+        </li>
     )
 }
 

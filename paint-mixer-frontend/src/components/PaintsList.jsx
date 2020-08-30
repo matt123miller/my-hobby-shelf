@@ -10,12 +10,14 @@ function PaintsList(props) {
     const { paintData, onPaintClick } = props;
 
     return (
-        <div className="paint-list">
+        <div>
+            <ul className="paint-list">
             {
                 paintData.map(paint => {
                     return <Paint key={paint.hexCode} paint={paint} onPaintClick={onPaintClick}/>
                 })
             }
+            </ul>
         </div>
     )
 }
