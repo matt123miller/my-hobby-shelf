@@ -13,7 +13,7 @@ function App() {
         <div className="App">
 
             <header>
-                <h1>Painting Assistant</h1>
+                <h1>Painting Assistant change detected?</h1>
                 <ColourPicker number={1} chosenColour={chosenColour} setColour={setColour} />
                 <ComplimentaryColours chosenColour={chosenColour} />
             </header>
