@@ -21,6 +21,9 @@ function PaintsList(props) {
     const { paintData, onPaintClick } = props;
 
     const [selectedFilters, updateFilters] = useState(sortOptions);
+    const [searchRegex, updateSearchText] = useState(RegExp(''));
+
+
 
 
     const sortChanged = (e) => {
@@ -36,24 +39,32 @@ function PaintsList(props) {
         updateFilters(prevState => { return { ...prevState, ...updatedValues } });
     }
 
+    const searchTextChanged = (e) => {
+        const text = e.target.value;
+        const regex = RegExp(text, 'ig')
+
+        updateSearchText(regex);
+    }
+
     // `const filterChanged = (e) => {
-        //     // TODO:
+    //     // TODO:
     // }`
 
     const requestedSort = Object.keys(selectedFilters).find(f => selectedFilters[f]);
 
-    let filteredData = paintData;
-
     // when filters are added do those first, then sort the results
+
+    let filteredData = paintData.filter(p => searchRegex.test(p.name));
 
 
     if (requestedSort) {
-        filteredData = sortFunctions[requestedSort](paintData);
+        filteredData = sortFunctions[requestedSort](filteredData);
     }
-        console.log(filteredData)
+
+
     return (
         <div>
-            <input type="text" name="SearchBar" id="SearchBar" placeholder="Doesn't work yet....." />
+            <input type="text" name="SearchBar" id="SearchBar" placeholder="Doesn't work yet....." onChange={searchTextChanged} />
             <div className="filters">
                 <span className={`filter-button ${selectedFilters.AlphabeticalAsc ? 'active' : ''}`}>
                     <input type="radio" name="AlphabeticalDirection" id="AlphabeticalAsc" onChange={sortChanged} />

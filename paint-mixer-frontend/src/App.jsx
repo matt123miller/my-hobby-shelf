@@ -35,7 +35,7 @@ function App() {
 
 function findPaintByHex(hex, paints) {
     const foundPaint =  paints.find(p => p.hexCode == hex) ?? null;
-    return foundPaint ? <Paint className="chosen" paint={foundPaint} onPaintClick={() => { }} /> : <span className="chosen"></span>;
+    return foundPaint ? <Paint className={"chosen"} paint={foundPaint} onPaintClick={() => { }} /> : <span className="chosen"></span>;
 }
 
 

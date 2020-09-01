@@ -20,7 +20,7 @@ function ComplimentaryColours(props){
         {}
         <span>Chosen colour: <span style={{ color: chosenColour, margin: '1rem' }}>{chosenColour}</span></span>
         <span>Complimentary colour: <span style={{ color: complimentaryColour, margin: '1rem' }}>{complimentaryColour}</span></span>
-        <div className="colour-swatch p1" style={swatchStyles}></div>
+        <div className="colour-swatch" style={swatchStyles}></div>
     </div>
 }   
 

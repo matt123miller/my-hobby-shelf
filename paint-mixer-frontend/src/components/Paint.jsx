@@ -2,15 +2,15 @@ import React from 'react';
 
 export default function Paint(props) {
 
-    const { paint, onPaintClick } = props;
+    const { paint, onPaintClick, className } = props;
     const { hexCode, name } = paint;
 
-    return(
-        <li 
-        className="paint-container"
-        style={{ border: `${hexCode} 5px solid`, borderBottom: `${hexCode} 80px solid` } }
-        onClick={e => onPaintClick(hexCode)}>
-            
+    return (
+        <li
+            className={`paint-container ${className}`}
+            style={{ border: `${hexCode} 5px solid`, borderBottom: `${hexCode} 80px solid` }}
+            onClick={e => onPaintClick(hexCode)}>
+
             <div className="paint-name">
                 {name}
             </div>
