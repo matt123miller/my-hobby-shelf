@@ -1,11 +1,11 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "9943dad3a4f945a7053eb992f57454b6",
+    "revision": "c3c5ba51d759e1617c2ab22e78ba6cb0",
     "url": "/paint-mixer-app/index.html"
   },
   {
-    "revision": "22cdad33c5580092a192",
-    "url": "/paint-mixer-app/static/css/main.998b3319.chunk.css"
+    "revision": "d0956f30cc8000e44eff",
+    "url": "/paint-mixer-app/static/css/main.6f4005e0.chunk.css"
   },
   {
     "revision": "24e57c5e7afe0d897ccf",
@@ -16,8 +16,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/paint-mixer-app/static/js/2.a46a78dd.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "22cdad33c5580092a192",
-    "url": "/paint-mixer-app/static/js/main.72c1510d.chunk.js"
+    "revision": "d0956f30cc8000e44eff",
+    "url": "/paint-mixer-app/static/js/main.978ee481.chunk.js"
   },
   {
     "revision": "979c78dae70424ef1d10",
