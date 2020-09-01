@@ -4,6 +4,8 @@ body {
     --bg-panel: #ebebeb;
     --heading-colour: #0077ff;
     --active-colour: orange;
+
+    --border-radius: 0.5rem;
 }
 /* 
 @media (prefers-color-scheme: dark) {
@@ -36,6 +38,23 @@ header {
 
 main {
     margin: 2rem;
+}
+
+.colour-details-container {
+    display: grid;
+    grid-template-areas: "chosen centre complimentary";
+}
+
+.colour-details-container > .chosen {
+    grid-area: "chosen";
+}
+
+.colour-details-container > .centre {
+    grid-area: "centre";
+}
+
+.colour-details-container > .complimentary {
+    grid-area: "complimentary";
 }
 
 .filters {
@@ -81,6 +100,7 @@ ul {
 }
 
 li {
+    list-style: none;
     transition: all 0.3s;
 }
 
@@ -101,8 +121,7 @@ li:hover {
 .paint-list > li {
     grid-column: span 1;
     grid-row: span 1;
-    border-radius: 0.5rem;
-    list-style: none;
+    border-radius: var(--border-radius);
     min-width: 150px;
 }
 
@@ -121,6 +140,12 @@ li:hover {
 
 .paint-code {
     margin-bottom: 1rem;
+}
+
+.colour-swatch { 
+    min-height: 100px;
+    height: 100%;
+    border-radius: var(--border-radius);
 }
 
 .m1 {

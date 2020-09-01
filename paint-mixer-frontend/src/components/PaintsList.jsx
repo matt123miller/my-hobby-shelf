@@ -36,9 +36,9 @@ function PaintsList(props) {
         updateFilters(prevState => { return { ...prevState, ...updatedValues } });
     }
 
-    const filterChanged = (e) => {
-        // TODO:
-    }
+    // `const filterChanged = (e) => {
+        //     // TODO:
+    // }`
 
     const requestedSort = Object.keys(selectedFilters).find(f => selectedFilters[f]);
 
@@ -50,7 +50,7 @@ function PaintsList(props) {
     if (requestedSort) {
         filteredData = sortFunctions[requestedSort](paintData);
     }
-
+        console.log(filteredData)
     return (
         <div>
             <input type="text" name="SearchBar" id="SearchBar" placeholder="Doesn't work yet....." />

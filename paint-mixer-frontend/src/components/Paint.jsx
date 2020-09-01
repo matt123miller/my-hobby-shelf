@@ -17,10 +17,6 @@ export default function Paint(props) {
             <div className="paint-code">
                 {hexCode}
             </div>
-            {/* <div className="paint-pot" style={{ backgroundColor: hexCode }}>
-
-            </div> */}
-            
         </li>
     )
 }
