@@ -33,3 +33,4 @@ Frontend:
     ☐ More convincing header section
         ☐ Colour boxes for chosen and complimentary @started(20-09-01 19:59)
         ✔ Gradient between 2 colours @started(20-09-01 19:59) @done(20-09-01 19:59) @lasted(48s)
+    ✔ maake sure transition doesn't happen on page load @done(20-09-16 21:48)

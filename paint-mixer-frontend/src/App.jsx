@@ -13,7 +13,7 @@ function App() {
     const chosenPaint = findPaintByHex(chosenColour, paintData);
 
     return (
-        <div className=" ">
+        <div className="">
 
             <header>
                 <h1>Painting Colour Assistant</h1>

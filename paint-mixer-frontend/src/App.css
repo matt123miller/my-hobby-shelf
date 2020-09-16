@@ -13,7 +13,6 @@ body {
         
     }
 } */
-
 body.dark {
     --text-colour: #fcfcfc;
     --bg: #333333;
@@ -25,6 +24,12 @@ body {
     text-align: center;
     color: var(--text-colour);
     background-color: var(--bg);
+    /* TODO: maake sure transition doesn't happen on page load  */
+}
+
+.transitioning {
+    
+    transition: all 0.5s;
 }
 
 h1 {
@@ -105,7 +110,7 @@ ul {
 
 li {
     list-style: none;
-    transition: all 0.3s;
+    transition: all 0.5s;
 }
 
 li:hover {
