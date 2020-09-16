@@ -8,12 +8,16 @@ export default PaintsList;
 
 const sortOptions = {
     AlphabeticalAsc: false,
-    AlphabeticalDesc: false
+    AlphabeticalDesc: false,
+    DarkToLight: false,
+    LightToDark: false
 }
 
 const sortFunctions = {
     AlphabeticalAsc: AlphabeticalAsc,
     AlphabeticalDesc: AlphabeticalDesc,
+    DarkToLight: DarkToLight,
+    LightToDark: LightToDark
 }
 
 function PaintsList(props) {
@@ -25,15 +29,16 @@ function PaintsList(props) {
 
 
 
+    const isChecked = (id) => { console.log(id); return document.getElementById(id)?.checked; }
 
     const sortChanged = (e) => {
 
-        const ascInput = document.getElementById('AlphabeticalAsc');
-        const descInput = document.getElementById('AlphabeticalDesc');
 
         const updatedValues = {
-            AlphabeticalAsc: ascInput.checked,
-            AlphabeticalDesc: descInput.checked
+            AlphabeticalAsc: isChecked('AlphabeticalAsc'),
+            AlphabeticalDesc: isChecked('AlphabeticalDesc'),
+            DarkToLight: isChecked('DarkToLight'),
+            LightToDark: isChecked('LightToDark'),
         };
 
         updateFilters(prevState => { return { ...prevState, ...updatedValues } });
@@ -71,15 +76,23 @@ function PaintsList(props) {
 
             <div className="filters">
                 <span className={`filter-button ${selectedFilters.AlphabeticalAsc ? 'active' : ''}`}>
-                    <input type="radio" name="AlphabeticalDirection" id="AlphabeticalAsc" onChange={sortChanged} />
+                    <input type="radio" name="SortGroup" id="AlphabeticalAsc" onChange={sortChanged} />
                     <label htmlFor="AlphabeticalAsc">A to Z</label>
                 </span>
                 <span className={`filter-button ${selectedFilters.AlphabeticalDesc ? 'active' : ''}`}>
-                    <input type="radio" name="AlphabeticalDirection" id="AlphabeticalDesc" onChange={sortChanged} />
+                    <input type="radio" name="SortGroup" id="AlphabeticalDesc" onChange={sortChanged} />
                     <label htmlFor="AlphabeticalDesc">Z to A</label>
                 </span>
+                <span className={`filter-button ${selectedFilters.LightToDark ? 'active' : ''}`}>
+                    <input type="radio" name="SortGroup" id="LightToDark" onChange={sortChanged} />
+                    <label htmlFor="LightToDark">Light to Dark</label>
+                </span>
+                <span className={`filter-button ${selectedFilters.DarkToLight ? 'active' : ''}`}>
+                    <input type="radio" name="SortGroup" id="DarkToLight" onChange={sortChanged} />
+                    <label htmlFor="DarkToLight">Dark to Light</label>
+                </span>
             </div>
-            
+
             <ul className="paint-list">
                 {
                     filteredData.map((paint, i) => {
@@ -99,3 +112,10 @@ function AlphabeticalDesc(data) {
     return data.sort((a, b) => a.name < b.name);
 }
 
+function DarkToLight(data) {
+    return data.sort((a, b) => a.hexCode > b.hexCode);
+}
+
+function LightToDark(data) {
+    return data.sort((a, b) => a.hexCode < b.hexCode);
+}

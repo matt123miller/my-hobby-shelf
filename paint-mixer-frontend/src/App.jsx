@@ -26,7 +26,7 @@ function App() {
             </header>
             <hr />
             <main>
-                <PaintsList paintData={paintData.slice(0,50)} onPaintClick={setColour} />
+                <PaintsList paintData={paintData} onPaintClick={setColour} />
             </main>
         </div>
     );

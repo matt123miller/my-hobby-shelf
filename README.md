@@ -28,3 +28,10 @@ This project is deployed on github pages [and can be viewed here](https://matt12
 - Ensure your changes are all committed and merged into master.
 - `cd ./paint-mixer-frontend`
 - `npm run deploy`
+
+
+## Notes
+
+https://en.wikipedia.org/wiki/Complementary_colors
+
+https://planetcalc.com/7661/

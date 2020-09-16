@@ -9,15 +9,16 @@ function ComplimentaryColours(props){
 
     // set to the opposite of our chosen colour
     let colourAsRgb = hexToRgb(chosenColour.slice(1));
+    
     const { r, g, b } = findComplimentaryColour(colourAsRgb);
     let complimentaryColour = rgbToHex(r,g,b);
+    console.log({chosenColour, complimentaryColour})
 
     const swatchStyles = { 
         background: `linear-gradient(90deg, ${chosenColour} 0%, ${chosenColour} 40%, ${complimentaryColour} 60%)` 
     };
 
     return <div>
-        {}
         <span>Chosen colour: <span style={{ color: chosenColour, margin: '1rem' }}>{chosenColour}</span></span>
         <span>Complimentary colour: <span style={{ color: complimentaryColour, margin: '1rem' }}>{complimentaryColour}</span></span>
         <div className="colour-swatch" style={swatchStyles}></div>
@@ -40,7 +41,7 @@ function rgbToHex(r, g, b) {
  * @param {Number} rgb.g
  * @param {Number} rgb.b
  */
-function findComplimentaryColour({r, g, b}){
+function findComplimentaryColour({ r, g, b }){
     return {
         r: 255 - r,
         g: 255 - g,
