@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-import { ColourPicker, PaintsList, ComplimentaryColours, Paint } from './components';
+import { ColourPicker, PaintsList, ComplimentaryColours, Paint, ThemePicker } from './components';
 import paintData from './data';
 
 import './App.css';
@@ -13,10 +13,11 @@ function App() {
     const chosenPaint = findPaintByHex(chosenColour, paintData);
 
     return (
-        <div className="App">
+        <div className=" ">
 
             <header>
                 <h1>Painting Colour Assistant</h1>
+                <ThemePicker />
                 <ColourPicker chosenColour={chosenColour} setColour={setColour} />
                 <div className="colour-details-container m3">
                     {chosenPaint}
@@ -34,7 +35,7 @@ function App() {
 
 
 function findPaintByHex(hex, paints) {
-    const foundPaint =  paints.find(p => p.hexCode == hex) ?? null;
+    const foundPaint =  paints.find(p => p.hexCode === hex) ?? null;
     return foundPaint ? <Paint className={"chosen"} paint={foundPaint} onPaintClick={() => { }} /> : <span className="chosen"></span>;
 }
 

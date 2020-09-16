@@ -64,7 +64,7 @@ function PaintsList(props) {
 
     return (
         <div>
-            <input type="text" name="SearchBar" id="SearchBar" placeholder="Type a paint!" onChange={searchTextChanged} />
+            <input type="text" name="SearchBar" id="SearchBar" placeholder="Search for a paint" onChange={searchTextChanged} />
             <div className="filters">
                 <span className={`filter-button ${selectedFilters.AlphabeticalAsc ? 'active' : ''}`}>
                     <input type="radio" name="AlphabeticalDirection" id="AlphabeticalAsc" onChange={sortChanged} />
