@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-import { Paint } from './index';
+import React, { useState, Fragment } from 'react';
+import { Paint, ThemePicker } from './index';
 
 
 export default PaintsList;
@@ -64,7 +64,11 @@ function PaintsList(props) {
 
     return (
         <div>
-            <input type="text" name="SearchBar" id="SearchBar" placeholder="Search for a paint" onChange={searchTextChanged} />
+            <div class="paint-controls">
+                <input className="paint-search" type="text" name="SearchBar" id="SearchBar" placeholder="Search for a paint" onChange={searchTextChanged} />
+                <ThemePicker />
+            </div>
+
             <div className="filters">
                 <span className={`filter-button ${selectedFilters.AlphabeticalAsc ? 'active' : ''}`}>
                     <input type="radio" name="AlphabeticalDirection" id="AlphabeticalAsc" onChange={sortChanged} />
@@ -75,6 +79,7 @@ function PaintsList(props) {
                     <label htmlFor="AlphabeticalDesc">Z to A</label>
                 </span>
             </div>
+            
             <ul className="paint-list">
                 {
                     filteredData.map((paint, i) => {

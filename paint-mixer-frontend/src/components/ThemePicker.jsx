@@ -13,7 +13,7 @@ function ThemePicker(props) {
 
     const toggletheme = (event) => {
 
-        document.body.classList.add('transitioning');
+        document.body.classList.add('background-transition');
         document.body.classList.toggle('dark');
         changeTheme(!isDarkMode);
     }
@@ -21,7 +21,8 @@ function ThemePicker(props) {
     const useLightTheme = `Use Light Theme ${sunEmoji}`;
     const useDarkTheme = `Use Dark Theme ${moonEmoji}`;
 
-    return <div>
-        <button onClick={toggletheme}>{ isDarkMode ? useLightTheme : useDarkTheme }</button>
-    </div>
+    return <button className="theme-picker" onClick={toggletheme}>
+        { isDarkMode ? useLightTheme : useDarkTheme }
+    </button>
+   
 }

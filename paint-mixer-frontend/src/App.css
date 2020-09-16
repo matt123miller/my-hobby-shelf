@@ -5,6 +5,7 @@ body {
     --heading-colour: #0077ff;
     --active-colour: orange;
 
+    --page-margin: 2rem;
     --border-radius: 0.5rem;
 }
 /* 
@@ -20,6 +21,10 @@ body.dark {
     --heading-colour: #3694ff;
 }
 
+.background-transition {
+    transition: all 0.5s;
+}
+
 body {
     text-align: center;
     color: var(--text-colour);
@@ -27,10 +32,6 @@ body {
     /* TODO: maake sure transition doesn't happen on page load  */
 }
 
-.transitioning {
-    
-    transition: all 0.5s;
-}
 
 h1 {
     color: var(--heading-colour);
@@ -42,8 +43,9 @@ header {
 */
 
 main {
-    margin: 2rem;
+    margin: var(--page-margin);
 }
+
 
 .colour-details-container {
     display: grid;
@@ -103,6 +105,28 @@ input[type="text"] {
     margin-bottom: 2rem;
     padding: 0.5rem 1rem;
 }
+
+
+.paint-controls {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.paint-search {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.theme-picker {
+    position: absolute;
+    right: var(--page-margin);
+}
+
+.paint-filter {
+    /* come back to this */
+}
+
 
 ul {
     padding-inline-start: 0px;

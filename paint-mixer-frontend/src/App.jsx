@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-import { ColourPicker, PaintsList, ComplimentaryColours, Paint, ThemePicker } from './components';
+import { ColourPicker, PaintsList, ComplimentaryColours, Paint } from './components';
 import paintData from './data';
 
 import './App.css';
@@ -17,7 +17,6 @@ function App() {
 
             <header>
                 <h1>Painting Colour Assistant</h1>
-                <ThemePicker />
                 <ColourPicker chosenColour={chosenColour} setColour={setColour} />
                 <div className="colour-details-container m3">
                     {chosenPaint}
