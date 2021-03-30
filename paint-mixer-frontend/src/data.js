@@ -1,4 +1,6 @@
-export default [
+
+
+const rawData = [
     {
         "name": "Nuln Oil",
         "svg": "https://www.games-workshop.com/resources/catalog/product/600x620/99189953017_shadeNulnOil.svg",
@@ -1968,3 +1970,16 @@ export default [
         "filePath": "./paintimages/gw/Wrack White.svg"
     }
 ]
+.map(d => {
+
+    d.rgb =  {
+        r: parseInt(d.hexCode.slice(1, 3), 16),
+        g: parseInt(d.hexCode.slice(3, 5), 16),
+        b: parseInt(d.hexCode.slice(5), 16)
+    };
+    
+    return d;
+})
+
+
+export default rawData;

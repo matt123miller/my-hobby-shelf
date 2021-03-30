@@ -6,7 +6,7 @@ export default function Paint(props) {
     const { hexCode, name } = paint;
 
     return (
-        <li
+        <div
             className={`paint-container ${className}`}
             style={{ border: `${hexCode} 5px solid`, borderBottom: `${hexCode} 80px solid` }}
             onClick={e => onPaintClick(hexCode)}>
@@ -17,6 +17,6 @@ export default function Paint(props) {
             <div className="paint-code">
                 {hexCode}
             </div>
-        </li>
+        </div>
     )
 }

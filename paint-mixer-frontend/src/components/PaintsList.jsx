@@ -32,8 +32,6 @@ function PaintsList(props) {
     const isChecked = (id) => { console.log(id); return document.getElementById(id)?.checked; }
 
     const sortChanged = (e) => {
-
-
         const updatedValues = {
             AlphabeticalAsc: isChecked('AlphabeticalAsc'),
             AlphabeticalDesc: isChecked('AlphabeticalDesc'),
@@ -51,9 +49,6 @@ function PaintsList(props) {
         updateSearchText(regex);
     }
 
-    // `const filterChanged = (e) => {
-    //     // TODO:
-    // }`
 
     const requestedSort = Object.keys(selectedFilters).find(f => selectedFilters[f]);
 
@@ -69,7 +64,7 @@ function PaintsList(props) {
 
     return (
         <div>
-            <div class="paint-controls">
+            <div className="paint-controls">
                 <input className="paint-search" type="text" name="SearchBar" id="SearchBar" placeholder="Search for a paint" onChange={searchTextChanged} />
                 <ThemePicker />
             </div>
@@ -96,7 +91,10 @@ function PaintsList(props) {
             <ul className="paint-list">
                 {
                     filteredData.map((paint, i) => {
-                        return <Paint key={`paint${i}`} paint={paint} onPaintClick={onPaintClick} />
+                        return <li>
+
+                            <Paint key={`paint${i}`} paint={paint} onPaintClick={onPaintClick} />
+                        </li> 
                     })
                 }
             </ul>
