@@ -1,4 +1,5 @@
 import React from 'react';
+import { PaintData } from '../types';
 
 export default function ColourPicker(props) {
   const { chosenColour, setColour } = props;

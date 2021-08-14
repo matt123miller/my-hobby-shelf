@@ -1,12 +1,15 @@
-import React, { useState } from 'react';
+import React, { MouseEventHandler, useState } from 'react';
+import { PaintData } from '../types';
 
-export default function ThemePicker(props) {
+export default ThemePicker;
+
+function ThemePicker(props: {}) {
   const moonEmoji = '🌜';
   const sunEmoji = '🌞';
 
   const [isDarkMode, changeTheme] = useState(false);
 
-  const toggletheme = (event) => {
+  const toggletheme = (event: any) => {
     document.body.classList.add('background-transition');
     document.body.classList.toggle('dark');
     changeTheme(!isDarkMode);

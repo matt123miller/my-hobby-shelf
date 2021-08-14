@@ -1,3 +1,3 @@
 module.exports = {
-  extends: ['matt123miller'],
+  extends: ['react-app', 'matt123miller'],
 };

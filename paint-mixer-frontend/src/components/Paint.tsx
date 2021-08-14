@@ -1,16 +1,14 @@
 import React from 'react';
+import {} from '../types';
 
 export default function Paint(props) {
-  const { paint, onPaintClick, className } = props;
+  const { paint, onPaintClick } = props;
   const { hexCode, name } = paint;
 
   return (
     <div
-      className={`paint-container ${className}`}
-      style={{
-        border: `${hexCode} 5px solid`,
-        borderBottom: `${hexCode} 80px solid`,
-      }}
+      className="paint-container"
+      style={{ backgroundColor: hexCode }}
       onClick={(e) => onPaintClick(hexCode)}
     >
       <div className="paint-name">{name}</div>
@@ -18,3 +16,5 @@ export default function Paint(props) {
     </div>
   );
 }
+
+// style = {{ border: `${hexCode} 5px solid`, borderBottom: `${hexCode} 80px solid` }}
