@@ -1,16 +1,19 @@
-import React, { useState, Fragment } from 'react';
 import { PaintData } from '../types';
 
 import Paint from './Paint';
 import paintData from '../data';
-import { hexToRgb, findComplimentaryColour, rgbToHex } from './ColourFunctions';
+import {
+  hexToRgb,
+  findComplimentaryColour,
+  rgbToHex,
+} from '../utils/ColourFunctions';
 
-type Props = {
-  chosenColour: string;
-};
-
-function findPaintsByHex(chosenHex, complimentaryHex, paints) {
-  const foundPaint = paints.find((p) => p.hexCode === chosenHex) ?? null;
+function findPaintsByHex(
+  chosenHex: string,
+  complimentaryHex: string,
+  paints: PaintData
+) {
+  const foundPaint = paints.find((p) => p.hexCode === chosenHex);
 
   // we have the comphex
   // find the colour with the closest hex value from paints
@@ -27,14 +30,11 @@ function findPaintsByHex(chosenHex, complimentaryHex, paints) {
     if (redDiff < nearestRed) {
       nearestRed = p.rgb.r;
     }
-    console.log(nearestRed);
   });
 
-  const chosenPaint = (
-    <Paint className="chosen" paint={foundPaint} onPaintClick={() => {}} />
-  );
+  const chosenPaint = <Paint paint={foundPaint} onPaintClick={() => {}} />;
   const complimentaryPaint = (
-    <Paint className="chosen" paint={foundPaint} onPaintClick={() => {}} />
+    <Paint paint={foundPaint} onPaintClick={() => {}} />
   );
 
   return {
@@ -43,7 +43,11 @@ function findPaintsByHex(chosenHex, complimentaryHex, paints) {
   };
 }
 
-export default function ComplimentaryColours(props: Props) {
+type ComplimentaryColoursProps = {
+  chosenColour: string;
+};
+
+export default function ComplimentaryColours(props: ComplimentaryColoursProps) {
   const { chosenColour } = props;
 
   // set to the opposite of our chosen colour

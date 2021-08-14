@@ -1,6 +1,6 @@
 import { RGB } from '../types';
 
-function normaliseHexCode(hex: string) {
+export function normaliseHexCode(hex: string) {
   let hexColour: string = hex;
   if (hexColour[0] === '#') {
     hexColour = hexColour.slice(1);
@@ -17,7 +17,7 @@ function normaliseHexCode(hex: string) {
 /**
  *
  */
-function compareColour(colourA: string, colourB: string) {
+export function compareColour(colourA: string, colourB: string) {
   const a = normaliseHexCode(colourA);
   const b = normaliseHexCode(colourB);
   if (b.length === 6) {
@@ -34,6 +34,7 @@ function compareColour(colourA: string, colourB: string) {
   }
   return 9999; // what was this for?
 }
+
 export function findComplimentaryColour({ r, g, b }: RGB) {
   return {
     r: 255 - r,
@@ -41,10 +42,12 @@ export function findComplimentaryColour({ r, g, b }: RGB) {
     b: 255 - b,
   };
 }
-function componentToHex(c: number): string {
+
+export function componentToHex(c: number): string {
   const hex = c.toString(16);
   return hex.padStart(2, '0');
 }
+
 export function rgbToHex(r: number, g: number, b: number): string {
   return `#${componentToHex(r)}${componentToHex(g)}${componentToHex(b)}`;
 }

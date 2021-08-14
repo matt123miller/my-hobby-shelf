@@ -1,11 +1,20 @@
-import React from 'react';
-import {} from '../types';
+import { ChangeEventHandler } from 'react';
 
-function FilterButton({ filterKey, title, isActive, sortChanged }) {
-  console.log(filterKey, title);
+type FilterButtonProps = {
+  isActive: boolean;
+  title: string;
+  filterKey: string;
+  sortChanged: ChangeEventHandler<HTMLInputElement>;
+};
 
+function FilterButton({
+  filterKey,
+  title,
+  isActive,
+  sortChanged,
+}: FilterButtonProps) {
   return (
-    <button className={`filter-button ${isActive && 'active'}`}>
+    <button type="button" className={`filter-button ${isActive && 'active'}`}>
       <input
         type="radio"
         name="SortGroup"

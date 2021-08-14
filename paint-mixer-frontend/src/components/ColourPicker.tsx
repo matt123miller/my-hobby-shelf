@@ -1,7 +1,11 @@
-import React from 'react';
-import { PaintData } from '../types';
+import { Dispatch, SetStateAction } from 'react';
 
-export default function ColourPicker(props) {
+type ColourPickerProps = {
+  chosenColour: string;
+  setColour: Dispatch<SetStateAction<string>>;
+};
+
+export default function ColourPicker(props: ColourPickerProps) {
   const { chosenColour, setColour } = props;
 
   const colourChangeEvent = (e) => {

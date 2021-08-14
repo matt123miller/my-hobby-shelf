@@ -1,6 +1,6 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { PaintData } from '../types';
-import sortFunctions from './SortFunctions';
+import sortFunctions from '../utils/SortFunctions';
 import Paint from './Paint';
 import FilterButton from './FilterButton';
 import ComplimentaryColours from './ComplimentaryColours';
@@ -18,11 +18,13 @@ export default function PaintsList(props: { paintData: PaintData }) {
   const { paintData } = props;
 
   // Some good custom hook candidates here
+  // See this article from Kent C Dodds on how I could type that
+  // https://kentcdodds.com/blog/wrapping-react-use-state-with-type-script
   const [chosenColour, setColour] = useState('');
   const [selectedSorts, updateSort] = useState(sortOptions);
   const [searchRegex, updateSearchText] = useState(RegExp(''));
 
-  const sortChanged = (e) => {
+  const sortChanged = () => {
     // @ts-ignore
     const isChecked = (id: string) => document.getElementById(id)?.checked;
     const updatedValues = {
