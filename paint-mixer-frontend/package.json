@@ -2,7 +2,7 @@
   "name": "paint-mixer-frontend",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://matt123miller.github.io/paint-mixer-app",
+  "homepage": "https://matt123miller.dev/paint-mixer-app",
   "scripts": {
     "predeploy": "npm run build",
     "deploy": "gh-pages -d build",
