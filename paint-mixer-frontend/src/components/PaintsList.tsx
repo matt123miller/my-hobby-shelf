@@ -68,7 +68,7 @@ export default function PaintsList(props: { paintData: PaintData }) {
           onChange={searchTextChanged}
         />
 
-        <div className="filters mt-4">
+        {/* <div className="filters mt-4">
           <FilterButton
             title="A to Z"
             filterKey="AlphabeticalAsc"
@@ -93,10 +93,10 @@ export default function PaintsList(props: { paintData: PaintData }) {
             isActive={selectedSorts.DarkToLight}
             sortChanged={sortChanged}
           />
-        </div>
+        </div> */}
       </div>
 
-      {chosenColour && <ComplimentaryColours chosenColour={chosenColour} />}
+      {/* {chosenColour && <ComplimentaryColours chosenColour={chosenColour} />} */}
 
       <hr />
 
