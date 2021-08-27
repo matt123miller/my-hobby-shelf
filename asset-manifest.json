@@ -1,22 +1,20 @@
 {
   "files": {
-    "main.css": "/paint-mixer-app/static/css/main.1b80bda6.chunk.css",
-    "main.js": "/paint-mixer-app/static/js/main.17add2fe.chunk.js",
-    "main.js.map": "/paint-mixer-app/static/js/main.17add2fe.chunk.js.map",
-    "runtime-main.js": "/paint-mixer-app/static/js/runtime-main.dc40e223.js",
-    "runtime-main.js.map": "/paint-mixer-app/static/js/runtime-main.dc40e223.js.map",
-    "static/js/2.a46a78dd.chunk.js": "/paint-mixer-app/static/js/2.a46a78dd.chunk.js",
-    "static/js/2.a46a78dd.chunk.js.map": "/paint-mixer-app/static/js/2.a46a78dd.chunk.js.map",
+    "main.css": "/paint-mixer-app/static/css/main.3d06c0c0.chunk.css",
+    "main.js": "/paint-mixer-app/static/js/main.7c2137b1.chunk.js",
+    "main.js.map": "/paint-mixer-app/static/js/main.7c2137b1.chunk.js.map",
+    "runtime-main.js": "/paint-mixer-app/static/js/runtime-main.85253a4e.js",
+    "runtime-main.js.map": "/paint-mixer-app/static/js/runtime-main.85253a4e.js.map",
+    "static/js/2.9e00bb56.chunk.js": "/paint-mixer-app/static/js/2.9e00bb56.chunk.js",
+    "static/js/2.9e00bb56.chunk.js.map": "/paint-mixer-app/static/js/2.9e00bb56.chunk.js.map",
     "index.html": "/paint-mixer-app/index.html",
-    "precache-manifest.f64b4559ef8431185bdca95bdad8efc1.js": "/paint-mixer-app/precache-manifest.f64b4559ef8431185bdca95bdad8efc1.js",
-    "service-worker.js": "/paint-mixer-app/service-worker.js",
-    "static/css/main.1b80bda6.chunk.css.map": "/paint-mixer-app/static/css/main.1b80bda6.chunk.css.map",
-    "static/js/2.a46a78dd.chunk.js.LICENSE.txt": "/paint-mixer-app/static/js/2.a46a78dd.chunk.js.LICENSE.txt"
+    "static/css/main.3d06c0c0.chunk.css.map": "/paint-mixer-app/static/css/main.3d06c0c0.chunk.css.map",
+    "static/js/2.9e00bb56.chunk.js.LICENSE.txt": "/paint-mixer-app/static/js/2.9e00bb56.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
-    "static/js/runtime-main.dc40e223.js",
-    "static/js/2.a46a78dd.chunk.js",
-    "static/css/main.1b80bda6.chunk.css",
-    "static/js/main.17add2fe.chunk.js"
+    "static/js/runtime-main.85253a4e.js",
+    "static/js/2.9e00bb56.chunk.js",
+    "static/css/main.3d06c0c0.chunk.css",
+    "static/js/main.7c2137b1.chunk.js"
   ]
 }
