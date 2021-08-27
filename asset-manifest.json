@@ -1,18 +1,18 @@
 {
   "files": {
-    "main.css": "/projects/paint-mixer-app/static/css/main.3d06c0c0.chunk.css",
-    "main.js": "/projects/paint-mixer-app/static/js/main.7c2137b1.chunk.js",
-    "main.js.map": "/projects/paint-mixer-app/static/js/main.7c2137b1.chunk.js.map",
-    "runtime-main.js": "/projects/paint-mixer-app/static/js/runtime-main.bfe43e4a.js",
-    "runtime-main.js.map": "/projects/paint-mixer-app/static/js/runtime-main.bfe43e4a.js.map",
-    "static/js/2.9e00bb56.chunk.js": "/projects/paint-mixer-app/static/js/2.9e00bb56.chunk.js",
-    "static/js/2.9e00bb56.chunk.js.map": "/projects/paint-mixer-app/static/js/2.9e00bb56.chunk.js.map",
-    "index.html": "/projects/paint-mixer-app/index.html",
-    "static/css/main.3d06c0c0.chunk.css.map": "/projects/paint-mixer-app/static/css/main.3d06c0c0.chunk.css.map",
-    "static/js/2.9e00bb56.chunk.js.LICENSE.txt": "/projects/paint-mixer-app/static/js/2.9e00bb56.chunk.js.LICENSE.txt"
+    "main.css": "/paint-mixer-app/static/css/main.3d06c0c0.chunk.css",
+    "main.js": "/paint-mixer-app/static/js/main.7c2137b1.chunk.js",
+    "main.js.map": "/paint-mixer-app/static/js/main.7c2137b1.chunk.js.map",
+    "runtime-main.js": "/paint-mixer-app/static/js/runtime-main.85253a4e.js",
+    "runtime-main.js.map": "/paint-mixer-app/static/js/runtime-main.85253a4e.js.map",
+    "static/js/2.9e00bb56.chunk.js": "/paint-mixer-app/static/js/2.9e00bb56.chunk.js",
+    "static/js/2.9e00bb56.chunk.js.map": "/paint-mixer-app/static/js/2.9e00bb56.chunk.js.map",
+    "index.html": "/paint-mixer-app/index.html",
+    "static/css/main.3d06c0c0.chunk.css.map": "/paint-mixer-app/static/css/main.3d06c0c0.chunk.css.map",
+    "static/js/2.9e00bb56.chunk.js.LICENSE.txt": "/paint-mixer-app/static/js/2.9e00bb56.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
-    "static/js/runtime-main.bfe43e4a.js",
+    "static/js/runtime-main.85253a4e.js",
     "static/js/2.9e00bb56.chunk.js",
     "static/css/main.3d06c0c0.chunk.css",
     "static/js/main.7c2137b1.chunk.js"
