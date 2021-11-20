@@ -1,17 +1,26 @@
-import React, { useState } from 'react';
-
-import { ColourPicker, PaintsList, ComplimentaryColours } from './components';
-import paintData from './data';
-
+import React from 'react';
+import logo from './logo.svg';
 import './App.css';
 
-export default function App() {
-  const [chosenColour, setColour] = useState('#000000');
-
+function App() {
   return (
-    <main className="paint-picker-app">
-      <h1>Painting Colour Assistant</h1>
-      <PaintsList paintData={paintData} />
-    </main>
+    <div className="App">
+      <header className="App-header">
+        <img src={logo} className="App-logo" alt="logo" />
+        <p className="mb-8">
+          Edit <code>src/App.tsx</code> and save to reload.
+        </p>
+        <a
+          className="App-link"
+          href="https://reactjs.org"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Learn React
+        </a>
+      </header>
+    </div>
   );
 }
+
+export default App;
