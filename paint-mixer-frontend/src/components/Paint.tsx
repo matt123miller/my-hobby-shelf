@@ -1,9 +1,9 @@
-import React, { Dispatch } from "react";
-import { PaintRecord } from "../types";
+import React, { Dispatch } from 'react';
+import { PaintRecord } from '../types';
 
 type PaintProps = {
   paint?: PaintRecord;
-  onPaintClick: Dispatch<React.SetStateAction<PaintRecord>>;
+  onPaintClick: Dispatch<React.SetStateAction<PaintRecord | undefined>>;
 };
 export default function Paint(props: PaintProps) {
   const { paint, onPaintClick } = props;
@@ -18,11 +18,9 @@ export default function Paint(props: PaintProps) {
       style={{ backgroundColor: hexCode }}
       onClick={(e) => onPaintClick(paint)}
       onKeyDown={(e) => onPaintClick(paint)}
+      role="presentation"
     >
-      <div
-        role="presentation"
-        className="p-1 rounded-md border border-gray-400 bg-white"
-      >
+      <div className="p-1 rounded-md border border-gray-400 bg-white">
         <div className="text-lg">{name}</div>
         <div className="text-sm">{hexCode}</div>
         <div className="text-sm">{rgb.toString()}</div>
