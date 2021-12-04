@@ -3,7 +3,7 @@ export interface RGB {
   g: number;
   b: number;
   toString(): string;
-};
+}
 
 export type PaintRecord = {
   name: string;

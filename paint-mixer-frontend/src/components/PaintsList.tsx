@@ -1,9 +1,9 @@
-import { useState, Fragment } from "react";
-import { PaintData, PaintRecord } from "../types";
-import sortFunctions from "../utils/SortFunctions";
-import Paint from "./Paint";
-import FilterButton from "./FilterButton";
-import ComplimentaryColours from "./ComplimentaryColours";
+import { useState, Fragment } from 'react';
+import { PaintData, PaintRecord } from '../types';
+import sortFunctions from '../utils/SortFunctions';
+import Paint from './Paint';
+import FilterButton from './FilterButton';
+import ComplimentaryColours from './ComplimentaryColours';
 
 // This should handle various data filtering
 
@@ -22,16 +22,16 @@ export default function PaintsList(props: { paintData: PaintData }) {
   // https://kentcdodds.com/blog/wrapping-react-use-state-with-type-script
   const [chosenColour, setColour] = useState<PaintRecord>();
   const [selectedSorts, updateSort] = useState(sortOptions);
-  const [searchRegex, updateSearchText] = useState(RegExp(""));
+  const [searchRegex, updateSearchText] = useState(RegExp(''));
 
   const sortChanged = () => {
     // @ts-ignore
     const isChecked = (id: string) => document.getElementById(id)?.checked;
     const updatedValues = {
-      AlphabeticalAsc: isChecked("AlphabeticalAsc"),
-      AlphabeticalDesc: isChecked("AlphabeticalDesc"),
-      DarkToLight: isChecked("DarkToLight"),
-      LightToDark: isChecked("LightToDark"),
+      AlphabeticalAsc: isChecked('AlphabeticalAsc'),
+      AlphabeticalDesc: isChecked('AlphabeticalDesc'),
+      DarkToLight: isChecked('DarkToLight'),
+      LightToDark: isChecked('LightToDark'),
     };
 
     updateSort((prevState) => ({ ...prevState, ...updatedValues }));
@@ -39,7 +39,7 @@ export default function PaintsList(props: { paintData: PaintData }) {
 
   const searchTextChanged = (e) => {
     const text = e.target.value;
-    const regex = RegExp(text, "ig");
+    const regex = RegExp(text, 'ig');
     updateSearchText(regex);
   };
 
@@ -68,28 +68,28 @@ export default function PaintsList(props: { paintData: PaintData }) {
           onChange={searchTextChanged}
         />
 
-        {/* <div className="filters mt-4">
+        {/* <div className='filters mt-4'>
           <FilterButton
-            title="A to Z"
-            filterKey="AlphabeticalAsc"
+            title='A to Z'
+            filterKey='AlphabeticalAsc'
             isActive={selectedSorts.AlphabeticalAsc}
             sortChanged={sortChanged}
           />
           <FilterButton
-            title="Z to A"
-            filterKey="AlphabeticalDesc"
+            title='Z to A'
+            filterKey='AlphabeticalDesc'
             isActive={selectedSorts.AlphabeticalDesc}
             sortChanged={sortChanged}
           />
           <FilterButton
-            title="Light to Dark"
-            filterKey="LightToDark"
+            title='Light to Dark'
+            filterKey='LightToDark'
             isActive={selectedSorts.LightToDark}
             sortChanged={sortChanged}
           />
           <FilterButton
-            title="Dark to Light"
-            filterKey="DarkToLight"
+            title='Dark to Light'
+            filterKey='DarkToLight'
             isActive={selectedSorts.DarkToLight}
             sortChanged={sortChanged}
           />

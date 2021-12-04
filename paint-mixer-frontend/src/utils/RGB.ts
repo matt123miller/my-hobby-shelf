@@ -1,9 +1,11 @@
-import { RGB as _RGB } from "../types";
-import { componentToHex, normaliseHexCode } from "./ColourFunctions";
+import { RGB as _RGB } from '../types';
+import { componentToHex, normaliseHexCode } from './ColourFunctions';
 
 export default class RGB implements _RGB {
   r: number;
+
   g: number;
+
   b: number;
 
   constructor(r: number, g: number, b: number) {
@@ -22,9 +24,11 @@ export default class RGB implements _RGB {
   }
 
   toHex(): string {
-    return `#${componentToHex(this.r)}${componentToHex(this.g)}${componentToHex(this.b)}`;
+    return `#${componentToHex(this.r)}${componentToHex(this.g)}${componentToHex(
+      this.b
+    )}`;
   }
-  
+
   toString(): string {
     return `R: ${this.r}, G: ${this.g}, B: ${this.b}`;
   }

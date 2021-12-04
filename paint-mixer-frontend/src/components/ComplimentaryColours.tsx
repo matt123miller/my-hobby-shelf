@@ -1,9 +1,9 @@
-import { PaintData } from "../types";
+import { PaintData } from '../types';
 
-import Paint from "./Paint";
-import paintData from "../data";
-import { findComplimentaryColour } from "../utils/ColourFunctions";
-import RGB from "../utils/RGB";
+import Paint from './Paint';
+import paintData from '../data';
+import { findComplimentaryColour } from '../utils/ColourFunctions';
+import RGB from '../utils/RGB';
 
 function findPaintsByHex(
   chosenHex: string,

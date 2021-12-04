@@ -1,16 +1,16 @@
-import RGB from "./RGB";
+import RGB from './RGB';
 
 export function normaliseHexCode(hex: string) {
   let hexColour: string = hex;
-  if (hexColour[0] === "#") {
+  if (hexColour[0] === '#') {
     hexColour = hexColour.slice(1);
   }
 
   if (hexColour.length === 3) {
     hexColour = hexColour
-      .split("")
+      .split('')
       .map((h) => h + h)
-      .join("");
+      .join('');
   }
   return hexColour;
 }
@@ -41,15 +41,10 @@ export function compareColour(colourA: string, colourB: string) {
  * @returns
  */
 export function findComplimentaryColour({ r, g, b }: RGB) {
-  return new RGB(
-     255 - r,
-     255 - g,
-    255 - b,
-  );
+  return new RGB(255 - r, 255 - g, 255 - b);
 }
 
 export function componentToHex(c: number): string {
   const hex = c.toString(16);
-  return hex.padStart(2, "0");
+  return hex.padStart(2, '0');
 }
-
