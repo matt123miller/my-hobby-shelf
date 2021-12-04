@@ -20,7 +20,7 @@ export default function PaintsList(props: { paintData: PaintData }) {
   // Some good custom hook candidates here
   // See this article from Kent C Dodds on how I could type that
   // https://kentcdodds.com/blog/wrapping-react-use-state-with-type-script
-  const [chosenColour, setColour] = useState({} as PaintRecord);
+  const [chosenColour, setColour] = useState<PaintRecord>();
   const [selectedSorts, updateSort] = useState(sortOptions);
   const [searchRegex, updateSearchText] = useState(RegExp(""));
 
