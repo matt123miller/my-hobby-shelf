@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, Fragment } from "react";
 import { PaintData, PaintRecord } from "../types";
 import sortFunctions from "../utils/SortFunctions";
 import Paint from "./Paint";
@@ -57,10 +57,10 @@ export default function PaintsList(props: { paintData: PaintData }) {
   }
 
   return (
-    <div>
-      <div className="paint-controls mb-8">
+    <>
+      <div className="my-8 flex justify-center">
         <input
-          className="paint-search"
+          className="rounded-lg border-2 px-2"
           type="text"
           name="SearchBar"
           id="SearchBar"
@@ -100,15 +100,11 @@ export default function PaintsList(props: { paintData: PaintData }) {
 
       <hr />
 
-      <ul className="paint-list m-4 mb-8">
+      <ul className="paint-list mt-4 mb-8">
         {filteredData.map((paint, i) => (
-          <Paint
-            key={`paint${i}`}
-            paint={paint}
-            onPaintClick={setColour}
-          />
+          <Paint key={`paint${i}`} paint={paint} onPaintClick={setColour} />
         ))}
       </ul>
-    </div>
+    </>
   );
 }

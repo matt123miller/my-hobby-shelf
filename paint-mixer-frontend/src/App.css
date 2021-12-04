@@ -2,6 +2,14 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Ignored for now, will be used in dark/light mode support */
+body {
+  --text-colour: #fcfcfc;
+  --bg: #333;
+  --bg-panel: #434343;
+  --heading-colour: #3694ff;
+}
+
 .paint-list {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
@@ -17,6 +25,7 @@
   grid-row: span 1;
   min-width: 150px;
   min-height: 200px;
+  max-width: 300px;
   width: 100%;
   height: 100%;
 }
