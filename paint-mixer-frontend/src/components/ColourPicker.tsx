@@ -8,9 +8,9 @@ type ColourPickerProps = {
 export default function ColourPicker(props: ColourPickerProps) {
   const { chosenColour, setColour } = props;
 
-  const colourChangeEvent = (e) => {
-    setColour(e.target.value);
-  };
+  // const colourChangeEvent = (e) => {
+  //   setColour(e.target.value);
+  // };
 
   return (
     <div style={{ margin: '3rem' }}>
@@ -20,7 +20,7 @@ export default function ColourPicker(props: ColourPickerProps) {
         name="ColourPicker"
         id="ColourPicker"
         value={chosenColour}
-        onChange={colourChangeEvent}
+        // onChange={colourChangeEvent}
       />
       <span style={{ color: chosenColour, marginLeft: '1rem' }}>
         {chosenColour}

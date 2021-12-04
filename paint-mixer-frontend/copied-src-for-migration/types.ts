@@ -1,8 +1,7 @@
-export interface RGB {
+export type RGB = {
   r: number;
   g: number;
   b: number;
-  toString(): string;
 };
 
 export type PaintRecord = {

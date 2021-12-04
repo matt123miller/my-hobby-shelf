@@ -1,16 +1,16 @@
-import RGB from "./RGB";
+import { RGB } from '../types';
 
 export function normaliseHexCode(hex: string) {
   let hexColour: string = hex;
-  if (hexColour[0] === "#") {
+  if (hexColour[0] === '#') {
     hexColour = hexColour.slice(1);
   }
 
   if (hexColour.length === 3) {
     hexColour = hexColour
-      .split("")
+      .split('')
       .map((h) => h + h)
-      .join("");
+      .join('');
   }
   return hexColour;
 }
@@ -35,21 +35,30 @@ export function compareColour(colourA: string, colourB: string) {
   return 9999; // what was this for?
 }
 
-/**
- * Returns an RGB colour that's theoretically opposite on the colour wheel in RGB space.
- * @param param0
- * @returns
- */
 export function findComplimentaryColour({ r, g, b }: RGB) {
-  return new RGB(
-     255 - r,
-     255 - g,
-    255 - b,
-  );
+  return {
+    r: 255 - r,
+    g: 255 - g,
+    b: 255 - b,
+  };
 }
 
 export function componentToHex(c: number): string {
   const hex = c.toString(16);
-  return hex.padStart(2, "0");
+  return hex.padStart(2, '0');
 }
 
+export function rgbToHex(r: number, g: number, b: number): string {
+  return `#${componentToHex(r)}${componentToHex(g)}${componentToHex(b)}`;
+}
+/**
+ * Supports hex strings beginning with # or not and shorthand values like fff
+ */
+export function hexToRgb(hex: string): RGB {
+  const hexColour: string = normaliseHexCode(hex);
+  return {
+    r: parseInt(hexColour.substr(0, 2), 16),
+    g: parseInt(hexColour.substr(2, 2), 16),
+    b: parseInt(hexColour.substr(4, 2), 16),
+  };
+}
