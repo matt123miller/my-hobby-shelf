@@ -1,6 +1,6 @@
 {
   "name": "paint-mixer-frontend",
-  "homepage": "https://matt123miller.dev/paint-mixer-app",
+  "homepage": "https://matt123miller.dev/tools/paint-mixer-app",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
