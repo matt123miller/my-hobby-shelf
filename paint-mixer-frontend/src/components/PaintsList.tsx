@@ -1,9 +1,9 @@
-import { useState } from 'react';
-import { PaintData } from '../types';
-import sortFunctions from '../utils/SortFunctions';
-import Paint from './Paint';
-import FilterButton from './FilterButton';
-import ComplimentaryColours from './ComplimentaryColours';
+import { useState } from "react";
+import { PaintData, PaintRecord } from "../types";
+import sortFunctions from "../utils/SortFunctions";
+import Paint from "./Paint";
+import FilterButton from "./FilterButton";
+import ComplimentaryColours from "./ComplimentaryColours";
 
 // This should handle various data filtering
 
@@ -20,18 +20,18 @@ export default function PaintsList(props: { paintData: PaintData }) {
   // Some good custom hook candidates here
   // See this article from Kent C Dodds on how I could type that
   // https://kentcdodds.com/blog/wrapping-react-use-state-with-type-script
-  const [chosenColour, setColour] = useState('');
+  const [chosenColour, setColour] = useState({} as PaintRecord);
   const [selectedSorts, updateSort] = useState(sortOptions);
-  const [searchRegex, updateSearchText] = useState(RegExp(''));
+  const [searchRegex, updateSearchText] = useState(RegExp(""));
 
   const sortChanged = () => {
     // @ts-ignore
     const isChecked = (id: string) => document.getElementById(id)?.checked;
     const updatedValues = {
-      AlphabeticalAsc: isChecked('AlphabeticalAsc'),
-      AlphabeticalDesc: isChecked('AlphabeticalDesc'),
-      DarkToLight: isChecked('DarkToLight'),
-      LightToDark: isChecked('LightToDark'),
+      AlphabeticalAsc: isChecked("AlphabeticalAsc"),
+      AlphabeticalDesc: isChecked("AlphabeticalDesc"),
+      DarkToLight: isChecked("DarkToLight"),
+      LightToDark: isChecked("LightToDark"),
     };
 
     updateSort((prevState) => ({ ...prevState, ...updatedValues }));
@@ -39,7 +39,7 @@ export default function PaintsList(props: { paintData: PaintData }) {
 
   const searchTextChanged = (e) => {
     const text = e.target.value;
-    const regex = RegExp(text, 'ig');
+    const regex = RegExp(text, "ig");
     updateSearchText(regex);
   };
 
@@ -100,11 +100,13 @@ export default function PaintsList(props: { paintData: PaintData }) {
 
       <hr />
 
-      <ul className="paint-list mb-8">
+      <ul className="paint-list m-4 mb-8">
         {filteredData.map((paint, i) => (
-          <li>
-            <Paint key={`paint${i}`} paint={paint} onPaintClick={setColour} />
-          </li>
+          <Paint
+            key={`paint${i}`}
+            paint={paint}
+            onPaintClick={setColour}
+          />
         ))}
       </ul>
     </div>

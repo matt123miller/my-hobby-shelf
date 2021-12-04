@@ -1,12 +1,9 @@
-import { PaintData } from '../types';
+import { PaintData } from "../types";
 
-import Paint from './Paint';
-import paintData from '../data';
-import {
-  hexToRgb,
-  findComplimentaryColour,
-  rgbToHex,
-} from '../utils/ColourFunctions';
+import Paint from "./Paint";
+import paintData from "../data";
+import { findComplimentaryColour } from "../utils/ColourFunctions";
+import RGB from "../utils/RGB";
 
 function findPaintsByHex(
   chosenHex: string,
@@ -17,7 +14,7 @@ function findPaintsByHex(
 
   // we have the comphex
   // find the colour with the closest hex value from paints
-  const compRGB = hexToRgb(complimentaryHex.slice(1));
+  const compRGB = RGB.fromHexCode(complimentaryHex.slice(1));
 
   // have { r, g, b } and an array of objects with paint.rgb = { r, g, b }
 
@@ -51,10 +48,9 @@ export default function ComplimentaryColours(props: ComplimentaryColoursProps) {
   const { chosenColour } = props;
 
   // set to the opposite of our chosen colour
-  const colourAsRgb = hexToRgb(chosenColour.slice(1));
-
-  const { r, g, b } = findComplimentaryColour(colourAsRgb);
-  const complimentaryColour = rgbToHex(r, g, b);
+  const colourAsRgb = RGB.fromHexCode(chosenColour.slice(1));
+  const complimentaryColour: string =
+    findComplimentaryColour(colourAsRgb).toHex();
 
   const { chosenPaint, complimentaryPaint } = findPaintsByHex(
     chosenColour,
@@ -74,7 +70,7 @@ export default function ComplimentaryColours(props: ComplimentaryColoursProps) {
   );
 }
 
-function ColourGradient(chosenColour, complimentaryColour) {
+function ColourGradient(chosenColour: any, complimentaryColour: any) {
   const swatchStyles = {
     background: `linear-gradient(90deg, ${chosenColour} 0%, ${chosenColour} 40%, ${complimentaryColour} 60%)`,
   };

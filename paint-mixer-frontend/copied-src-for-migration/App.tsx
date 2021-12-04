@@ -1,17 +1,17 @@
-import React, { useState } from 'react';
+// import React, { useState } from 'react';
 
-import { ColourPicker, PaintsList, ComplimentaryColours } from './components';
-import paintData from './data';
+// import { ColourPicker, PaintsList, ComplimentaryColours } from './components';
+// import paintData from './data';
 
-import './App.css';
+// import './App.css';
 
-export default function App() {
-  const [chosenColour, setColour] = useState('#000000');
+// export default function App() {
+//   const [chosenColour, setColour] = useState('#000000');
 
-  return (
-    <main className="paint-picker-app">
-      <h1>Painting Colour Assistant</h1>
-      <PaintsList paintData={paintData} />
-    </main>
-  );
-}
+//   return (
+//     <main className="paint-picker-app">
+//       <h1>Painting Colour Assistant</h1>
+//       <PaintsList paintData={paintData} />
+//     </main>
+//   );
+// }
