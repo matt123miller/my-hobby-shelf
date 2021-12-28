@@ -2,7 +2,6 @@ import { PaintData } from '../types';
 
 import Paint from './Paint';
 import paintData from '../data';
-import { findComplimentaryColour } from '../utils/ColourFunctions';
 import RGB from '../utils/RGB';
 
 function findPaintsByHex(
@@ -29,9 +28,11 @@ function findPaintsByHex(
     }
   });
 
-  const chosenPaint = <Paint paint={foundPaint} onPaintClick={() => {}} />;
+  const chosenPaint = (
+    <Paint paint={foundPaint} isList={false} onPaintClick={() => {}} />
+  );
   const complimentaryPaint = (
-    <Paint paint={foundPaint} onPaintClick={() => {}} />
+    <Paint paint={foundPaint} isList={false} onPaintClick={() => {}} />
   );
 
   return {
@@ -50,7 +51,7 @@ export default function ComplimentaryColours(props: ComplimentaryColoursProps) {
   // set to the opposite of our chosen colour
   const colourAsRgb = RGB.fromHexCode(chosenColour.slice(1));
   const complimentaryColour: string =
-    findComplimentaryColour(colourAsRgb).toHex();
+    RGB.findComplimentaryRGB(colourAsRgb).toHex();
 
   const { chosenPaint, complimentaryPaint } = findPaintsByHex(
     chosenColour,

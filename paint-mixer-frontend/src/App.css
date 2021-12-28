@@ -16,7 +16,6 @@ body {
   grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
   grid-gap: 1rem;
   grid-auto-flow: dense;
-
   justify-items: center;
 }
 
@@ -25,7 +24,7 @@ body {
 }
 
 .paint-header {
-  grid-template-rows: 1;
+  grid-template-rows: minmax(150px, 1fr);
 }
 
 .paint-list > .paint,

@@ -3,17 +3,19 @@ import { PaintRecord } from '../types';
 
 type PaintProps = {
   paint?: PaintRecord;
+  isList: boolean;
   onPaintClick: Dispatch<React.SetStateAction<PaintRecord | undefined>>;
 };
 export default function Paint(props: PaintProps) {
-  const { paint, onPaintClick } = props;
+  const { paint, isList, onPaintClick } = props;
   if (!paint) {
     return <> </>;
   }
   const { name, hexCode, rgb } = paint;
 
   return (
-    <li
+    <ContainingElem
+      isList={isList}
       className="max-w-sm p-2 shadow-lg rounded-md border-2 border-black"
       style={{ backgroundColor: hexCode }}
       onClick={(e) => onPaintClick(paint)}
@@ -25,8 +27,22 @@ export default function Paint(props: PaintProps) {
         <div className="text-sm">{hexCode}</div>
         <div className="text-sm">{rgb.toString()}</div>
       </div>
-    </li>
+    </ContainingElem>
   );
+}
+
+type ContainingProps = {
+  isList: boolean;
+  children: React.ReactElement<any, any>;
+  [key: string]: any;
+};
+function ContainingElem(props: ContainingProps) {
+  const { isList, children } = props;
+  if (isList) {
+    return <li {...props}>{children}</li>;
+  }
+
+  return <div {...props}>{children}</div>;
 }
 
 // style = {{ border: `${hexCode} 5px solid`, borderBottom: `${hexCode} 80px solid` }}

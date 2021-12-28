@@ -11,8 +11,14 @@ export default function ColourSuggestion(props: ColourSuggestionProps) {
   const { chosenColour, resetSelection } = props;
 
   return (
-    <ul className="paint-header mt-4 mb-8">
-      <Paint key="chosen-paint" paint={chosenColour} onPaintClick={() => {}} />
-    </ul>
+    <div className="paint-header mt-4 mb-8">
+      <Paint
+        key="chosen-paint"
+        isList={false}
+        paint={chosenColour}
+        onPaintClick={() => {}}
+      />
+      {ComplimentaryPaint}
+    </div>
   );
 }

@@ -108,7 +108,12 @@ export default function PaintsList(props: { paintData: PaintData }) {
 
       <ul className="paint-list mt-4 mb-8">
         {filteredData.map((paint, i) => (
-          <Paint key={`paint${i}`} paint={paint} onPaintClick={setColour} />
+          <Paint
+            key={`paint${i}`}
+            isList
+            paint={paint}
+            onPaintClick={setColour}
+          />
         ))}
       </ul>
     </>
