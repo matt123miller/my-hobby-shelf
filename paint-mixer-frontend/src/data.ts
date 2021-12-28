@@ -1,7 +1,9 @@
-import { PaintRecord } from './types';
+import { PaintRecord, PaintData } from './types';
 import RGB from './utils/RGB';
 
-const rawData: PaintRecord[] = [
+const initRgbPlease = new RGB(0, 0, 0);
+
+const rawData: PaintData = [
   {
     name: 'Nuln Oil',
     svg: 'https://www.games-workshop.com/resources/catalog/product/600x620/99189953017_shadeNulnOil.svg',
