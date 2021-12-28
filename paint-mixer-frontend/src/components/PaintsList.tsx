@@ -4,6 +4,7 @@ import sortFunctions from '../utils/SortFunctions';
 import Paint from './Paint';
 import FilterButton from './FilterButton';
 import ComplimentaryColours from './ComplimentaryColours';
+import PaintSuggestion from './PaintSuggestion';
 
 // This should handle various data filtering
 
@@ -96,7 +97,12 @@ export default function PaintsList(props: { paintData: PaintData }) {
         </div> */}
       </div>
 
-      {/* {chosenColour && <ComplimentaryColours chosenColour={chosenColour} />} */}
+      {chosenColour && (
+        <PaintSuggestion
+          chosenColour={chosenColour}
+          resetSelection={() => setColour(undefined)}
+        />
+      )}
 
       <hr />
 
