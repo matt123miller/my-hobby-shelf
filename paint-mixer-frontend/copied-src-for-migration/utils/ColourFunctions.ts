@@ -14,6 +14,7 @@ export function normaliseHexCode(hex: string) {
   }
   return hexColour;
 }
+
 /**
  *
  */
