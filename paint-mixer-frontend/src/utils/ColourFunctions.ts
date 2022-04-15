@@ -25,13 +25,13 @@ export function compareColour(colourA: string, colourB: string) {
   const b = normaliseHexCode(colourB);
   if (b.length === 6) {
     const red = Math.abs(
-      parseInt(a.substr(0, 2), 16) - parseInt(b.substr(0, 2), 16)
+      parseInt(a.substring(0, 2), 16) - parseInt(b.substring(0, 2), 16)
     );
     const green = Math.abs(
-      parseInt(a.substr(2, 2), 16) - parseInt(b.substr(2, 2), 16)
+      parseInt(a.substring(2, 2), 16) - parseInt(b.substring(2, 2), 16)
     );
     const blue = Math.abs(
-      parseInt(a.substr(4, 2), 16) - parseInt(b.substr(4, 2), 16)
+      parseInt(a.substring(4, 2), 16) - parseInt(b.substring(4, 2), 16)
     );
     return red + green + blue;
   }
@@ -43,6 +43,7 @@ export function componentToHex(c: number): string {
   return hex.padStart(2, '0');
 }
 
+// It's all wrong, rely on colors.js instead.
 export function findClosestPaintByHex(searchRgb: RGB) {
   // start with the closest red colour
   const nearestRed = 255; // or 0?
@@ -62,13 +63,13 @@ export function findClosestPaintByHex(searchRgb: RGB) {
     })
     .sort((a, b) => a.totalDelta - b.totalDelta);
 
-  console.log(paintsOrderedByDelta);
+  const closestColour = paintsOrderedByDelta[0];
 
   // returning react component like this seems sus
   return Paint({
     paint: {
-      hexCode: searchRgb.toHex(),
-      rgb: searchRgb,
+      hexCode: closestColour.paint.hexCode,
+      rgb: closestColour.paint.rgb,
       name: '',
       svg: '',
       filePath: '',

@@ -14,8 +14,7 @@ export default function Paint(props: PaintProps) {
   const { name, hexCode, rgb } = paint;
 
   return (
-    <ContainingElem
-      isList={isList}
+    <li
       className="paint max-w-sm p-2 shadow-lg rounded-md border-2 border-black"
       style={{ backgroundColor: hexCode }}
       onClick={(e) => onPaintClick(paint)}
@@ -27,7 +26,7 @@ export default function Paint(props: PaintProps) {
         <div className="text-sm">{hexCode}</div>
         {/* <div className="text-sm">{rgb.toString()}</div> */}
       </div>
-    </ContainingElem>
+    </li>
   );
 }
 

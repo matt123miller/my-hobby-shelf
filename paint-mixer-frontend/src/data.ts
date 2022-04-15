@@ -1,7 +1,8 @@
+/* eslint-disable import/no-named-default */
 import { PaintRecord, PaintData } from './types';
-import RGB from './utils/RGB';
+import RGB, { rgbFromHexCode } from './utils/RGB';
 
-const initRgbPlease = new RGB(0, 0, 0);
+// const initRgbPlease = new RGB(0, 0, 0);
 
 const rawData: PaintData = [
   {
@@ -2300,16 +2301,17 @@ const rawData: PaintData = [
     filePath: './paintimages/gw/Wrack White.svg',
     rgb: { r: 0, g: 0, b: 0 },
   },
-]
-  .reduce((accumulator: PaintRecord[], paint, i) => {
-    if (!accumulator.find((p) => p.name === paint.name)) {
-      accumulator.push(paint);
-    }
-    return accumulator;
-  }, [])
-  .map((d) => {
-    d.rgb = RGB.fromHexCode(d.hexCode);
-    return d;
-  });
+].reduce((accumulator: PaintRecord[], paint, i) => {
+  if (!accumulator.find((p) => p.name === paint.name)) {
+    accumulator.push(paint);
+  }
+  return accumulator;
+}, []);
+// .map(
+//   (d: PaintRecord): PaintRecord =>
+//     // d.rgb = { r: 0, g: 0, b: 0, toString: () => '' };
+//     // d.rgb = new RGB(1, 1, 1); // rgbFromHexCode(d.hexCode);
+//     d
+// );
 
 export default rawData;
