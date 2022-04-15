@@ -3,7 +3,6 @@ import { PaintData, PaintRecord } from '../types';
 import sortFunctions from '../utils/SortFunctions';
 import Paint from './Paint';
 import FilterButton from './FilterButton';
-import ComplimentaryColours from './ComplimentaryColours';
 import PaintSuggestion from './PaintSuggestion';
 
 // This should handle various data filtering
