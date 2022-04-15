@@ -1,8 +1,7 @@
 import Color from 'colorjs.io';
 import allPaints from '../data';
-import { Paint } from '../components';
 import { PaintData, PaintRecord } from '../types';
-import RGB from './RGB';
+
 export function findMostSimilarPaintToColour(colour: Color) {
   let closestPaint: PaintRecord = allPaints[0];
   let closestDelta: number = 1;
@@ -81,29 +80,4 @@ export function compareColour(colourA: string, colourB: string) {
 export function componentToHex(c: number): string {
   const hex = c.toString(16);
   return hex.padStart(2, '0');
-}
-
-// It's all wrong, rely on colors.js instead.
-export function findClosestPaintByHex(searchRgb: RGB) {
-  // start with the closest red colour
-  const nearestRed = 255; // or 0?
-
-  const paintsOrderedByDelta = allPaints
-    .map((p) => {
-      const totalDelta = 0;
-
-      return {
-        totalDelta,
-        paint: p,
-      };
-    })
-    .sort((a, b) => a.totalDelta - b.totalDelta);
-
-  const closestColour = paintsOrderedByDelta[0];
-
-  // returning react component like this seems sus
-  return Paint({
-    paint: closestColour.paint,
-    onPaintClick: () => {},
-  });
 }

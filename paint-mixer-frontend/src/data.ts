@@ -1,7 +1,6 @@
 /* eslint-disable import/no-named-default */
 import Color from 'colorjs.io';
 import { PaintRecord, PaintData } from './types';
-import RGB, { rgbFromHexCode } from './utils/RGB';
 
 // you could probably precompute all the closest colours....
 
