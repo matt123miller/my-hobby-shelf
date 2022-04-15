@@ -6,7 +6,7 @@ import { findClosestPaintByHex } from '../utils/ColourFunctions';
 
 type ColourSuggestionProps = {
   chosenColour: PaintRecord;
-  resetSelection: Dispatch<SetStateAction<PaintRecord>>;
+  resetSelection: () => void;
 };
 
 export default function ColourSuggestion(props: ColourSuggestionProps) {
@@ -17,14 +17,21 @@ export default function ColourSuggestion(props: ColourSuggestionProps) {
   const ComplimentaryPaint = findClosestPaintByHex(complimentaryRgb);
 
   return (
-    <div className="paint-header mt-4 mb-8">
-      <Paint
-        key="chosen-paint"
-        isList={false}
-        paint={chosenColour}
-        onPaintClick={() => {}}
-      />
-      {ComplimentaryPaint}
-    </div>
+    <>
+      <div className="flex justify-end">
+        <button type="button" onClick={() => resetSelection()}>
+          Reset
+        </button>
+      </div>
+      <div className="paint-header mt-4 mb-8">
+        <Paint
+          key="chosen-paint"
+          isList={false}
+          paint={chosenColour}
+          onPaintClick={() => {}}
+        />
+        {ComplimentaryPaint}
+      </div>
+    </>
   );
 }
