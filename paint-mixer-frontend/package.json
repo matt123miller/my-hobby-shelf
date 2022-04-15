@@ -3,6 +3,16 @@
   "homepage": "https://matt123miller.dev/paint-mixer-app",
   "version": "0.1.0",
   "private": true,
+  "scripts": {
+    "predeploy": "rm -rf build && npm run build",
+    "deploy": "gh-pages -d build",
+    "start": "craco start",
+    "build": "craco build",
+    "test": "craco test",
+    "eject": "react-scripts eject",
+    "lint": "eslint .",
+    "lint:fix": "eslint . --fix"
+  },
   "dependencies": {
     "@craco/craco": "^6.4.1",
     "@mantine/hooks": "^3.2.1",
@@ -19,34 +29,6 @@
     "react-scripts": "4.0.3",
     "typescript": "^4.5.2",
     "web-vitals": "^1.1.2"
-  },
-  "scripts": {
-    "predeploy": "rm -rf build && npm run build",
-    "deploy": "gh-pages -d build",
-    "start": "craco start",
-    "build": "craco build",
-    "test": "craco test",
-    "eject": "react-scripts eject",
-    "lint": "eslint .",
-    "lint:fix": "eslint . --fix"
-  },
-  "eslintConfig": {
-    "extends": [
-      "react-app",
-      "react-app/jest"
-    ]
-  },
-  "browserslist": {
-    "production": [
-      ">0.2%",
-      "not dead",
-      "not op_mini all"
-    ],
-    "development": [
-      "last 1 chrome version",
-      "last 1 firefox version",
-      "last 1 safari version"
-    ]
   },
   "devDependencies": {
     "autoprefixer": "^9.8.8",
@@ -65,5 +47,17 @@
     "postcss": "^7.0.39",
     "prettier": "^2.5.1",
     "tailwindcss": "npm:@tailwindcss/postcss7-compat@^2.2.17"
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
   }
 }
