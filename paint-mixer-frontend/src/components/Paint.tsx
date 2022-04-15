@@ -1,4 +1,3 @@
-import React, { Dispatch } from 'react';
 import { PaintRecord } from '../types';
 
 type PaintProps = {

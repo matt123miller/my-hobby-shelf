@@ -2,7 +2,24 @@ import Color from 'colorjs.io';
 import allPaints from '../data';
 import { PaintData, PaintRecord } from '../types';
 
-export function findMostSimilarPaintToColour(colour: Color) {
+/**
+ * Because there's some strange colours chosen by colorio.js.deltaEJz sometimes
+ * maybe I need to investigate using an alternate colour space? Or another delta function?
+ * Even if it has some problems this is still much better!
+ */
+
+/**
+ * Relies on the colourjs.io `deltaEJz` function for finding whichever paint
+ * has the smallest, non-zero, delta to the provided colour. Non-zero because
+ * if it has a delta of 0 that's the same colour.
+ * @param colour
+ * Provide an instance of colorjs.io.
+ * Anything implementing `PaintRecord` will have a `colourjs` value attached
+ * with an instance already created for that specific paint.
+ * @returns
+ * The closest paint to whatever colourjs.io instance you provide.
+ */
+export function findMostSimilarPaintToColour(colour: Color): PaintRecord {
   let closestPaint: PaintRecord = allPaints[0];
   let closestDelta: number = 1;
 
@@ -19,6 +36,18 @@ export function findMostSimilarPaintToColour(colour: Color) {
   return closestPaint;
 }
 
+/**
+ * Relies on the colourjs.io `deltaEJz` function for finding whichever paint
+ * has the largest, non-1, delta to the provided colour. Non-1 because
+ * if it has a delta of 1 that's the same colour.
+ * @param colour
+ * Provide an instance of colorjs.io.
+ * Anything implementing `PaintRecord` will have a `colourjs` value attached
+ * with an instance already created for that specific paint.
+ * @returns
+ * The most different paint to whatever colourjs.io instance you provide.
+ * This should be the paint opposite on the colour wheel
+ */
 export function findLeastSimilarPaintToColour(colour: Color) {
   let furthestPaint: PaintRecord = allPaints[0];
   let largestDelta: number = 0;
@@ -41,43 +70,3 @@ export function findLeastSimilarPaintToColour(colour: Color) {
 // }
 
 // Lets ignore everything below here, define exactly what we need and nothing more.
-
-export function normaliseHexCode(hex: string) {
-  let hexColour: string = hex;
-  if (hexColour[0] === '#') {
-    hexColour = hexColour.slice(1);
-  }
-
-  if (hexColour.length === 3) {
-    hexColour = hexColour
-      .split('')
-      .map((h) => h + h)
-      .join('');
-  }
-  return hexColour;
-}
-/**
- *
- */
-export function compareColour(colourA: string, colourB: string) {
-  const a = normaliseHexCode(colourA);
-  const b = normaliseHexCode(colourB);
-  if (b.length === 6) {
-    const red = Math.abs(
-      parseInt(a.substring(0, 2), 16) - parseInt(b.substring(0, 2), 16)
-    );
-    const green = Math.abs(
-      parseInt(a.substring(2, 2), 16) - parseInt(b.substring(2, 2), 16)
-    );
-    const blue = Math.abs(
-      parseInt(a.substring(4, 2), 16) - parseInt(b.substring(4, 2), 16)
-    );
-    return red + green + blue;
-  }
-  return 9999; // what was this for?
-}
-
-export function componentToHex(c: number): string {
-  const hex = c.toString(16);
-  return hex.padStart(2, '0');
-}
