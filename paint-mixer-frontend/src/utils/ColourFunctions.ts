@@ -1,80 +1,72 @@
+import Color from 'colorjs.io';
 import allPaints from '../data';
-import { Paint } from '../components';
 import { PaintData, PaintRecord } from '../types';
-import RGB from './RGB';
 
-export function normaliseHexCode(hex: string) {
-  let hexColour: string = hex;
-  if (hexColour[0] === '#') {
-    hexColour = hexColour.slice(1);
-  }
-
-  if (hexColour.length === 3) {
-    hexColour = hexColour
-      .split('')
-      .map((h) => h + h)
-      .join('');
-  }
-  return hexColour;
-}
 /**
- *
+ * Because there's some strange colours chosen by colorio.js.deltaEJz sometimes
+ * maybe I need to investigate using an alternate colour space? Or another delta function?
+ * Even if it has some problems this is still much better!
  */
-export function compareColour(colourA: string, colourB: string) {
-  const a = normaliseHexCode(colourA);
-  const b = normaliseHexCode(colourB);
-  if (b.length === 6) {
-    const red = Math.abs(
-      parseInt(a.substring(0, 2), 16) - parseInt(b.substring(0, 2), 16)
-    );
-    const green = Math.abs(
-      parseInt(a.substring(2, 2), 16) - parseInt(b.substring(2, 2), 16)
-    );
-    const blue = Math.abs(
-      parseInt(a.substring(4, 2), 16) - parseInt(b.substring(4, 2), 16)
-    );
-    return red + green + blue;
+
+/**
+ * Relies on the colourjs.io `deltaEJz` function for finding whichever paint
+ * has the smallest, non-zero, delta to the provided colour. Non-zero because
+ * if it has a delta of 0 that's the same colour.
+ * @param colour
+ * Provide an instance of colorjs.io.
+ * Anything implementing `PaintRecord` will have a `colourjs` value attached
+ * with an instance already created for that specific paint.
+ * @returns
+ * The closest paint to whatever colourjs.io instance you provide.
+ */
+export function findMostSimilarPaintToColour(colour: Color): PaintRecord {
+  let closestPaint: PaintRecord = allPaints[0];
+  let closestDelta: number = 1;
+
+  // loop all paints, compare to input colour
+  for (const paint of allPaints) {
+    const delta: number = colour.deltaEJz(paint.colourjs);
+    // console.log({ name: paint.name, delta });
+    if (delta !== 0 && delta < closestDelta) {
+      closestDelta = delta;
+      closestPaint = paint;
+    }
   }
-  return 9999; // what was this for?
+  console.log({ closestDelta, closestPaint });
+  return closestPaint;
 }
 
-export function componentToHex(c: number): string {
-  const hex = c.toString(16);
-  return hex.padStart(2, '0');
+/**
+ * Relies on the colourjs.io `deltaEJz` function for finding whichever paint
+ * has the largest, non-1, delta to the provided colour. Non-1 because
+ * if it has a delta of 1 that's the same colour.
+ * @param colour
+ * Provide an instance of colorjs.io.
+ * Anything implementing `PaintRecord` will have a `colourjs` value attached
+ * with an instance already created for that specific paint.
+ * @returns
+ * The most different paint to whatever colourjs.io instance you provide.
+ * This should be the paint opposite on the colour wheel
+ */
+export function findLeastSimilarPaintToColour(colour: Color) {
+  let furthestPaint: PaintRecord = allPaints[0];
+  let largestDelta: number = 0;
+
+  // loop all paints, compare to input colour
+  for (const paint of allPaints) {
+    const delta: number = colour.deltaEJz(paint.colourjs);
+    // console.log({ name: paint.name, delta });
+    if (delta !== 1 && delta > largestDelta) {
+      largestDelta = delta;
+      furthestPaint = paint;
+    }
+  }
+  console.log({ largestDelta, furthestPaint });
+  return furthestPaint;
 }
 
-// It's all wrong, rely on colors.js instead.
-export function findClosestPaintByHex(searchRgb: RGB) {
-  // start with the closest red colour
-  const nearestRed = 255; // or 0?
+// export function findComplimentaryColour(colour: Color) {
+// colour.
+// }
 
-  const paintsOrderedByDelta = allPaints
-    .map((p) => {
-      // Is using math.abs going to cause issues? Are the negative values useful?
-      const redDelta = Math.abs(p.rgb.r - searchRgb.r);
-      const greenDelta = Math.abs(p.rgb.g - searchRgb.g);
-      const blueDelta = Math.abs(p.rgb.b - searchRgb.b);
-      const totalDelta = redDelta + greenDelta + blueDelta;
-
-      return {
-        totalDelta,
-        paint: p,
-      };
-    })
-    .sort((a, b) => a.totalDelta - b.totalDelta);
-
-  const closestColour = paintsOrderedByDelta[0];
-
-  // returning react component like this seems sus
-  return Paint({
-    paint: {
-      hexCode: closestColour.paint.hexCode,
-      rgb: closestColour.paint.rgb,
-      name: '',
-      svg: '',
-      filePath: '',
-    },
-    isList: false,
-    onPaintClick: () => {},
-  });
-}
+// Lets ignore everything below here, define exactly what we need and nothing more.

@@ -1,18 +1,19 @@
 import Paint from './Paint';
 import { PaintRecord } from '../types';
-import { createComplimentaryRGB } from '../utils/RGB';
-import { findClosestPaintByHex } from '../utils/ColourFunctions';
+import {
+  findMostSimilarPaintToColour,
+  findLeastSimilarPaintToColour,
+} from '../utils/ColourFunctions';
 
 type ColourSuggestionProps = {
-  chosenColour: PaintRecord;
+  chosenPaint: PaintRecord;
   resetSelection: () => void;
 };
 
 export default function ColourSuggestion(props: ColourSuggestionProps) {
-  const { chosenColour, resetSelection } = props;
+  const { chosenPaint, resetSelection } = props;
 
-  const complimentaryRgb = createComplimentaryRGB(chosenColour.rgb);
-  const ComplimentaryPaint = findClosestPaintByHex(complimentaryRgb);
+  const oppositePaint = findLeastSimilarPaintToColour(chosenPaint.colourjs);
 
   return (
     <>
@@ -22,13 +23,12 @@ export default function ColourSuggestion(props: ColourSuggestionProps) {
         </button>
       </div>
       <ul className="paint-header mt-4 mb-8">
+        <Paint key="chosen-paint" paint={chosenPaint} onPaintClick={() => {}} />
         <Paint
-          key="chosen-paint"
-          isList={false}
-          paint={chosenColour}
+          key="opposite-paint"
+          paint={oppositePaint}
           onPaintClick={() => {}}
         />
-        {ComplimentaryPaint}
       </ul>
     </>
   );
