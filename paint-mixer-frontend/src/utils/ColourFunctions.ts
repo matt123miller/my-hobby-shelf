@@ -1,7 +1,14 @@
+import Color from 'colorjs.io';
 import allPaints from '../data';
 import { Paint } from '../components';
 import { PaintData, PaintRecord } from '../types';
 import RGB from './RGB';
+
+// export function findComplimentaryColour(colour: Color) {
+// colour.
+// }
+
+// Lets ignore everything below here, define exactly what we need and nothing more.
 
 export function normaliseHexCode(hex: string) {
   let hexColour: string = hex;
@@ -50,11 +57,7 @@ export function findClosestPaintByHex(searchRgb: RGB) {
 
   const paintsOrderedByDelta = allPaints
     .map((p) => {
-      // Is using math.abs going to cause issues? Are the negative values useful?
-      const redDelta = Math.abs(p.rgb.r - searchRgb.r);
-      const greenDelta = Math.abs(p.rgb.g - searchRgb.g);
-      const blueDelta = Math.abs(p.rgb.b - searchRgb.b);
-      const totalDelta = redDelta + greenDelta + blueDelta;
+      const totalDelta = 0;
 
       return {
         totalDelta,
@@ -67,14 +70,7 @@ export function findClosestPaintByHex(searchRgb: RGB) {
 
   // returning react component like this seems sus
   return Paint({
-    paint: {
-      hexCode: closestColour.paint.hexCode,
-      rgb: closestColour.paint.rgb,
-      name: '',
-      svg: '',
-      filePath: '',
-    },
-    isList: false,
+    paint: closestColour.paint,
     onPaintClick: () => {},
   });
 }
