@@ -3,7 +3,7 @@ import { PaintRecord } from '../types';
 
 type PaintProps = {
   paint?: PaintRecord;
-  onPaintClick: Dispatch<React.SetStateAction<PaintRecord | undefined>>;
+  onPaintClick: (paint: PaintRecord) => void;
 };
 export default function Paint(props: PaintProps) {
   const { paint, onPaintClick } = props;

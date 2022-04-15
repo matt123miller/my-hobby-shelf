@@ -3,6 +3,39 @@ import allPaints from '../data';
 import { Paint } from '../components';
 import { PaintData, PaintRecord } from '../types';
 import RGB from './RGB';
+export function findMostSimilarPaintToColour(colour: Color) {
+  let closestPaint: PaintRecord = allPaints[0];
+  let closestDelta: number = 1;
+
+  // loop all paints, compare to input colour
+  for (const paint of allPaints) {
+    const delta: number = colour.deltaEJz(paint.colourjs);
+    // console.log({ name: paint.name, delta });
+    if (delta !== 0 && delta < closestDelta) {
+      closestDelta = delta;
+      closestPaint = paint;
+    }
+  }
+  console.log({ closestDelta, closestPaint });
+  return closestPaint;
+}
+
+export function findLeastSimilarPaintToColour(colour: Color) {
+  let furthestPaint: PaintRecord = allPaints[0];
+  let largestDelta: number = 0;
+
+  // loop all paints, compare to input colour
+  for (const paint of allPaints) {
+    const delta: number = colour.deltaEJz(paint.colourjs);
+    // console.log({ name: paint.name, delta });
+    if (delta !== 1 && delta > largestDelta) {
+      largestDelta = delta;
+      furthestPaint = paint;
+    }
+  }
+  console.log({ largestDelta, furthestPaint });
+  return furthestPaint;
+}
 
 // export function findComplimentaryColour(colour: Color) {
 // colour.

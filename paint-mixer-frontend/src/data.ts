@@ -3,7 +3,7 @@ import Color from 'colorjs.io';
 import { PaintRecord, PaintData } from './types';
 import RGB, { rgbFromHexCode } from './utils/RGB';
 
-// const initRgbPlease = new RGB(0, 0, 0);
+// you could probably precompute all the closest colours....
 
 const rawData: PaintData = [
   {

@@ -1,6 +1,12 @@
 import { useState, Fragment } from 'react';
+import Color from 'colorjs.io';
+
 import { PaintData, PaintRecord } from '../types';
 import sortFunctions from '../utils/SortFunctions';
+import {
+  findMostSimilarPaintToColour,
+  findLeastSimilarPaintToColour,
+} from '../utils/ColourFunctions';
 import Paint from './Paint';
 import FilterButton from './FilterButton';
 import PaintSuggestion from './PaintSuggestion';
@@ -20,7 +26,7 @@ export default function PaintsList(props: { paintData: PaintData }) {
   // Some good custom hook candidates here
   // See this article from Kent C Dodds on how I could type that
   // https://kentcdodds.com/blog/wrapping-react-use-state-with-type-script
-  const [chosenColour, setColour] = useState<PaintRecord>();
+  const [chosenPaint, setPaint] = useState<PaintRecord>();
   const [selectedSorts, updateSort] = useState(sortOptions);
   const [searchRegex, updateSearchText] = useState(RegExp(''));
 
@@ -47,12 +53,29 @@ export default function PaintsList(props: { paintData: PaintData }) {
     (f) => selectedSorts[f]
   );
 
-  // when filters are added do those first, then sort the results
+  const paintSelected = (p: PaintRecord) => {
+    setPaint(p);
+  };
 
-  let filteredData = paintData.filter((p) => searchRegex.test(p.name));
+  const colourInputChanged = (e) => {
+    const colourjs = new Color(e.target.value);
+    const closestPaint = findMostSimilarPaintToColour(colourjs);
+    console.log(
+      `Selected ${e.target.value}, closest paint is ${closestPaint.name}.`
+    );
+    setPaint(closestPaint);
+  };
 
+  let filteredData = paintData;
+
+  // This is apparently an empty regex object, in FF.
+  // Search should come first, constrains data for further steps;
+  if (searchRegex.source !== '(?:)') {
+    filteredData = filteredData.filter((p) => searchRegex.test(p.name));
+  }
+
+  // when filters are added do those before sort
   if (requestedSort) {
-    // @ts-ignore
     filteredData = sortFunctions[requestedSort](filteredData);
   }
 
@@ -96,10 +119,20 @@ export default function PaintsList(props: { paintData: PaintData }) {
         </div> */}
       </div>
 
-      {chosenColour && (
+      {/* 
+        Make a colour input for selecting a colour 
+        It still needs styling or replacing with a third party package
+      */}
+      <input
+        type="color"
+        name="colour-picker"
+        id="colour-picker"
+        onChange={colourInputChanged}
+      />
+      {chosenPaint && (
         <PaintSuggestion
-          chosenColour={chosenColour}
-          resetSelection={() => setColour(undefined)}
+          chosenPaint={chosenPaint}
+          resetSelection={() => setPaint(undefined)}
         />
       )}
 
@@ -107,14 +140,7 @@ export default function PaintsList(props: { paintData: PaintData }) {
 
       <ul className="paint-list mt-4 mb-8">
         {filteredData.map((paint, i) => (
-          <Paint
-            key={`paint${i}`}
-            paint={paint}
-            onPaintClick={(p) => {
-              console.log(p);
-              setColour(p);
-            }}
-          />
+          <Paint key={`paint${i}`} paint={paint} onPaintClick={paintSelected} />
         ))}
       </ul>
     </>
