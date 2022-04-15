@@ -1,3 +1,5 @@
+import Color from 'colorjs.io';
+
 export interface RGB {
   r: number;
   g: number;
@@ -10,7 +12,7 @@ export type PaintRecord = {
   svg: string;
   hexCode: string;
   filePath: string;
-  rgb: RGB;
+  colourjs?: Color;
 };
 
 export type PaintData = Array<PaintRecord>;

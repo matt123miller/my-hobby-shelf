@@ -10,17 +10,25 @@ body {
   --heading-colour: #3694ff;
 }
 
-.paint-list {
+.paint-list,
+.paint-header {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-  grid-template-rows: repeat(auto-fit, minmax(150px, 1fr));
   grid-gap: 1rem;
   grid-auto-flow: dense;
-
   justify-items: center;
 }
 
-.paint-list > li {
+.paint-list {
+  grid-template-rows: repeat(auto-fit, minmax(150px, 1fr));
+}
+
+.paint-header {
+  grid-template-rows: minmax(150px, 1fr);
+}
+
+.paint-list > .paint,
+.paint-header > .paint {
   grid-column: span 1;
   grid-row: span 1;
   min-width: 150px;

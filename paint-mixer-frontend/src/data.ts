@@ -1,7 +1,10 @@
-import { PaintRecord } from './types';
-import RGB from './utils/RGB';
+/* eslint-disable import/no-named-default */
+import Color from 'colorjs.io';
+import { PaintRecord, PaintData } from './types';
 
-const rawData: PaintRecord[] = [
+// you could probably precompute all the closest colours....
+
+const rawData: PaintData = [
   {
     name: 'Nuln Oil',
     svg: 'https://www.games-workshop.com/resources/catalog/product/600x620/99189953017_shadeNulnOil.svg',
@@ -105,13 +108,6 @@ const rawData: PaintRecord[] = [
     svg: 'https://www.games-workshop.com/resources/catalog/product/600x620/99189956048_technicalValhallanBlizzard.svg',
     hexCode: '#E1E1E1',
     filePath: './paintimages/gw/Valhallan Blizzard.svg',
-    rgb: { r: 0, g: 0, b: 0 },
-  },
-  {
-    name: 'Stormshield',
-    svg: 'https://www.games-workshop.com/resources/catalog/product/600x620/99189956052_technicalStormShield.svg',
-    hexCode: '#d="991',
-    filePath: './paintimages/gw/Stormshield.svg',
     rgb: { r: 0, g: 0, b: 0 },
   },
   {
@@ -268,13 +264,7 @@ const rawData: PaintRecord[] = [
     filePath: './paintimages/gw/Agrax Earthshade Gloss.svg',
     rgb: { r: 0, g: 0, b: 0 },
   },
-  {
-    name: 'Ardcoat',
-    svg: 'https://www.games-workshop.com/resources/catalog/product/600x620/99189956050_technicalArdcoat.svg',
-    hexCode: '#d="991',
-    filePath: './paintimages/gw/Ardcoat.svg',
-    rgb: { r: 0, g: 0, b: 0 },
-  },
+
   {
     name: 'Caledor Sky',
     svg: 'https://www.games-workshop.com/resources/catalog/product/600x620/99189958058_airCaledorSky.svg',
@@ -653,13 +643,7 @@ const rawData: PaintRecord[] = [
     filePath: './paintimages/gw/Flesh Tearers Red.svg',
     rgb: { r: 0, g: 0, b: 0 },
   },
-  {
-    name: 'Lahmian Medium',
-    svg: 'https://www.games-workshop.com/resources/catalog/product/600x620/99189956049_technicalLahmianMedium.svg',
-    hexCode: '#d="991',
-    filePath: './paintimages/gw/Lahmian Medium.svg',
-    rgb: { r: 0, g: 0, b: 0 },
-  },
+
   {
     name: 'Terminatus Stone',
     svg: 'https://www.games-workshop.com/resources/catalog/product/600x620/99189958104_airTerminatusStone.svg',
@@ -751,25 +735,12 @@ const rawData: PaintRecord[] = [
     filePath: './paintimages/gw/Macragge Blue.svg',
     rgb: { r: 0, g: 0, b: 0 },
   },
-  {
-    name: 'Contrast Medium',
-    svg: 'https://www.games-workshop.com/resources/catalog/product/600x620/99189956051_technicalContrastMedium.svg',
-    hexCode: '#d="991',
-    filePath: './paintimages/gw/Contrast Medium.svg',
-    rgb: { r: 0, g: 0, b: 0 },
-  },
+
   {
     name: 'Troll Slayer Orange',
     svg: 'https://www.games-workshop.com/resources/catalog/product/600x620/99189958073_airTrollSlayerOrange.svg',
     hexCode: '#F16C23',
     filePath: './paintimages/gw/Troll Slayer Orange.svg',
-    rgb: { r: 0, g: 0, b: 0 },
-  },
-  {
-    name: 'Leadbelcher',
-    svg: 'https://www.games-workshop.com/resources/catalog/product/600x620/99189958068_airLeadbelcher.svg',
-    hexCode: '#',
-    filePath: './paintimages/gw/Leadbelcher.svg',
     rgb: { r: 0, g: 0, b: 0 },
   },
   {
@@ -805,13 +776,6 @@ const rawData: PaintRecord[] = [
     svg: 'https://www.games-workshop.com/resources/catalog/product/600x620/99189960031_contrastWarpLightning.svg',
     hexCode: '#00964E',
     filePath: './paintimages/gw/Warp Lightning.svg',
-    rgb: { r: 0, g: 0, b: 0 },
-  },
-  {
-    name: 'Iron Hands Steel',
-    svg: 'https://www.games-workshop.com/resources/catalog/product/600x620/99189958128_airIronHandsSteel.svg',
-    hexCode: '#',
-    filePath: './paintimages/gw/Iron Hands Steel.svg',
     rgb: { r: 0, g: 0, b: 0 },
   },
   {
@@ -1592,13 +1556,6 @@ const rawData: PaintRecord[] = [
     rgb: { r: 0, g: 0, b: 0 },
   },
   {
-    name: 'The Fang',
-    svg: 'https://www.games-workshop.com/resources/catalog/product/600x620/99189950032_baseTheFang.svg',
-    hexCode: '#',
-    filePath: './paintimages/gw/The Fang.svg',
-    rgb: { r: 0, g: 0, b: 0 },
-  },
-  {
     name: 'Russ Grey',
     svg: 'https://www.games-workshop.com/resources/catalog/product/600x620/99189951067_layerRussGrey.svg',
     hexCode: '#507085',
@@ -2271,13 +2228,6 @@ const rawData: PaintRecord[] = [
     rgb: { r: 0, g: 0, b: 0 },
   },
   {
-    name: 'Temple Guard Blue',
-    svg: 'https://www.games-workshop.com/resources/catalog/product/600x620/99189951020_layerTempleGuardBlue.svg',
-    hexCode: '#',
-    filePath: './paintimages/gw/Temple Guard Blue.svg',
-    rgb: { r: 0, g: 0, b: 0 },
-  },
-  {
     name: 'Kindleflame',
     svg: 'https://www.games-workshop.com/resources/catalog/product/600x620/99189952002_dryKindleflame.svg',
     hexCode: '#F69C82',
@@ -2298,16 +2248,13 @@ const rawData: PaintRecord[] = [
     filePath: './paintimages/gw/Wrack White.svg',
     rgb: { r: 0, g: 0, b: 0 },
   },
-]
-  .reduce((accumulator: PaintRecord[], paint, i) => {
-    if (!accumulator.find((p) => p.name === paint.name)) {
-      accumulator.push(paint);
-    }
-    return accumulator;
-  }, [])
-  .map((d) => {
-    d.rgb = RGB.fromHexCode(d.hexCode);
-    return d;
-  });
+].reduce((accumulator: PaintRecord[], paint: PaintRecord, i: number) => {
+  if (!accumulator.find((p) => p.name === paint.name)) {
+    // Do any extra formatting and parsing before adding to array.
+    paint.colourjs = new Color(paint.hexCode);
+    accumulator.push(paint);
+  }
+  return accumulator;
+}, []);
 
 export default rawData;

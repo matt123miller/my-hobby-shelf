@@ -1,50 +1,72 @@
-import RGB from './RGB';
+import Color from 'colorjs.io';
+import allPaints from '../data';
+import { PaintData, PaintRecord } from '../types';
 
-export function normaliseHexCode(hex: string) {
-  let hexColour: string = hex;
-  if (hexColour[0] === '#') {
-    hexColour = hexColour.slice(1);
-  }
-
-  if (hexColour.length === 3) {
-    hexColour = hexColour
-      .split('')
-      .map((h) => h + h)
-      .join('');
-  }
-  return hexColour;
-}
 /**
- *
+ * Because there's some strange colours chosen by colorio.js.deltaEJz sometimes
+ * maybe I need to investigate using an alternate colour space? Or another delta function?
+ * Even if it has some problems this is still much better!
  */
-export function compareColour(colourA: string, colourB: string) {
-  const a = normaliseHexCode(colourA);
-  const b = normaliseHexCode(colourB);
-  if (b.length === 6) {
-    const red = Math.abs(
-      parseInt(a.substr(0, 2), 16) - parseInt(b.substr(0, 2), 16)
-    );
-    const green = Math.abs(
-      parseInt(a.substr(2, 2), 16) - parseInt(b.substr(2, 2), 16)
-    );
-    const blue = Math.abs(
-      parseInt(a.substr(4, 2), 16) - parseInt(b.substr(4, 2), 16)
-    );
-    return red + green + blue;
-  }
-  return 9999; // what was this for?
-}
 
 /**
- * Returns an RGB colour that's theoretically opposite on the colour wheel in RGB space.
- * @param param0
+ * Relies on the colourjs.io `deltaEJz` function for finding whichever paint
+ * has the smallest, non-zero, delta to the provided colour. Non-zero because
+ * if it has a delta of 0 that's the same colour.
+ * @param colour
+ * Provide an instance of colorjs.io.
+ * Anything implementing `PaintRecord` will have a `colourjs` value attached
+ * with an instance already created for that specific paint.
  * @returns
+ * The closest paint to whatever colourjs.io instance you provide.
  */
-export function findComplimentaryColour({ r, g, b }: RGB) {
-  return new RGB(255 - r, 255 - g, 255 - b);
+export function findMostSimilarPaintToColour(colour: Color): PaintRecord {
+  let closestPaint: PaintRecord = allPaints[0];
+  let closestDelta: number = 1;
+
+  // loop all paints, compare to input colour
+  for (const paint of allPaints) {
+    const delta: number = colour.deltaEJz(paint.colourjs);
+    // console.log({ name: paint.name, delta });
+    if (delta !== 0 && delta < closestDelta) {
+      closestDelta = delta;
+      closestPaint = paint;
+    }
+  }
+  console.log({ closestDelta, closestPaint });
+  return closestPaint;
 }
 
-export function componentToHex(c: number): string {
-  const hex = c.toString(16);
-  return hex.padStart(2, '0');
+/**
+ * Relies on the colourjs.io `deltaEJz` function for finding whichever paint
+ * has the largest, non-1, delta to the provided colour. Non-1 because
+ * if it has a delta of 1 that's the same colour.
+ * @param colour
+ * Provide an instance of colorjs.io.
+ * Anything implementing `PaintRecord` will have a `colourjs` value attached
+ * with an instance already created for that specific paint.
+ * @returns
+ * The most different paint to whatever colourjs.io instance you provide.
+ * This should be the paint opposite on the colour wheel
+ */
+export function findLeastSimilarPaintToColour(colour: Color) {
+  let furthestPaint: PaintRecord = allPaints[0];
+  let largestDelta: number = 0;
+
+  // loop all paints, compare to input colour
+  for (const paint of allPaints) {
+    const delta: number = colour.deltaEJz(paint.colourjs);
+    // console.log({ name: paint.name, delta });
+    if (delta !== 1 && delta > largestDelta) {
+      largestDelta = delta;
+      furthestPaint = paint;
+    }
+  }
+  console.log({ largestDelta, furthestPaint });
+  return furthestPaint;
 }
+
+// export function findComplimentaryColour(colour: Color) {
+// colour.
+// }
+
+// Lets ignore everything below here, define exactly what we need and nothing more.

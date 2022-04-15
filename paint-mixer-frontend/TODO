@@ -7,7 +7,7 @@ Frontend:
     Main goals: 
         ☐ Blurb explaining the theory
             - RGB Additive colour model etc.  
-        ☐ Learn about hooks https://reactjs.org/docs/hooks-intro.html @started(20-08-25 19:25)
+        ✘ Learn about hooks https://reactjs.org/docs/hooks-intro.html @started(20-08-25 19:25) @cancelled(22-04-15 13:17) @wasted(1y33w1d17h52m1s)
         ✔ Select a colour and be shown the complimentary colour @started(20-08-25 20:07) @done(20-08-30 18:06) @lasted(4d21h59m54s)
             ✘ You can use css filters with invert() to do it super easy, but that doesn't let me learn about colour maths @cancelled(20-08-30 18:06)
             ✘ I've tried doing some wrap around maths on the rgb values which does change the values but it looks wrong @cancelled(20-08-30 18:06)
@@ -25,16 +25,16 @@ Frontend:
         - Leave it as is, so the gh-pages deploy works flawlessly
     ✔ Replace SVG images with something nicer. Border, bottom area coloured? @done(20-08-30 21:46)
         - good first pass
-    ☐ Create buttons for filtering @started(20-09-16 22:47)
+    ✔ Create buttons for filtering @started(20-09-16 22:47) @done(22-04-15 13:17) @lasted(1y30w14h30m11s)
     ✔ Create buttons for alphabetical sorting @done(20-08-30 23:21)
     ✔ Search box for paint names @done(20-09-01 19:58)
-        ☐ Style it @started(20-08-31 00:02)
+        ✔ Style it @started(20-08-31 00:02) @done(22-04-15 13:17) @lasted(1y32w3d13h15m17s)
         ✘  Style should resepect dark/light mode @cancelled(20-09-16 22:47)
         ✔ It should actually search @done(20-09-01 20:00)
-    ☐ Buttons for sorting colours black to white, white to black (sort on hex code) @started(20-09-16 22:47)
+    ✔ Buttons for sorting colours black to white, white to black (sort on hex code) @started(20-09-16 22:47) @done(22-04-15 13:17) @lasted(1y30w14h30m22s)
     ✔ Bring in more data @started(20-08-30 21:47) @done(20-08-30 21:52) @lasted(5m17s)
     ☐ More convincing header section
-        ☐ Colour boxes for chosen and complimentary @started(20-09-01 19:59)
+        ✔ Colour boxes for chosen and complimentary @started(20-09-01 19:59) @done(22-04-15 13:17) @lasted(1y32w1d17h18m27s)
         ✔ Gradient between 2 colours @started(20-09-01 19:59) @done(20-09-01 19:59) @lasted(48s)
     ✔ maake sure transition doesn't happen on page load @done(20-09-16 21:48)
 
