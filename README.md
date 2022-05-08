@@ -16,6 +16,16 @@ There are 2 npm projects in here though both are the same.
 - `cd` into either directory
 - `npm install`
 
+## TODO
+
+- Add more colours to complete the Citadel range
+- Add other brands of paints
+- When suggesting a complimentary colour also suggest the paint in the list closest to that colour
+- Picking a colour from a colour picker and/or from an uploaded image.
+- Some filtering and sorting options
+- Light/dark mode support
+- Refactor this increasingly messy code
+
 ## Deployment
 
 This project is deployed on github pages [and can be viewed here](https://matt123miller.github.io/paint-mixer-app/).
@@ -27,6 +37,8 @@ This project is deployed on github pages [and can be viewed here](https://matt12
 - `npm run deploy`
 
 ## Notes
+
+Relies on the [colourjs.io library](https://colorjs.io/)
 
 https://en.wikipedia.org/wiki/Complementary_colors
 
