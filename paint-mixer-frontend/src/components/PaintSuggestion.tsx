@@ -1,8 +1,10 @@
 import Paint from './Paint';
 import { PaintRecord } from '../types';
 import {
+  findComplimentaryColour,
   findMostSimilarPaintToColour,
   findLeastSimilarPaintToColour,
+  convertToSrgb,
 } from '../utils/ColourFunctions';
 
 type ColourSuggestionProps = {
@@ -12,8 +14,14 @@ type ColourSuggestionProps = {
 
 export default function ColourSuggestion(props: ColourSuggestionProps) {
   const { chosenPaint, resetSelection } = props;
+  const oppositeColour = findComplimentaryColour(chosenPaint.colourjs);
+  const oppositeRgb = convertToSrgb(oppositeColour);
 
-  const oppositePaint = findLeastSimilarPaintToColour(chosenPaint.colourjs);
+  // @ts-ignore
+  const oppositePaint: PaintRecord = {
+    name: 'Opposite Hue',
+    hexCode: oppositeRgb,
+  };
 
   return (
     <>
@@ -22,6 +30,7 @@ export default function ColourSuggestion(props: ColourSuggestionProps) {
           Reset
         </button>
       </div>
+
       <ul className="paint-header mt-4 mb-8">
         <Paint key="chosen-paint" paint={chosenPaint} onPaintClick={() => {}} />
         <Paint
