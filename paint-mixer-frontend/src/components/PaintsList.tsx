@@ -4,11 +4,10 @@ import Color from 'colorjs.io';
 import { PaintData, PaintRecord } from '../types';
 import sortFunctions from '../utils/SortFunctions';
 import {
+  findComplimentaryColour,
   findMostSimilarPaintToColour,
-  findLeastSimilarPaintToColour,
 } from '../utils/ColourFunctions';
 import Paint from './Paint';
-import FilterButton from './FilterButton';
 import PaintSuggestion from './PaintSuggestion';
 
 // This should handle various data filtering
@@ -58,12 +57,9 @@ export default function PaintsList(props: { paintData: PaintData }) {
   };
 
   const colourInputChanged = (e) => {
-    const colourjs = new Color(e.target.value);
-    const closestPaint = findMostSimilarPaintToColour(colourjs);
-    console.log(
-      `Selected ${e.target.value}, closest paint is ${closestPaint.name}.`
-    );
-    setPaint(closestPaint);
+    // const colourjs = new Color(e.target.value);
+    // const closestPaint = findMostSimilarPaintToColour(colourjs);
+    // setPaint(closestPaint);
   };
 
   let filteredData = paintData;
@@ -81,6 +77,35 @@ export default function PaintsList(props: { paintData: PaintData }) {
 
   return (
     <>
+      <div>
+        <details>
+          <summary>Info</summary>
+          <div>
+            <p>
+              This tool will help suggest a colour with a complimentary hue to
+              whatever you select. That is, a colour with a hue on the opposite
+              side of the colour wheel. Remember that saturation is how
+              "powerful" a specific hue is. For more information about colour
+              theory in miniature paint there is a
+              <a href="https://www.youtube.com/playlist?list=PLcdsbwBroEmBfSAKcqpwBKIrYyepHtHN9">
+                series of videos from Vince Vinturella
+              </a>
+              that deep dives each colour and a
+              <a href="https://www.youtube.com/watch?v=Pn4iFd7Heck">
+                video from Dana Howl
+              </a>
+              discussing colour in CMYK terms.
+            </p>
+            <p>
+              Colours at the extremes of value such as pure white or black and
+              extremely pale or dark versions of colours will struggle to
+              propose a reasonable opposite colour. This is because they lack
+              have either a very small or non-existent hue and therefore a
+              complimentary hue ends up with
+            </p>
+          </div>
+        </details>
+      </div>
       <div className="my-8 flex justify-center">
         <input
           className="rounded-lg border-2 px-2"

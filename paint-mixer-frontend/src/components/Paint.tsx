@@ -9,9 +9,11 @@ export default function Paint(props: PaintProps) {
   if (!paint) {
     return <> </>;
   }
-  const { name, hexCode } = paint;
-  // const style = {{ border: `${hexCode} 5px solid`, borderBottom: `${hexCode} 80px solid` }}
-  const style = { backgroundColor: hexCode };
+  const { name, colourjs, hexCode } = paint;
+  const style = {
+    backgroundColor: hexCode,
+  };
+
   return (
     <li
       className="paint max-w-sm p-2 shadow-lg rounded-md border-2 border-black"
@@ -22,7 +24,7 @@ export default function Paint(props: PaintProps) {
     >
       <div className="p-1 rounded-md border border-gray-400 bg-white">
         <div className="text-lg">{name}</div>
-        <div className="text-sm">{hexCode}</div>
+        {/* <div className="text-sm">{style.backgroundColor}</div> */}
       </div>
     </li>
   );

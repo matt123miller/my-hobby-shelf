@@ -2,11 +2,32 @@ import Color from 'colorjs.io';
 import allPaints from '../data';
 import { PaintData, PaintRecord } from '../types';
 
-/**
- * Because there's some strange colours chosen by colorio.js.deltaEJz sometimes
- * maybe I need to investigate using an alternate colour space? Or another delta function?
- * Even if it has some problems this is still much better!
- */
+const lchWhite = new Color('lch', [100, 150, 360]);
+
+export function findComplimentaryColour(colour: Color): Color {
+  // console.log(lchWhite);
+
+  // return colour;
+
+  const lch = colour.to('lch');
+  // // subtract the colour hue from white.
+  lch.lch.hue = lchWhite.hue - lch.lch.hue;
+  // console.log(lch);
+  // console.log(lch.srgb.toString());
+  return lch;
+}
+
+export function convertToSrgb(colour: Color) {
+  const [r, g, b] = colour.to('srgb').coords;
+  const precise = (num) => num.toPrecision(4);
+  const rgbString = `rgb(
+    ${precise(r * 100)}%, 
+    ${precise(g * 100)}%, 
+    ${precise(b * 100)}%
+  )`;
+  console.log({ oppositeColour: rgbString });
+  return rgbString;
+}
 
 /**
  * Relies on the colourjs.io `deltaEJz` function for finding whichever paint
