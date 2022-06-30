@@ -62,7 +62,7 @@ export default function PaintsList(props: { paintData: PaintData }) {
     // setPaint(closestPaint);
   };
 
-  let filteredData = paintData;
+  let filteredData = paintData; // .slice(0, 6);
 
   // This is apparently an empty regex object, in FF.
   // Search should come first, constrains data for further steps;
@@ -99,9 +99,8 @@ export default function PaintsList(props: { paintData: PaintData }) {
             <p>
               Colours at the extremes of value such as pure white or black and
               extremely pale or dark versions of colours will struggle to
-              propose a reasonable opposite colour. This is because they lack
-              have either a very small or non-existent hue and therefore a
-              complimentary hue ends up with
+              propose a reasonable opposite colour. This is because they have
+              either a very small or non-existent hue.
             </p>
           </div>
         </details>
