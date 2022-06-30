@@ -1,19 +1,10 @@
 import Color from 'colorjs.io';
 import allPaints from '../data';
-import { PaintData, PaintRecord } from '../types';
-
-const lchWhite = new Color('lch', [100, 150, 360]);
+import { PaintRecord } from '../types';
 
 export function findComplimentaryColour(colour: Color): Color {
-  // console.log(lchWhite);
-
-  // return colour;
-
   const lch = colour.to('lch');
-  // // subtract the colour hue from white.
-  lch.lch.hue = lchWhite.hue - lch.lch.hue;
-  // console.log(lch);
-  // console.log(lch.srgb.toString());
+  lch.lch.hue += 180;
   return lch;
 }
 

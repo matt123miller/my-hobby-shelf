@@ -4,7 +4,8 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "predeploy": "rm -rf build && npm run build",
+    "clean": "rm -rf build",
+    "predeploy": "npm run clean && npm run build",
     "deploy": "gh-pages -d build",
     "start": "craco start",
     "build": "craco build",
