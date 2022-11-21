@@ -3,3 +3,4 @@
 @tailwind utilities;
 
 @import "../components/atoms/atoms.css";
+@import "../components/molecules/molecules.css";
