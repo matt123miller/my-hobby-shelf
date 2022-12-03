@@ -10,6 +10,7 @@ export interface RGB {
 }
 
 export type PaintRecord = {
+  range?: string;
   name: string;
   svg: string;
   hexCode: string;

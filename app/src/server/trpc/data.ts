@@ -2253,6 +2253,8 @@ const rawData: PaintData = [
   if (!accumulator.find((p) => p.name === paint.name)) {
     // Do any extra formatting and parsing before adding to array.
     paint.colourjs = new Color(paint.hexCode);
+    // random for now
+    paint.range = ["contrast", "layer", "base"][Math.floor(Math.random() * 3)];
     accumulator.push(paint);
   }
   return accumulator;

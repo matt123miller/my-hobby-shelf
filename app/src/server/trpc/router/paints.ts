@@ -19,11 +19,11 @@ export const paintRouter = router({
         };
       }
 
-      await new Promise<void>((resolve, reject) => {
-        setTimeout(() => {
-          resolve();
-        }, 5000);
-      });
+      // await new Promise<void>((resolve, reject) => {
+      //   setTimeout(() => {
+      //     resolve();
+      //   }, 5000);
+      // });
 
       const results = allPaints.filter((p) =>
         p.name.toLowerCase().includes(input.name)

@@ -1,4 +1,5 @@
-import { LoadingIcon } from "@components/atoms";
+import { LoadingIcon } from "components/atoms";
+import { PaintCard } from "components/molecules";
 import { type NextPage } from "next";
 import Head from "next/head";
 
@@ -9,15 +10,16 @@ const Home: NextPage = () => {
     name: "flesh",
   });
 
-  if (isLoading) {
-    return <LoadingIcon />;
-  }
   if (error) {
     return (
       <div>
         Error occured: <>{error}</>
       </div>
     );
+  }
+
+  if (isLoading) {
+    return <LoadingIcon />;
   }
 
   return (
@@ -30,7 +32,15 @@ const Home: NextPage = () => {
       <main className="flex min-h-screen flex-col items-center justify-center bg-gradient-to-b from-[#2e026d] to-[#15162c]">
         <p className="text-purple text-white">
           {data ? (
-            <code>{JSON.stringify(data.results, null, 2)}</code>
+            <ul>
+              {data.results.map((paint) => {
+                return (
+                  <li key={paint.name}>
+                    <PaintCard paint={paint} />
+                  </li>
+                );
+              })}
+            </ul>
           ) : (
             "Loading tRPC query..."
           )}
