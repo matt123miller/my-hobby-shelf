@@ -2,6 +2,7 @@ import type { ClassValue } from "clsx";
 import clsx from "clsx";
 
 export type CardProps = React.PropsWithChildren & {
+  wrappingElem?: "li" | "div"; // unsure what to do with this info
   cardClasses?: ClassValue;
   id: string;
   name: string;
@@ -10,21 +11,6 @@ export type CardProps = React.PropsWithChildren & {
 
 const defaultCardClasses =
   "col-span-1 flex flex-col divide-y divide-gray-200 rounded-lg bg-white text-center shadow";
-
-export const ListItemCard = ({
-  name,
-  id,
-  onClick,
-  children,
-  cardClasses,
-}: CardProps) => {
-  const classes = clsx(cardClasses, defaultCardClasses);
-  return (
-    <li className={classes} onClick={onClick} id={id}>
-      <div className="flex flex-1 flex-col p-8">{children}</div>
-    </li>
-  );
-};
 
 export const Card = ({
   name,
@@ -35,8 +21,8 @@ export const Card = ({
 }: CardProps) => {
   const classes = clsx(cardClasses, defaultCardClasses);
   return (
-    <div className={classes} onClick={onClick} id={id}>
+    <article className={classes} onClick={onClick} id={id}>
       <div className="flex flex-1 flex-col p-8">{children}</div>
-    </div>
+    </article>
   );
 };
