@@ -1,6 +1,6 @@
+import { LoadingIcon } from "@components/atoms";
 import { type NextPage } from "next";
 import Head from "next/head";
-import Link from "next/link";
 
 import { trpc } from "../utils/trpc";
 
@@ -10,7 +10,7 @@ const Home: NextPage = () => {
   });
 
   if (isLoading) {
-    return <div>Loading...</div>;
+    return <LoadingIcon />;
   }
   if (error) {
     return (

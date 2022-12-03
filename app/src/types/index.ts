@@ -18,3 +18,16 @@ export type PaintRecord = {
 };
 
 export type PaintData = Array<PaintRecord>;
+
+export type SharedProps<T = unknown> = React.PropsWithChildren<
+  T & {
+    className?: ClassValue;
+  }
+>;
+
+export type SharedInputPropts<T> = SharedProps<
+  T & {
+    id?: string;
+    name?: string;
+  }
+>;
