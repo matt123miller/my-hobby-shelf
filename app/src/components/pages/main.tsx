@@ -6,7 +6,7 @@ import Head from "next/head";
 
 import { trpc } from "../../utils/trpc";
 
-export type MainPageProps = SharedProps<{}>;
+export type MainPageProps = SharedProps<unknown>;
 
 export const Main = ({ children, className }: MainPageProps) => {
   const { isLoading, data, error } = trpc.paints.search.useQuery({
