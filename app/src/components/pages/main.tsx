@@ -1,21 +1,25 @@
 import { LoadingIcon } from "@components/atoms";
 import { PaintCard, PaintList } from "@components/molecules";
-import type { SharedProps } from "@typing";
+import type { PaintRecord, SharedProps } from "@typing";
 
 import { trpc } from "../../utils/trpc";
 
-export type MainPageProps = SharedProps;
+export type MainPageProps = SharedProps<{
+  initialData: PaintRecord[];
+}>;
 
-export const Main = ({ children, className }: MainPageProps) => {
+export const Main = ({ children, className, initialData }: MainPageProps) => {
   const { isLoading, data, error } = trpc.paints.search.useQuery({
     name: "",
     sortDir: "desc",
     sortField: "name",
   });
 
+  console.log(initialData);
+
   if (error) {
     return (
-      <h1>
+      <h1 className="text-white">
         Error occured: <>{error.message}</>
       </h1>
     );

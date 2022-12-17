@@ -2252,7 +2252,7 @@ export const rawData: PaintRecord[] = [
   // Remove duplicate paints (via name) and assign a colorjs.io instance to each.
   if (!accumulator.find((p) => p.name === paint.name)) {
     // Do any extra formatting and parsing before adding to array.
-    paint.colourjs = new Color(paint.hexCode);
+    // paint.colourjs = new Color(paint.hexCode);
     // random for now
     paint.range = ["contrast", "layer", "base"][Math.floor(Math.random() * 3)];
     accumulator.push(paint);
