@@ -21,11 +21,11 @@ export const paintRouter = router({
     .query(async ({ input }) => {
       const { name, sortField, sortDir } = input;
 
-      // await new Promise<void>((resolve, reject) => {
-      //   setTimeout(() => {
-      //     resolve();
-      //   }, 5000);
-      // });
+      await new Promise<void>((resolve, reject) => {
+        setTimeout(() => {
+          resolve();
+        }, 2000);
+      });
 
       // filter all paints that include name
       let results = allPaints.filter((paint) =>

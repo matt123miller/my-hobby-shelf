@@ -3,7 +3,7 @@ import clsx from "clsx";
 
 export type LoadingIconProps = SharedProps;
 
-export const LoadingIcon = (props: LoadingIconProps) => {
+export const LoadingIcon = ({ className }: LoadingIconProps) => {
   // Paint brush icon
   return (
     <svg
@@ -12,7 +12,7 @@ export const LoadingIcon = (props: LoadingIconProps) => {
       viewBox="0 0 24 24"
       strokeWidth={1.5}
       stroke="currentColor"
-      className={clsx("h-6 w-6 motion-safe:animate-wiggle", props.className)}
+      className={clsx("h-6 w-6 motion-safe:animate-wiggle", className)}
     >
       <path
         strokeLinecap="round"
