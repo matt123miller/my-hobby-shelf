@@ -17,20 +17,25 @@ export const Main = ({ children, className }: MainPageProps) => {
 
   if (error) {
     return (
-      <div>
-        Error occured: <>{error.message}</>
-      </div>
+      <main className="flex min-h-screen flex-col items-center justify-center bg-gradient-to-b from-[#2e026d] to-[#15162c]">
+        <h1>
+          Error occured: <>{error.message}</>
+        </h1>
+      </main>
     );
   }
 
   if (isLoading) {
-    return <LoadingIcon />;
+    return (
+      <main className="flex min-h-screen flex-col items-center justify-center bg-gradient-to-b from-[#2e026d] to-[#15162c]">
+        <LoadingIcon className="h-24 w-24 text-white" />
+      </main>
+    );
   }
 
   return (
     <main className="flex min-h-screen flex-col items-center justify-center bg-gradient-to-b from-[#2e026d] to-[#15162c]">
       <p className="m-12 text-white">Main Page</p>
-
       {data ? (
         <PaintList paints={data.results}></PaintList>
       ) : (
