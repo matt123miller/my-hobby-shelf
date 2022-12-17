@@ -13,7 +13,7 @@ const Home: NextPage = () => {
   if (error) {
     return (
       <div>
-        Error occured: <>{error}</>
+        Error occured: <>{error.message}</>
       </div>
     );
   }
@@ -32,15 +32,7 @@ const Home: NextPage = () => {
       <main className="flex min-h-screen flex-col items-center justify-center bg-gradient-to-b from-[#2e026d] to-[#15162c]">
         <p className="text-purple text-white">
           {data ? (
-            <ul>
-              {data.results.map((paint) => {
-                return (
-                  <li key={paint.name}>
-                    <PaintCard paint={paint} />
-                  </li>
-                );
-              })}
-            </ul>
+            <PaintList paints={data.results}></PaintList>
           ) : (
             "Loading tRPC query..."
           )}
