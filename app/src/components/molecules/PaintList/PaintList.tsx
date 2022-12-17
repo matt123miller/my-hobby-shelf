@@ -6,14 +6,14 @@ export type PaintListProps = SharedProps<{
 }>;
 export const PaintList = ({ paints = [] }: PaintListProps) => {
   return (
-    <ul>
+    <div className="paint-grid grid w-full content-center gap-4 p-8">
       {paints.map((paint) => {
         return (
-          <li key={paint.name}>
+          <div key={paint.name}>
             <PaintCard paint={paint} />
-          </li>
+          </div>
         );
       })}
-    </ul>
+    </div>
   );
 };

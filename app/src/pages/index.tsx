@@ -32,13 +32,13 @@ const Home: NextPage = () => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <main className="flex min-h-screen flex-col items-center justify-center bg-gradient-to-b from-[#2e026d] to-[#15162c]">
-        <p className="text-purple text-white">
-          {data ? (
-            <PaintList paints={data.results}></PaintList>
-          ) : (
-            "Loading tRPC query..."
-          )}
-        </p>
+        <p className="m-12 text-white">Intro content?</p>
+
+        {data ? (
+          <PaintList paints={data.results}></PaintList>
+        ) : (
+          "Loading tRPC query..."
+        )}
       </main>
     </>
   );

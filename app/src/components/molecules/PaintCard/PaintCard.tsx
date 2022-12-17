@@ -9,7 +9,7 @@ export type PaintCardProps = SharedProps<{
 export const PaintCard = ({ paint, children, className }: PaintCardProps) => {
   return (
     <Card
-      className={clsx("min-w-xl max-w-6xl", className)}
+      className={clsx("min-h-full max-w-xs", className)}
       id={paint.name}
       name={paint.name}
     >

@@ -4,3 +4,17 @@
 
 @import "../components/atoms/atoms.css";
 @import "../components/molecules/molecules.css";
+
+/* Responsive card grid layout */
+.paint-grid {
+  grid-template-columns: repeat(
+    /* left over children of the final row fill in columns until no children left */
+      auto-fill,
+    /* 
+      Respopnsively scaled grid columns
+      min - Smallest between 150px and 24rem from the tailwind maxWidth theme value 
+      max - 1fr
+    */
+      minmax(min(theme("width.36"), theme("width.48")), 1fr)
+  );
+}
