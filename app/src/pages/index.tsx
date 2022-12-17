@@ -8,6 +8,8 @@ import { trpc } from "../utils/trpc";
 const Home: NextPage = () => {
   const { isLoading, data, error } = trpc.paints.search.useQuery({
     name: "flesh",
+    sortDir: "desc",
+    sortField: "name",
   });
 
   if (error) {
