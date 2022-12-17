@@ -10,7 +10,7 @@ export type MainPageProps = SharedProps<{}>;
 
 export const Main = ({ children, className }: MainPageProps) => {
   const { isLoading, data, error } = trpc.paints.search.useQuery({
-    name: "flesh",
+    name: "",
     sortDir: "desc",
     sortField: "name",
   });
