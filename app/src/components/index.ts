@@ -1,3 +1,2 @@
-const a = 1;
-
-export {};
+export * from "./atoms";
+export * from "./molecules";

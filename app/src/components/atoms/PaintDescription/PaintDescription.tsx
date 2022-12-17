@@ -1,5 +1,5 @@
 import clsx from "clsx";
-import type { PaintRecord, SharedProps } from "types/index";
+import type { PaintRecord, SharedProps } from "@typing";
 
 export type PaintDescriptionProps = SharedProps<{
   paint: PaintRecord;

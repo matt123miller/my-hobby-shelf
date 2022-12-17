@@ -18,8 +18,6 @@ export type PaintRecord = {
   colourjs?: Color;
 };
 
-export type PaintData = Array<PaintRecord>;
-
 export type SharedProps<T = unknown> = React.PropsWithChildren<
   T & {
     className?: ClassValue;

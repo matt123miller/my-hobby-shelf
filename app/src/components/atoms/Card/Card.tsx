@@ -1,6 +1,6 @@
 import type { ClassValue } from "clsx";
 import clsx from "clsx";
-import type { SharedProps } from "types/index";
+import type { SharedProps } from "@typing/index";
 
 export type CardProps = SharedProps<{
   wrappingElem?: "li" | "div"; // unsure what to do with this info

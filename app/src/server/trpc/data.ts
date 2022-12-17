@@ -1,10 +1,10 @@
 /* eslint-disable import/no-named-default */
 import Color from "colorjs.io";
-import type { PaintRecord, PaintData } from "../../types";
+import type { PaintRecord } from "@typing/index";
 
 // you could probably precompute all the closest colours....
 
-const rawData: PaintData = [
+export const rawData: PaintRecord[] = [
   {
     name: "Nuln Oil",
     svg: "https://www.games-workshop.com/resources/catalog/product/600x620/99189953017_shadeNulnOil.svg",
@@ -2259,5 +2259,3 @@ const rawData: PaintData = [
   }
   return accumulator;
 }, []);
-
-export default rawData;

@@ -2,7 +2,8 @@ import { z } from "zod";
 
 import { router, publicProcedure } from "../trpc";
 
-import allPaints from "../data";
+import { rawData as allPaints } from "../data";
+import type { PaintRecord } from "@typing";
 
 export const paintRouter = router({
   list: publicProcedure.query(() => allPaints),

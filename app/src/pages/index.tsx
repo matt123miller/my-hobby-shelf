@@ -1,5 +1,5 @@
-import { LoadingIcon } from "components/atoms";
-import { PaintCard } from "components/molecules";
+import { LoadingIcon } from "@components/atoms";
+import { PaintCard, PaintList } from "@components/molecules";
 import { type NextPage } from "next";
 import Head from "next/head";
 

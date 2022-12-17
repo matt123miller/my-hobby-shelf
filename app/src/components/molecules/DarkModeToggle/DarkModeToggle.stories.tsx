@@ -10,7 +10,7 @@ export default {
    * See https://storybook.js.org/docs/react/configure/overview#configure-story-loading
    * to learn how to generate automatic titles
    */
-  title: "Dark Mode Toggle",
+  title: "Molecules/Dark Mode Toggle",
   component: DarkModeToggle,
 } as ComponentMeta<typeof DarkModeToggle>;
 

@@ -2,7 +2,7 @@ import React from "react";
 import type { ComponentStory, ComponentMeta } from "@storybook/react";
 
 import { PaintDescription } from "./PaintDescription";
-import Paints from "../../../server/trpc/data";
+import { rawData as allPaints } from "../../../server/trpc/data";
 
 import type { PaintDescriptionProps } from "./PaintDescription";
 import type { PaintRecord } from "types";
@@ -12,7 +12,7 @@ export default {
    * See https://storybook.js.org/docs/react/configure/overview#configure-story-loading
    * to learn how to generate automatic titles
    */
-  title: "Paint Description",
+  title: "Atoms/Paint Description",
   component: PaintDescription,
 } as ComponentMeta<typeof PaintDescription>;
 
@@ -23,7 +23,8 @@ const Template: ComponentStory<typeof PaintDescription> = (args) => (
 
 export const DefaultPaintDescription = Template.bind({});
 
-const randomPaint = Paints[Math.floor(Math.random() * (Paints.length - 1))];
+const randomPaint =
+  allPaints[Math.floor(Math.random() * (allPaints.length - 1))];
 
 DefaultPaintDescription.args = {
   paint: randomPaint,

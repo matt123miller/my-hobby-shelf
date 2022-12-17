@@ -10,7 +10,7 @@ export default {
    * See https://storybook.js.org/docs/react/configure/overview#configure-story-loading
    * to learn how to generate automatic titles
    */
-  title: "Colour Block",
+  title: "Atoms/Colour Block",
   component: ColourBlock,
 } as ComponentMeta<typeof ColourBlock>;
 

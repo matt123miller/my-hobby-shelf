@@ -1,5 +1,6 @@
-import { Card, ColourBlock, PaintDescription } from "components/atoms";
-import type { PaintRecord, SharedProps } from "types";
+import clsx from "clsx";
+import { Card, ColourBlock, PaintDescription } from "@components/atoms";
+import type { PaintRecord, SharedProps } from "@typing/index";
 
 export type PaintCardProps = SharedProps<{
   paint: PaintRecord;
@@ -7,7 +8,11 @@ export type PaintCardProps = SharedProps<{
 
 export const PaintCard = ({ paint, children, className }: PaintCardProps) => {
   return (
-    <Card className="min-w-xl max-w-6xl" id={paint.name} name={paint.name}>
+    <Card
+      className={clsx("min-w-xl max-w-6xl", className)}
+      id={paint.name}
+      name={paint.name}
+    >
       <PaintDescription className="text-black" paint={paint}></PaintDescription>
       <ColourBlock colour={paint.hexCode}></ColourBlock>
     </Card>

@@ -10,7 +10,7 @@ export default {
    * See https://storybook.js.org/docs/react/configure/overview#configure-story-loading
    * to learn how to generate automatic titles
    */
-  title: "Card",
+  title: "Atoms/Card",
   component: Card,
 } as ComponentMeta<typeof Card>;
 
