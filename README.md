@@ -1,6 +1,6 @@
 # paint-mixer-app
 
-## [View a WIP version here](https://matt123miller.github.io/paint-mixer-app/).
+## [View a WIP version here](https://paints.m11r.dev/).
 
 There's 2 folders.
 
@@ -28,8 +28,7 @@ There are 2 npm projects in here though both are the same.
 
 ## Deployment
 
-This project is deployed on github pages [and can be viewed here](https://matt123miller.github.io/paint-mixer-app/).
-
+This project is deployed on Vercel and the frontend [can be viewed here](https://paints.m11r.dev/)
 ### Process
 
 - Ensure your changes are all committed and merged into master.
