@@ -4,18 +4,14 @@ import type { PaintRecord, SharedProps } from "@typing";
 
 import { trpc } from "../../utils/trpc";
 
-export type MainPageProps = SharedProps<{
-  initialData: PaintRecord[];
-}>;
+export type MainPageProps = SharedProps;
 
-export const Main = ({ children, className, initialData }: MainPageProps) => {
+export const Main = ({ children, className }: MainPageProps) => {
   const { isLoading, data, error } = trpc.paints.search.useQuery({
     name: "",
-    sortDir: "desc",
-    sortField: "name",
+    // sortDir: "desc",
+    // sortField: "name",
   });
-
-  console.log(initialData);
 
   if (error) {
     return (

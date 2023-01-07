@@ -14,8 +14,8 @@ export const Card = ({ name, id, onClick, children, className }: CardProps) => {
 
   const classes = clsx(className, defaultCardClasses);
   return (
-    <article className={classes} onClick={onClick} id={id}>
+    <section className={classes} onClick={onClick} id={id}>
       <div className="flex flex-1 flex-col p-4">{children}</div>
-    </article>
+    </section>
   );
 };
