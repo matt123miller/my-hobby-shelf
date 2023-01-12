@@ -1,8 +1,9 @@
 import clsx from "clsx";
-import type { PaintRecord, SharedProps } from "@typing";
+import type { SharedProps } from "@typing";
+import type { Paint } from "@prisma/client";
 
 export type PaintDescriptionProps = SharedProps<{
-  paint: PaintRecord;
+  paint: Paint;
 }>;
 
 export const PaintDescription = ({
@@ -12,7 +13,7 @@ export const PaintDescription = ({
   return (
     <div className={clsx("", className)}>
       <p>{paint.name}</p>
-      <p>{paint.range}</p>
+      {/* <p>{paint.range}</p> */}
       <p>{paint.hexCode}</p>
     </div>
   );

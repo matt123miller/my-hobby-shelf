@@ -1,9 +1,10 @@
 import clsx from "clsx";
 import { Card, ColourBlock, PaintDescription } from "@components/atoms";
-import type { PaintRecord, SharedProps } from "@typing/index";
+import type { SharedProps } from "@typing/index";
+import type { Paint } from "@prisma/client";
 
 export type PaintCardProps = SharedProps<{
-  paint: PaintRecord;
+  paint: Paint;
 }>;
 
 export const PaintCard = ({ paint, children, className }: PaintCardProps) => {

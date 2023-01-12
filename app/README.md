@@ -17,3 +17,7 @@ https://www.npmjs.com/package/use-dark-mode but forked by @fisch0920/use-dark-mo
 ## TODO:
 
 - Fix storybook files to use CSF 3 with nicer es6 exports https://storybook.js.org/docs/7.0/react/api/csf
+
+## Resources
+
+https://www.alanzucconi.com/2015/09/30/colour-sorting/
