@@ -6,15 +6,23 @@ export type CardProps = SharedProps<{
   id: string;
   name: string;
   onClick?: (event: React.MouseEvent<HTMLElement>) => unknown;
+  style: { [key: string]: string };
 }>;
 
-export const Card = ({ name, id, onClick, children, className }: CardProps) => {
+export const Card = ({
+  name,
+  id,
+  onClick,
+  children,
+  className,
+  style,
+}: CardProps) => {
   const defaultCardClasses =
-    "divide-y divide-gray-200 rounded-lg bg-white text-center shadow";
+    "divide-y divide-gray-200 rounded-lg text-center shadow";
 
   const classes = clsx(className, defaultCardClasses);
   return (
-    <section className={classes} onClick={onClick} id={id}>
+    <section style={style} className={classes} onClick={onClick} id={id}>
       <div className="flex flex-1 flex-col p-4">{children}</div>
     </section>
   );

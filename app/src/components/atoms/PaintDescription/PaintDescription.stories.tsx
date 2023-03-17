@@ -2,7 +2,7 @@ import React from "react";
 import type { ComponentStory, ComponentMeta } from "@storybook/react";
 
 import { PaintDescription } from "./PaintDescription";
-import { rawData as allPaints } from "../../../server/trpc/data";
+import { allPaints } from "../../../../prisma/data";
 
 import type { PaintDescriptionProps } from "./PaintDescription";
 import type { PaintRecord } from "types";
