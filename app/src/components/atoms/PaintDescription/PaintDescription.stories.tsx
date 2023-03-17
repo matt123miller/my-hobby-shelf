@@ -4,9 +4,6 @@ import type { ComponentStory, ComponentMeta } from "@storybook/react";
 import { PaintDescription } from "./PaintDescription";
 import { allPaints } from "../../../../prisma/data";
 
-import type { PaintDescriptionProps } from "./PaintDescription";
-import type { PaintRecord } from "types";
-
 export default {
   /* 👇 The title prop is optional.
    * See https://storybook.js.org/docs/react/configure/overview#configure-story-loading
