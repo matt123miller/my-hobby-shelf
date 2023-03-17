@@ -1,14 +1,14 @@
 import { prisma } from "../src/server/db/client";
-import { rawData } from "./data";
+import { allPaints } from "./data";
 
 async function main() {
-  const data = rawData.map((paint) => ({
+  const data = allPaints.map((paint) => ({
     name: paint.name,
     hexCode: paint.hexCode,
     // range: "",
   }));
 
-  return prisma.paint.createMany({
+  await prisma.paint.createMany({
     data,
   });
 }

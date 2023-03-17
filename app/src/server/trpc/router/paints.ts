@@ -3,7 +3,6 @@ import type { Paint, Prisma } from "@prisma/client";
 
 import { router, publicProcedure } from "../trpc";
 
-import { rawData as allPaints } from "../data";
 import type { PaintRecord } from "@typing";
 
 export const SORT_OPTIONS = ["colour", "name"] as const;
@@ -45,7 +44,3 @@ export const paintRouter = router({
       };
     }),
 });
-
-function ListRoute() {
-  return allPaints; // what does this look like on the front end?
-}

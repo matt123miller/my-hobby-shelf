@@ -11,6 +11,7 @@
     "start": "next start",
     "storybook": "start-storybook -p 6006 -s ./public",
     "build-storybook": "build-storybook -s ./public",
+    "db-clear": "NODE_ENV=development tsx prisma/clear.ts",
     "db-seed": "NODE_ENV=development prisma db seed"
   },
   "prisma": {

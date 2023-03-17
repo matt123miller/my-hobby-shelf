@@ -1,6 +1,9 @@
 import type React from "react";
 import type { ClassValue } from "clsx";
 import type Color from "colorjs.io";
+import type { Paint as PaintRecord } from "@prisma/client";
+
+export type ColourSpace = "lab";
 
 export interface RGB {
   r: number;
@@ -9,12 +12,10 @@ export interface RGB {
   toString(): string;
 }
 
-export type PaintRecord = {
+export type Paint = Omit<PaintRecord, "id" | "createdAt" | "updatedAt">;
+
+export type ExtendedPaint = Paint & {
   range?: string;
-  name: string;
-  svg: string;
-  hexCode: string;
-  filePath: string;
   colourjs?: Color;
 };
 
