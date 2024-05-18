@@ -1,7 +1,6 @@
 /* eslint-disable import/no-named-default */
-import Color from "colorjs.io";
-import { ParseColourInfo } from "utils/colors";
-import type { ExtendedPaint, Paint } from "../src/types/index";
+import { parseColourInfo } from "utils/colors";
+import type { ExtendedPaint } from "../src/types/index";
 
 // you could probably precompute all the closest colours....
 // Or presort the array by hue, saturation, lightness, add a sort field for each
@@ -1302,7 +1301,7 @@ const _citadelPaints: ExtendedPaint[] = [
   // Assign a random paint range to each paint.
   paint.range = ["contrast", "layer", "base"][Math.floor(Math.random() * 3)];
 
-  paint = ParseColourInfo(paint);
+  paint = parseColourInfo(paint);
 
   accumulator.push(paint);
 
