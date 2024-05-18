@@ -6,7 +6,7 @@ import type { ExtendedPaint } from "../src/types/index";
 // Or presort the array by hue, saturation, lightness, add a sort field for each
 // and then the DB can search those values
 
-const _citadelPaints: ExtendedPaint[] = [
+const _citadelPaints = [
   {
     name: "Nuln Oil",
     hexCode: "#101010",

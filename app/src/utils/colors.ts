@@ -1,13 +1,24 @@
+import type { ExtendedPaint, Paint } from "@typing";
 import Color from "colorjs.io";
-import type { Paint, ExtendedPaint } from "@typing";
-import { ColourSpace } from "@typing";
+
+const unwrapCoord = (coord: number | undefined): number => {
+  if (coord === undefined || Number.isNaN(coord)) {
+    // better than nothing for now
+    return 0;
+  }
+  return Number(coord.toFixed(3));
+};
 
 export function parseColourInfo(paint: Paint): ExtendedPaint {
-  const parsed = Color.parse(paint.hexCode);
-
-  const colourjs = new Color("lab", parsed.coords, 1);
+  const colourjs = new Color(paint.hexCode);
+  // const colourjs = new Color(paint.hexCode).to('lch');
 
   (paint as ExtendedPaint).colourjs = colourjs;
+  paint.luminance = unwrapCoord(colourjs.lch.l);
+  paint.chroma = unwrapCoord(colourjs.lch.c);
+  paint.hue = unwrapCoord(colourjs.lch.h);
+
+  // console.log(paint);
 
   return paint;
 }

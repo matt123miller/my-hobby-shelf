@@ -22,9 +22,9 @@ model Paint {
   id         String   @id @default(cuid())
   name       String
   hexCode    String
-  hue        String
-  chroma     String
-  luminance  String
+  hue        Float
+  chroma     Float
+  luminance  Float
   createdAt  DateTime @default(now())
   updatedAt  DateTime @updatedAt
 }
