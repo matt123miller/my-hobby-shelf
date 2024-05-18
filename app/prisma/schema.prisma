@@ -2,13 +2,13 @@
 // learn more about it in the docs: https://pris.ly/d/prisma-schema
 
 generator client {
-  provider = "prisma-client-js"
+  provider        = "prisma-client-js"
   previewFeatures = ["referentialIntegrity"]
 }
 
 datasource db {
-  provider = "mysql"
-  url = env("DATABASE_URL")
+  provider = "postgresql"
+  url          = env("DB_URL")
   relationMode = "prisma"
 }
 
@@ -19,9 +19,12 @@ model Example {
 }
 
 model Paint {
-  id        String   @id @default(cuid())
-  name      String 
-  hexCode   String
-  createdAt DateTime @default(now())
-  updatedAt DateTime @updatedAt
+  id         String   @id @default(cuid())
+  name       String
+  hexCode    String
+  hue        String
+  chroma     String
+  luminance  String
+  createdAt  DateTime @default(now())
+  updatedAt  DateTime @updatedAt
 }
