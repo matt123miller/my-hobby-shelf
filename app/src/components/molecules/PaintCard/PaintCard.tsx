@@ -1,14 +1,14 @@
-import clsx from "clsx";
-import { Card, ColourBlock, PaintDescription } from "@components/atoms";
+import type { Paint as PaintModel } from "@prisma/client";
 import type { SharedProps } from "@typing/index";
-import type { Paint } from "@prisma/client";
-import type { ExtendedPaint } from "../../../types";
+import clsx from "clsx";
+
+import { Card, PaintDescription } from "@components/atoms";
 
 export type PaintCardProps = SharedProps<{
-  paint: Paint;
+  paint: PaintModel;
 }>;
 
-export const PaintCard = ({ paint, children, className }: PaintCardProps) => {
+export const PaintCard = ({ paint, className }: PaintCardProps) => {
   const style = {
     backgroundColor: paint.hexCode,
   };
