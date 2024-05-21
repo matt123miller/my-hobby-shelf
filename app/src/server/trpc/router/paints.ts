@@ -1,9 +1,7 @@
+import type { Prisma } from "@prisma/client";
 import { z } from "zod";
-import type { Paint, Prisma } from "@prisma/client";
 
-import { router, publicProcedure } from "../trpc";
-
-import type { PaintRecord } from "@typing";
+import { publicProcedure, router } from "../trpc";
 
 export const SORT_OPTIONS = ["colour", "name"] as const;
 export const SORT_DIR = ["asc", "desc"] as const;
@@ -33,6 +31,7 @@ export const paintRouter = router({
         query.where = {
           name: {
             contains: name,
+            mode: "insensitive",
           },
         };
       }
