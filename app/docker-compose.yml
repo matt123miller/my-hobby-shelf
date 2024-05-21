@@ -1,3 +1,4 @@
+name: my-hobby-space
 services:
   db:
     container_name: "db"

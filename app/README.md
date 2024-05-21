@@ -1,10 +1,24 @@
-# Frontend
+# My Hobby Space
 
 Nextjs front end built on create-t3-app, including prisma, trpc and tailwind.
 
-DB hosted on Xata
+DB hosted on somewhere, locally run using docker postgres
 
 UI all available in Storybook
+
+## DB
+
+DB is postgres managed via [prisma](https://www.prisma.io/orm). You can use [Prisma Studio](https://www.prisma.io/studio) to view the data which is fun, by running `pnx prisma studip
+
+### Local dev
+
+- Make sure the docker containers are running `docker compose start`
+- `pnx prisma db push` to copy whatever the current schema state is to the DB
+- If the db is empty then run `pnx tsx prisma/seed.ts` to seed the db with the intitial data
+
+### Remote hosting
+
+- Use the prisma migration stuff properly. When we get that far follow some guides.
 
 ## UI Features to get working
 
