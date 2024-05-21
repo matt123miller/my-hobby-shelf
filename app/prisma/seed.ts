@@ -1,13 +1,14 @@
+import Color from "colorjs.io";
+
 import { prisma } from "../src/server/db/client";
 import { allPaints } from "./data";
+
+Color.defaults.precision = 5;
 
 async function main() {
   const data = allPaints
     // .slice(0, 2)
     .map((paint) => {
-      // console.log(paint);
-      // console.log(parseColourInfo(paint));
-
       return {
         name: paint.name,
         hexCode: paint.hexCode,

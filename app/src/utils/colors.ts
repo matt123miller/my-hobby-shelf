@@ -12,13 +12,14 @@ const unwrapCoord = (coord: number | undefined): number => {
 export function parseColourInfo(paint: Paint): ExtendedPaint {
   const colourjs = new Color(paint.hexCode);
   // const colourjs = new Color(paint.hexCode).to('lch');
+  const extendedPaint = paint as ExtendedPaint;
 
-  (paint as ExtendedPaint).colourjs = colourjs;
-  paint.luminance = unwrapCoord(colourjs.lch.l);
-  paint.chroma = unwrapCoord(colourjs.lch.c);
-  paint.hue = unwrapCoord(colourjs.lch.h);
+  extendedPaint.colourjs = colourjs;
+  extendedPaint.luminance = unwrapCoord(colourjs.lch.l);
+  extendedPaint.chroma = unwrapCoord(colourjs.lch.c);
+  extendedPaint.hue = unwrapCoord(colourjs.lch.h);
 
-  // console.log(paint);
+  // console.log(extendedPaint);
 
-  return paint;
+  return extendedPaint;
 }

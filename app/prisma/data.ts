@@ -6,7 +6,8 @@ import type { ExtendedPaint } from "../src/types/index";
 // Or presort the array by hue, saturation, lightness, add a sort field for each
 // and then the DB can search those values
 
-const _citadelPaints = [
+// @ts-expect-error I just haven't finished creating the data yet
+const _citadelPaints: ExtendedPaint[] = [
   {
     name: "Nuln Oil",
     hexCode: "#101010",
@@ -1290,25 +1291,26 @@ const _citadelPaints = [
     name: "Wrack White",
     hexCode: "#D3D0CF",
   },
-].reduce((accumulator: ExtendedPaint[], paint: ExtendedPaint, i) => {
-  // Remove duplicate paints (via name) and assign a colorjs.io instance to each.
-  if (accumulator.find((p) => p.name === paint.name)) {
+]
+  // @ts-expect-error I just haven't finished creating the data yet
+  .reduce((accumulator: ExtendedPaint[], paint: ExtendedPaint) => {
+    // Remove duplicate paints (via name) and assign a colorjs.io instance to each.
+
+    if (accumulator.find((p) => p.name === paint.name)) {
+      return accumulator;
+    }
+
+    // Do any extra formatting and parsing before adding to array.
+
+    // Assign a random paint range to each paint.
+    // paint.range = ["contrast", "layer", "base"][Math.floor(Math.random() * 3)];
+
+    paint = parseColourInfo(paint);
+
+    accumulator.push(paint);
+
     return accumulator;
-  }
-
-  // Do any extra formatting and parsing before adding to array.
-
-  // Assign a random paint range to each paint.
-  paint.range = ["contrast", "layer", "base"][Math.floor(Math.random() * 3)];
-
-  paint = parseColourInfo(paint);
-
-  accumulator.push(paint);
-
-  return accumulator;
-}, []);
-
-// _citadelPaints.forEach((paint) => {});
+  }, []);
 
 export const allPaints = [..._citadelPaints];
 export const citadelPaints = _citadelPaints;
