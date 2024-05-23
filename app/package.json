@@ -30,6 +30,7 @@
     "@trpc/react-query": "^10.45.0",
     "@trpc/server": "^10.45.0",
     "@uidotdev/usehooks": "^2.4.1",
+    "prisma": "^4.16.0",
     "clsx": "^1.1.1",
     "colorjs.io": "^0.4.2",
     "next": "^13.0.2",

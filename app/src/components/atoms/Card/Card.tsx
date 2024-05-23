@@ -1,10 +1,11 @@
-import clsx from "clsx";
 import type { SharedProps } from "@typing/index";
+import clsx from "clsx";
 
 export type CardProps = SharedProps<{
   wrappingElem?: "li" | "div"; // unsure what to do with this info
   id: string;
   name: string;
+  selectionIndex?: number;
   onClick?: (event: React.MouseEvent<HTMLElement>) => unknown;
   style: { [key: string]: string };
 }>;
@@ -15,6 +16,7 @@ export const Card = ({
   onClick,
   children,
   className,
+  selectionIndex,
   style,
 }: CardProps) => {
   const defaultCardClasses =
@@ -22,7 +24,13 @@ export const Card = ({
 
   const classes = clsx(className, defaultCardClasses);
   return (
-    <section style={style} className={classes} onClick={onClick} id={id}>
+    <section
+      tabIndex={selectionIndex ?? undefined}
+      style={style}
+      className={classes}
+      onClick={onClick}
+      id={id}
+    >
       <div className="flex flex-1 flex-col p-4">{children}</div>
     </section>
   );
