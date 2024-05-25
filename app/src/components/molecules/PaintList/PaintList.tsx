@@ -1,7 +1,5 @@
-import type { SharedProps } from "@typing/index";
+import type { Paint, SharedProps } from "@typing/index";
 import { PaintCard } from "../PaintCard";
-
-import type { Paint } from "@prisma/client";
 
 export type PaintListProps = SharedProps<{
   paints?: Paint[];

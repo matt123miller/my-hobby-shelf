@@ -1,12 +1,11 @@
-import type { Paint as PaintModel } from "@prisma/client";
-import type { SharedProps } from "@typing/index";
+import type { Paint, SharedProps } from "@typing/index";
 import clsx from "clsx";
 
 import { Card, PaintDescription } from "@components/atoms";
 
 export type PaintCardProps = SharedProps<{
   selectionIndex?: number;
-  paint: PaintModel;
+  paint: Paint;
 }>;
 
 export const PaintCard = ({

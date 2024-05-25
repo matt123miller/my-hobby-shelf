@@ -1,3 +1,4 @@
+import { QueryClientProvider } from "@tanstack/react-query";
 import { useDebounce } from "@uidotdev/usehooks";
 import type { ChangeEvent } from "react";
 import { useState } from "react";
@@ -6,6 +7,7 @@ import { LoadingIcon } from "@components/atoms";
 import { PaintList } from "@components/molecules";
 import type { SharedProps } from "@typing";
 
+import { localQueryClient } from "hooks/useLocalState";
 import { trpc } from "../../utils/trpc";
 
 export type MainPageProps = SharedProps;
@@ -23,23 +25,28 @@ export const Main = ({ children, className }: MainPageProps) => {
     // sortField: "name",
   });
 
-  console.log({ debouncedSearchTerm });
-
   if (error) {
     return (
-      <h1 className="text-white">
-        Error occured: <>{error.message}</>
-      </h1>
+      <QueryClientProvider client={localQueryClient}>
+        <h1 className="text-white">
+          Error occured: <>{error.message}</>
+        </h1>
+      </QueryClientProvider>
     );
   }
 
-  // if (isLoading) {
-  //   return <LoadingIcon className="h-24 w-24 text-white" />;
-  // }
+  if (isLoading) {
+    return (
+      <QueryClientProvider client={localQueryClient}>
+        <LoadingIcon className="h-24 w-24 text-white" />
+      </QueryClientProvider>
+    );
+  }
 
   return (
-    <>
+    <QueryClientProvider client={localQueryClient}>
       <p className="m-12 text-white">Main Page</p>
+
       <input
         type="text"
         name="paint-name"
@@ -49,12 +56,12 @@ export const Main = ({ children, className }: MainPageProps) => {
           setSearchTerm(e.target.value);
         }}
       />
-      {isLoading && <LoadingIcon className="h-24 w-24 text-white" />}
+
       {data ? (
         <PaintList paints={data.results}></PaintList>
       ) : (
         "Loading tRPC query..."
       )}
-    </>
+    </QueryClientProvider>
   );
 };

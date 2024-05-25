@@ -1,5 +1,4 @@
-import type { Paint } from "@prisma/client";
-import type { SharedProps } from "@typing";
+import type { Paint, SharedProps } from "@typing";
 import clsx from "clsx";
 
 export type PaintDescriptionProps = SharedProps<{

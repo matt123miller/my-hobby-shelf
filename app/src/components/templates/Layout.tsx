@@ -1,5 +1,5 @@
-import Head from "next/head";
 import type { SharedProps } from "@typing";
+import Head from "next/head";
 
 export type LayoutProps = SharedProps<unknown>;
 
