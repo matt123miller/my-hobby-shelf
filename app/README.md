@@ -19,6 +19,7 @@ DB is postgres managed via [prisma](https://www.prisma.io/orm). You can use [Pri
 ### Remote hosting
 
 - Use the prisma migration stuff properly. When we get that far follow some guides.
+- Pick your poison of postgres providers, or self host on railway.
 
 ## UI Features to get working
 
@@ -30,6 +31,7 @@ https://www.npmjs.com/package/use-dark-mode but forked by @fisch0920/use-dark-mo
 
 ## TODO:
 
+- Pick and configure remote postgres provider
 - Fix storybook files to use CSF 3 with nicer es6 exports https://storybook.js.org/docs/7.0/react/api/csf
 
 ## Resources
