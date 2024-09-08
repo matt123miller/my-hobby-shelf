@@ -51,7 +51,8 @@ export const Main = ({ children, className }: MainPageProps) => {
         type="text"
         name="paint-name"
         id="PaintName"
-        defaultValue={""}
+        // defaultValue={""}
+        value={searchTerm}
         onChange={(e: ChangeEvent<HTMLInputElement>) => {
           setSearchTerm(e.target.value);
         }}

@@ -21,7 +21,7 @@ export const PaintCard = ({
     <Card
       style={style}
       className={clsx(
-        "h-40 min-h-full max-w-xs outline-dashed hover:outline-2 hover:outline-rose-50",
+        "h-40 min-h-full max-w-xs outline-dashed hover:outline-2 hover:outline-rose-50 focus:outline-2 focus:outline-rose-50 active:outline-rose-50",
         className
       )}
       id={paint.name}
