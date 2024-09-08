@@ -1,0 +1,6 @@
+{
+  "databaseURL": "https://Matt-Miller-s-workspace-49dfri.eu-west-1.xata.sh/db/paints",
+  "codegen": {
+    "output": "src/xata.ts"
+  }
+}

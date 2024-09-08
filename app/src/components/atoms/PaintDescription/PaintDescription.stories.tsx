@@ -2,10 +2,8 @@ import React from "react";
 import type { ComponentStory, ComponentMeta } from "@storybook/react";
 
 import { PaintDescription } from "./PaintDescription";
-import { rawData as allPaints } from "../../../server/trpc/data";
-
-import type { PaintDescriptionProps } from "./PaintDescription";
-import type { PaintRecord } from "types";
+import { allPaints } from "../../../../prisma/data";
+import { Paint } from "@prisma/client";
 
 export default {
   /* 👇 The title prop is optional.
@@ -27,6 +25,6 @@ const randomPaint =
   allPaints[Math.floor(Math.random() * (allPaints.length - 1))];
 
 DefaultPaintDescription.args = {
-  paint: randomPaint,
+  paint: randomPaint as Paint,
   className: "bg-gray-100",
 };

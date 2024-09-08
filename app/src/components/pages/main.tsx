@@ -1,46 +1,68 @@
+import { QueryClientProvider } from "@tanstack/react-query";
+import { useDebounce } from "@uidotdev/usehooks";
+import type { ChangeEvent } from "react";
+import { useState } from "react";
+
 import { LoadingIcon } from "@components/atoms";
-import { PaintCard, PaintList } from "@components/molecules";
-import { SharedProps } from "@typing";
+import { PaintList } from "@components/molecules";
+import type { SharedProps } from "@typing";
 
-import Head from "next/head";
-
+import { localQueryClient } from "hooks/useLocalState";
 import { trpc } from "../../utils/trpc";
 
-export type MainPageProps = SharedProps<unknown>;
+export type MainPageProps = SharedProps;
 
 export const Main = ({ children, className }: MainPageProps) => {
+  // Makes a shareable link if we use url parameters
+  // const urlSearch = useRouter().query.search;
+
+  const [searchTerm, setSearchTerm] = useState<string>("");
+  const debouncedSearchTerm = useDebounce(searchTerm, 500);
+
   const { isLoading, data, error } = trpc.paints.search.useQuery({
-    name: "",
-    sortDir: "desc",
-    sortField: "name",
+    name: debouncedSearchTerm,
+    // sortDir: "desc",
+    // sortField: "name",
   });
 
   if (error) {
     return (
-      <main className="flex min-h-screen flex-col items-center justify-center bg-gradient-to-b from-[#2e026d] to-[#15162c]">
-        <h1>
+      <QueryClientProvider client={localQueryClient}>
+        <h1 className="text-white">
           Error occured: <>{error.message}</>
         </h1>
-      </main>
+      </QueryClientProvider>
     );
   }
 
   if (isLoading) {
     return (
-      <main className="flex min-h-screen flex-col items-center justify-center bg-gradient-to-b from-[#2e026d] to-[#15162c]">
+      <QueryClientProvider client={localQueryClient}>
         <LoadingIcon className="h-24 w-24 text-white" />
-      </main>
+      </QueryClientProvider>
     );
   }
 
   return (
-    <main className="flex min-h-screen flex-col items-center justify-center bg-gradient-to-b from-[#2e026d] to-[#15162c]">
+    <QueryClientProvider client={localQueryClient}>
       <p className="m-12 text-white">Main Page</p>
+
+      <input
+        type="text"
+        name="paint-name"
+        id="PaintName"
+        // defaultValue={""}
+        value={searchTerm}
+        onChange={(e: ChangeEvent<HTMLInputElement>) => {
+          setSearchTerm(e.target.value);
+        }}
+      />
+
       {data ? (
         <PaintList paints={data.results}></PaintList>
       ) : (
         "Loading tRPC query..."
       )}
-    </main>
+    </QueryClientProvider>
   );
 };

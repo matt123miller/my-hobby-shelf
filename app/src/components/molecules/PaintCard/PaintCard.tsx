@@ -1,20 +1,34 @@
+import type { Paint, SharedProps } from "@typing/index";
 import clsx from "clsx";
-import { Card, ColourBlock, PaintDescription } from "@components/atoms";
-import type { PaintRecord, SharedProps } from "@typing/index";
+
+import { Card, PaintDescription } from "@components/atoms";
 
 export type PaintCardProps = SharedProps<{
-  paint: PaintRecord;
+  selectionIndex?: number;
+  paint: Paint;
 }>;
 
-export const PaintCard = ({ paint, children, className }: PaintCardProps) => {
+export const PaintCard = ({
+  paint,
+  selectionIndex,
+  className,
+}: PaintCardProps) => {
+  const style = {
+    backgroundColor: paint.hexCode,
+  };
+
   return (
     <Card
-      className={clsx("min-h-full max-w-xs", className)}
+      style={style}
+      className={clsx(
+        "h-40 min-h-full max-w-xs outline-dashed hover:outline-2 hover:outline-rose-50 focus:outline-2 focus:outline-rose-50 active:outline-rose-50",
+        className
+      )}
       id={paint.name}
       name={paint.name}
+      selectionIndex={selectionIndex}
     >
-      <PaintDescription className="text-black" paint={paint}></PaintDescription>
-      <ColourBlock colour={paint.hexCode}></ColourBlock>
+      <PaintDescription paint={paint}></PaintDescription>
     </Card>
   );
 };
