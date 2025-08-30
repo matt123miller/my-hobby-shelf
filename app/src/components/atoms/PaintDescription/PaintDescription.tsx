@@ -1,8 +1,8 @@
-import type { Paint, SharedProps } from "@typing";
+import type { SharedProps } from "@typing";
 import clsx from "clsx";
 
 export type PaintDescriptionProps = SharedProps<{
-  paint: Paint;
+  paint: { name: string; hexCode: string };
 }>;
 
 export const PaintDescription = ({

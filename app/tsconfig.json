@@ -26,6 +26,9 @@
       "@typing/*": [
         "types/*"
       ],
+      "@utils/*": [
+        "utils/*"
+      ]
     }
   },
   "include": ["next-env.d.ts", "src/**/*.ts", "src/**/*.tsx"],

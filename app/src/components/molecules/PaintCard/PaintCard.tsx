@@ -1,11 +1,11 @@
-import type { Paint, SharedProps } from "@typing/index";
+import type { SharedProps } from "@typing/index";
 import clsx from "clsx";
 
 import { Card, PaintDescription } from "@components/atoms";
 
 export type PaintCardProps = SharedProps<{
   selectionIndex?: number;
-  paint: Paint;
+  paint: { name: string; hexCode: string };
 }>;
 
 export const PaintCard = ({
