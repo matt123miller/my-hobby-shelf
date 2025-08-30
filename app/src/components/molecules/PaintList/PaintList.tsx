@@ -1,4 +1,5 @@
 import type { Paint, SharedProps } from "@typing/index";
+import { trpc } from "@utils/trpc";
 import { useLocalPaintSelection } from "hooks/useLocalPaintSelection";
 import { PaintCard } from "../PaintCard";
 
@@ -10,6 +11,29 @@ export const PaintList = ({ paints = [] }: PaintListProps) => {
     useLocalPaintSelection();
   const { data: selectionData, error: selectionError } = paintSelectionQuery;
 
+  let closestPaint = <></>;
+  const selectionId =
+    selectionData && selectionData.length > 0 && "id" in selectionData[0]!
+      ? selectionData[0]!.id
+      : -1;
+
+  const { isLoading, data, error } = trpc.paints.closestPaint.useQuery({
+    id: Number(selectionId),
+  });
+
+  console.log("closest paint", data);
+
+  if (isLoading) {
+    console.log("closest paint loading...");
+  }
+  if (error) {
+    console.log("neareset paint error:", error);
+  }
+  if (data && "hexCode" in data && "name" in data) {
+    //@ts-expect-error it's fine
+    closestPaint = <PaintCard paint={data} />;
+  }
+
   return (
     <>
       {selectionData && selectionData.length > 0 && (
@@ -19,7 +43,7 @@ export const PaintList = ({ paints = [] }: PaintListProps) => {
             {selectionData.map((paint, i) => {
               return (
                 <div
-                  // key={paint.hexCode + "selection"}
+                  key={paint.hexCode + "selection"}
                   onClick={() => {
                     removePaintMutation.mutate(paint);
                   }}
@@ -28,6 +52,7 @@ export const PaintList = ({ paints = [] }: PaintListProps) => {
                 </div>
               );
             })}
+            {closestPaint}
             {/* {selectionError && selectionError} */}
           </div>
         </>
@@ -36,7 +61,7 @@ export const PaintList = ({ paints = [] }: PaintListProps) => {
         {paints.map((paint, i) => {
           return (
             <div
-              // key={paint.hexCode + "normal"}
+              key={paint.hexCode + "normal"}
               onClick={() => {
                 addPaintMutation.mutate(paint);
               }}
