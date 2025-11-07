@@ -1,4 +1,10 @@
 packages:
-  - 'app'
-  - 'scraping'
-  - 'IGNORE-server'
+  - app
+  - scraping
+  - IGNORE-server
+
+onlyBuiltDependencies:
+  - "@prisma/client"
+  - "@prisma/engines"
+  - esbuild
+  - prisma
