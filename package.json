@@ -4,7 +4,7 @@
   "private": true,
   "description": "A miniature painting companion app",
   "engines": {
-    "node": ">=22.0.0"
+    "node": ">=24.0.0"
   },
   "scripts": {
     "dev": "pnpm -r dev",
