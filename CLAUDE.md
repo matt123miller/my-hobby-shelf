@@ -16,40 +16,60 @@ This is a monorepo with 3 main components:
 
 ## Commands
 
+This project uses **pnpm workspaces** for monorepo management. All commands should be run from the root directory or with workspace-specific targeting.
+
+### Root-level Workspace Commands
+
+```bash
+# Development - Start dev servers for all workspaces
+pnpm dev
+
+# Build - Build all workspaces
+pnpm build
+
+# Lint - Lint all workspaces
+pnpm lint
+
+# Clean - Clean all workspace build artifacts
+pnpm clean
+
+# Run a command in specific workspace
+pnpm -F app dev              # Run in app workspace only
+pnpm -F scraping scrape:gw   # Run in scraping workspace only
+```
+
 ### Main App (`/app`)
 
 Required: Node.js >= 22.0.0
 
 ```bash
 # Development
-cd app
-pnpm dev                    # Start Next.js dev server
+pnpm -F app dev             # Start Next.js dev server (or: cd app && pnpm dev)
 
 # Building
-pnpm build                  # Build production Next.js app
-pnpm start                  # Run production build
-pnpm clean                  # Remove .next directory
+pnpm -F app build           # Build production Next.js app
+pnpm -F app start           # Run production build
+pnpm -F app clean           # Remove .next directory
 
 # Linting
-pnpm lint                   # Run ESLint
+pnpm -F app lint            # Run ESLint
 
 # Database (requires Docker running)
 docker compose start        # Start PostgreSQL container
-pnpm prisma db push         # Push schema changes to database
-pnpm db-seed                # Seed database with paint data
-pnpm db-clear               # Clear all database data
-pnpm prisma studio          # Open Prisma Studio to view data
+pnpm -F app prisma db push  # Push schema changes to database
+pnpm -F app db-seed         # Seed database with paint data
+pnpm -F app db-clear        # Clear all database data
+pnpm -F app prisma studio   # Open Prisma Studio to view data
 
 # Storybook
-pnpm storybook              # Start Storybook on port 6006
-pnpm build-storybook        # Build static Storybook
+pnpm -F app storybook       # Start Storybook on port 6006
+pnpm -F app build-storybook # Build static Storybook
 ```
 
 ### Scraping (`/scraping`)
 
 ```bash
-cd scraping
-npm run scrape:gw           # Scrape Games Workshop paint data
+pnpm -F scraping scrape:gw  # Scrape Games Workshop paint data
 ```
 
 ## Architecture
@@ -174,23 +194,23 @@ src/
 
 1. **Starting Development**:
    ```bash
-   cd app
-   docker compose start    # Start PostgreSQL
-   pnpm dev                # Start Next.js (runs prisma generate via postinstall)
+   docker compose start        # Start PostgreSQL
+   pnpm -F app dev            # Start Next.js dev server
+   # (runs prisma generate via postinstall)
    ```
 
 2. **Database Changes**:
    - Edit `/app/prisma/schema.prisma`
-   - Run `pnpm prisma db push` (local dev)
+   - Run `pnpm -F app prisma db push` (local dev)
    - For production, use proper migrations (not yet configured)
 
 3. **Adding New Paints**:
    - Update `/app/prisma/data.ts` with new paint data
-   - Run `pnpm db-clear && pnpm db-seed`
+   - Run `pnpm -F app db-clear && pnpm -F app db-seed`
 
 4. **Storybook Development**:
    - Components have `.stories.tsx` files (currently CSF 2.0)
-   - Run `pnpm storybook` to develop components in isolation
+   - Run `pnpm -F app storybook` to develop components in isolation
    - TODO: Migrate to CSF 3.0 format
 
 ## Known Issues & TODOs

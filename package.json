@@ -1,0 +1,16 @@
+{
+  "name": "my-hobby-shelf",
+  "version": "0.1.0",
+  "private": true,
+  "description": "A miniature painting companion app",
+  "engines": {
+    "node": ">=22.0.0"
+  },
+  "scripts": {
+    "dev": "pnpm -r dev",
+    "build": "pnpm -r build",
+    "lint": "pnpm -r lint",
+    "clean": "pnpm -r clean && rm -rf node_modules"
+  },
+  "devDependencies": {}
+}
