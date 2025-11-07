@@ -1,0 +1,8 @@
+# Ignore all contents of the data folder, except .gitkeep
+!data/
+data/*
+!data/.gitkeep
+
+!paintimages/
+paintimages/*
+!paintimages/.gitkeep
