@@ -13,8 +13,8 @@ DB is postgres managed via [prisma](https://www.prisma.io/orm). You can use [Pri
 ### Local dev
 
 - Make sure the docker containers are running `docker compose start`
-- `pnx prisma db push` to copy whatever the current schema state is to the DB
-- If the db is empty then run `pnx tsx prisma/seed.ts` to seed the db with the intitial data
+- `pnpm prisma db push` to copy whatever the current schema state is to the DB
+- If the db is empty then run `pnpm db-seed` to seed the db with the initial data
 
 ### Remote hosting
 

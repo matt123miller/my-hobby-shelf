@@ -2,19 +2,19 @@
 
 ## [View a WIP version here](https://paints.m11r.dev/).
 
-There's 2 folders.
+There's 2 main applications in this monorepo.
 
-- [scraping](./scraping/README.md) for scraping websites to get info about the paints.
-- [paint-mixer-frontend](./paint-mixer-frontend/README.md) for the front end site that uses that scraped info.
+- [apps/scraper](./apps/scraper/README.md) for scraping websites to get info about the paints.
+- [apps/site](./apps/site/README.md) for the front end site that uses that scraped info.
 
 I wanted a little tool for helping me when miniature painting. Something that could suggest complimentary colours.
 
 ## Installation
 
-There are 2 npm projects in here though both are the same.
+This repo uses pnpm workspaces.
 
-- `cd` into either directory
-- `npm install`
+- Run `pnpm install` at the repo root
+- Use `pnpm --filter site ...` or `pnpm --filter scraper ...` to target one app
 
 ## TODO
 
@@ -32,8 +32,7 @@ This project is deployed on Vercel and the frontend [can be viewed here](https:/
 ### Process
 
 - Ensure your changes are all committed and merged into master.
-- `cd ./paint-mixer-frontend`
-- `npm run deploy`
+- run the site deployment flow from `apps/site`
 
 ## Notes
 

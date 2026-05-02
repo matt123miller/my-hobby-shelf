@@ -8,11 +8,11 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Monorepo Structure
 
-This is a monorepo with 3 main components:
+This is a monorepo with 2 application workspaces and shared packages:
 
-- **`/app`** - Next.js 13 full-stack application (primary development focus)
-- **`/scraping`** - Node.js tool for scraping paint data from Games Workshop
-- **`/IGNORE-server`** - Legacy Hono server (not actively used)
+- **`/apps/site`** - Next.js 13 full-stack application (primary development focus)
+- **`/apps/scraper`** - Node.js tool for scraping paint data from Games Workshop
+- **`/packages/*`** - shared configuration packages and future shared libraries
 
 ## Commands
 
@@ -34,42 +34,42 @@ pnpm lint
 pnpm clean
 
 # Run a command in specific workspace
-pnpm -F app dev              # Run in app workspace only
-pnpm -F scraping scrape:gw   # Run in scraping workspace only
+pnpm -F site dev             # Run in site workspace only
+pnpm -F scraper scrape:gw    # Run in scraper workspace only
 ```
 
-### Main App (`/app`)
+### Main App (`/apps/site`)
 
-Required: Node.js >= 22.0.0
+Required: Node.js >= 24.0.0
 
 ```bash
 # Development
-pnpm -F app dev             # Start Next.js dev server (or: cd app && pnpm dev)
+pnpm -F site dev            # Start Next.js dev server
 
 # Building
-pnpm -F app build           # Build production Next.js app
-pnpm -F app start           # Run production build
-pnpm -F app clean           # Remove .next directory
+pnpm -F site build          # Build production Next.js app
+pnpm -F site start          # Run production build
+pnpm -F site clean          # Remove .next directory
 
 # Linting
-pnpm -F app lint            # Run ESLint
+pnpm -F site lint           # Run ESLint
 
 # Database (requires Docker running)
 docker compose start        # Start PostgreSQL container
-pnpm -F app prisma db push  # Push schema changes to database
-pnpm -F app db-seed         # Seed database with paint data
-pnpm -F app db-clear        # Clear all database data
-pnpm -F app prisma studio   # Open Prisma Studio to view data
+pnpm -F site prisma db push # Push schema changes to database
+pnpm -F site db-seed        # Seed database with paint data
+pnpm -F site db-clear       # Clear all database data
+pnpm -F site prisma studio  # Open Prisma Studio to view data
 
 # Storybook
-pnpm -F app storybook       # Start Storybook on port 6006
-pnpm -F app build-storybook # Build static Storybook
+pnpm -F site storybook      # Start Storybook on port 6006
+pnpm -F site build-storybook # Build static Storybook
 ```
 
-### Scraping (`/scraping`)
+### Scraping (`/apps/scraper`)
 
 ```bash
-pnpm -F scraping scrape:gw  # Scrape Games Workshop paint data
+pnpm -F scraper scrape:gw   # Scrape Games Workshop paint data
 ```
 
 ## Architecture
@@ -83,13 +83,13 @@ pnpm -F scraping scrape:gw  # Scrape Games Workshop paint data
 
 ### Data Flow: Scraping → Database → Frontend
 
-1. **Scraping** (`/scraping/scrape.js`)
-   - Downloads SVG files from Games Workshop URLs (defined in `gw.js`)
+1. **Scraping** (`/apps/scraper/src/scrape.ts`)
+   - Downloads SVG files from Games Workshop URLs (defined in `gw.ts`)
    - Extracts hex color codes from SVG fill attributes
-   - Outputs to `/scraping/data/gw.json`
+   - Outputs to `/apps/scraper/data/gw.json`
 
-2. **Database Seeding** (`/app/prisma/seed.ts`)
-   - Imports paint data from `/app/prisma/data.ts`
+2. **Database Seeding** (`/apps/site/prisma/seed.ts`)
+   - Imports paint data from `/apps/site/prisma/data.ts`
    - Converts hex codes to LCH color space (Hue, Chroma, Luminance)
    - Precomputes color metrics for efficient runtime distance calculations
    - Seeds PostgreSQL via Prisma
@@ -98,7 +98,7 @@ pnpm -F scraping scrape:gw  # Scrape Games Workshop paint data
    - Frontend makes tRPC calls → Prisma queries → PostgreSQL
    - Color distance calculations use precomputed LCH values
 
-### Database Schema (`/app/prisma/schema.prisma`)
+### Database Schema (`/apps/site/prisma/schema.prisma`)
 
 ```prisma
 model Paint {
@@ -115,7 +115,7 @@ model Paint {
 
 **Environment**: Requires `POSTGRES_DB_URL` in `.env` file
 
-### tRPC API Structure (`/app/src/server/trpc/router/`)
+### tRPC API Structure (`/apps/site/src/server/trpc/router/`)
 
 **Main Router** (`_app.ts`):
 ```typescript
@@ -136,7 +136,7 @@ appRouter = router({
 - Context: Provides singleton Prisma client (`/src/server/db/client.ts`)
 - Endpoint: `/api/trpc`
 
-### Frontend Structure (`/app/src/`)
+### Frontend Structure (`/apps/site/src/`)
 
 ```
 src/
@@ -169,7 +169,7 @@ src/
 
 ### Key Patterns & Concepts
 
-**Color Distance Calculation** (`/app/src/utils/colors.ts`):
+**Color Distance Calculation** (`/apps/site/src/utils/colors.ts`):
 - Uses LCH color space (perceptually uniform)
 - Euclidean distance: `sqrt((Δhue)² + (Δchroma)² + (Δluminance)²)`
 - Precomputed LCH values at seed time for performance
@@ -195,22 +195,22 @@ src/
 1. **Starting Development**:
    ```bash
    docker compose start        # Start PostgreSQL
-   pnpm -F app dev            # Start Next.js dev server
+   pnpm -F site dev           # Start Next.js dev server
    # (runs prisma generate via postinstall)
    ```
 
 2. **Database Changes**:
-   - Edit `/app/prisma/schema.prisma`
-   - Run `pnpm -F app prisma db push` (local dev)
+   - Edit `/apps/site/prisma/schema.prisma`
+   - Run `pnpm -F site prisma db push` (local dev)
    - For production, use proper migrations (not yet configured)
 
 3. **Adding New Paints**:
-   - Update `/app/prisma/data.ts` with new paint data
-   - Run `pnpm -F app db-clear && pnpm -F app db-seed`
+   - Update `/apps/site/prisma/data.ts` with new paint data
+   - Run `pnpm -F site db-clear && pnpm -F site db-seed`
 
 4. **Storybook Development**:
    - Components have `.stories.tsx` files (currently CSF 2.0)
-   - Run `pnpm -F app storybook` to develop components in isolation
+   - Run `pnpm -F site storybook` to develop components in isolation
    - TODO: Migrate to CSF 3.0 format
 
 ## Known Issues & TODOs
@@ -229,12 +229,12 @@ src/
 
 ## Environment Setup
 
-**Required `.env` file** (`/app/.env`):
+**Required `.env` file** (`/apps/site/.env`):
 ```env
 POSTGRES_DB_URL="postgresql://user:password@localhost:5432/dbname"
 ```
 
-See `/app/.env.example` for template.
+See `/apps/site/.env.example` for template.
 
 ## External Resources
 

@@ -1,4 +1,9 @@
-const allPaints = [
+type PaintDefinition = {
+    name: string;
+    svg: string;
+};
+
+const allPaints: PaintDefinition[] = [
     {
         "name": "Nuln Oil",
         "svg": "https://www.games-workshop.com/resources/catalog/product/600x620/99189953017_shadeNulnOil.svg"
@@ -1314,6 +1319,4 @@ const allPaints = [
 ]
 
 // TODO: split this into layer paint, base paint etc
-module.exports = {
-    allPaints
-}
+export { allPaints };

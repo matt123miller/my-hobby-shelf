@@ -1,7 +1,6 @@
 packages:
-  - app
-  - scraping
-  - IGNORE-server
+  - apps/*
+  - packages/*
 
 onlyBuiltDependencies:
   - "@prisma/client"

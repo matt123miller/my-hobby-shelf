@@ -1,0 +1,15 @@
+{
+  "name": "@repo/prettier-config",
+  "version": "0.1.0",
+  "private": true,
+  "main": "./index.cjs",
+  "exports": {
+    ".": "./index.cjs"
+  },
+  "dependencies": {
+    "prettier-plugin-tailwindcss": "^0.1.13"
+  },
+  "peerDependencies": {
+    "prettier": "^2.8.8"
+  }
+}

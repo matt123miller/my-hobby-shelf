@@ -1,16 +1,16 @@
 {
-  "name": "my-hobby-space",
+  "name": "site",
   "version": "0.1.0",
   "private": true,
   "engines": {
     "node": ">=24.0.0"
   },
   "scripts": {
-    "build": "next build",
+    "build": "POSTGRES_DB_HOST=${POSTGRES_DB_HOST:-localhost} POSTGRES_DB_PORT=${POSTGRES_DB_PORT:-5432} POSTGRES_DB_NAME=${POSTGRES_DB_NAME:-my_hobby_shelf} POSTGRES_DB_USER=${POSTGRES_DB_USER:-postgres} POSTGRES_DB_PASSWORD=${POSTGRES_DB_PASSWORD:-postgres} POSTGRES_DB_URL=${POSTGRES_DB_URL:-postgresql://postgres:postgres@localhost:5432/my_hobby_shelf} next build",
     "clean": "rm -rf .next",
     "dev": "next dev",
     "postinstall": "prisma generate",
-    "lint": "next lint",
+    "lint": "POSTGRES_DB_HOST=${POSTGRES_DB_HOST:-localhost} POSTGRES_DB_PORT=${POSTGRES_DB_PORT:-5432} POSTGRES_DB_NAME=${POSTGRES_DB_NAME:-my_hobby_shelf} POSTGRES_DB_USER=${POSTGRES_DB_USER:-postgres} POSTGRES_DB_PASSWORD=${POSTGRES_DB_PASSWORD:-postgres} POSTGRES_DB_URL=${POSTGRES_DB_URL:-postgresql://postgres:postgres@localhost:5432/my_hobby_shelf} next lint",
     "start": "next start",
     "storybook": "start-storybook -p 6006 -s ./public",
     "build-storybook": "build-storybook -s ./public",
@@ -43,6 +43,9 @@
     "zod": "^3.25.76"
   },
   "devDependencies": {
+    "@repo/eslint-config": "workspace:*",
+    "@repo/prettier-config": "workspace:*",
+    "@repo/typescript-config": "workspace:*",
     "@babel/core": "^7.28.5",
     "@storybook/addon-actions": "^6.5.16",
     "@storybook/addon-essentials": "^6.5.16",
@@ -56,13 +59,9 @@
     "@types/node": "18.0.0",
     "@types/react": "18.0.14",
     "@types/react-dom": "18.0.5",
-    "@typescript-eslint/eslint-plugin": "^5.62.0",
-    "@typescript-eslint/parser": "^5.62.0",
     "autoprefixer": "^10.4.21",
     "babel-loader": "^8.4.1",
     "eslint": "^8.57.1",
-    "eslint-config-next": "12.3.1",
-    "eslint-config-prettier": "^6.15.0",
     "eslint-plugin-html": "^6.2.0",
     "eslint-plugin-import": "^2.32.0",
     "eslint-plugin-jsx-a11y": "^6.10.2",

@@ -6,6 +6,11 @@ import { z } from "zod";
  * This way you can ensure the app isn't built with invalid env vars.
  */
 export const serverSchema = z.object({
+  POSTGRES_DB_HOST: z.string().min(1),
+  POSTGRES_DB_PORT: z.coerce.number().int().positive(),
+  POSTGRES_DB_NAME: z.string().min(1),
+  POSTGRES_DB_USER: z.string().min(1),
+  POSTGRES_DB_PASSWORD: z.string().min(1),
   POSTGRES_DB_URL: z.string().url(),
   // POSTGRES_DB_URL_NON_POOLING: z.string().url(),
   NODE_ENV: z.enum(["development", "test", "production"]),
